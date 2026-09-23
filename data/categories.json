@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": 2,
+      "name": "Skin Care",
+      "slug": "skin-care",
+      "description": "Purifying clays and botanicals from the approved HTML category navigation.",
+      "sortOrder": 10,
+      "productCount": 6,
+      "image": null
+    },
+    {
+      "id": 1,
+      "name": "Hair Care",
+      "slug": "hair-care",
+      "description": "Nourishment and cleansing botanicals from the approved HTML category navigation.",
+      "sortOrder": 20,
+      "productCount": 8,
+      "image": null
+    },
+    {
+      "id": 3,
+      "name": "Herbal Powders",
+      "slug": "herbal-powders",
+      "description": "Pure single-ingredient herbs from the approved HTML category navigation.",
+      "sortOrder": 30,
+      "productCount": 1,
+      "image": null
+    }
+  ]
+}

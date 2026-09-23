@@ -1,0 +1,471 @@
+{
+  "version": 1,
+  "bestSellerProductId": 1,
+  "items": [
+    {
+      "id": 1,
+      "name": "Amla Powder",
+      "slug": "amla-powder",
+      "category": "Hair Care",
+      "categoryId": 1,
+      "categorySlug": "hair-care",
+      "price": 199,
+      "weight": "100g",
+      "shortDescription": "Pure Indian Gooseberry powder for natural hair strength.",
+      "description": "Sun-dried whole amla fruits finely ground for vitamin C hair strength and scalp vitality.",
+      "ingredients": "100% Pure Phyllanthus Emblica (Amla) Powder",
+      "howToUse": "Mix 2-3 tablespoons with warm water or yogurt. Apply to hair and scalp, keep for 30 minutes, then rinse.",
+      "image": "images/products/amla-powder/1/1200.webp",
+      "imageData": {
+        "src": "images/products/amla-powder/1/1200.webp",
+        "srcset": "images/products/amla-powder/1/400.webp 400w, images/products/amla-powder/1/800.webp 800w, images/products/amla-powder/1/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Amla Powder - 100g"
+      },
+      "imageSrcset": "images/products/amla-powder/1/400.webp 400w, images/products/amla-powder/1/800.webp 800w, images/products/amla-powder/1/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 1,
+      "publishedReviewCount": 0,
+      "isBestSeller": true
+    },
+    {
+      "id": 2,
+      "name": "Reetha Powder",
+      "slug": "reetha-powder",
+      "category": "Hair Care",
+      "categoryId": 1,
+      "categorySlug": "hair-care",
+      "price": 180,
+      "weight": "100g",
+      "shortDescription": "Natural botanical cleanser for soft scalp wash.",
+      "description": "Natural soapnut powder rich in gentle plant saponins for mild chemical-free hair cleansing.",
+      "ingredients": "100% Pure Sapindus Mukorossi (Reetha) Fruit Powder",
+      "howToUse": "Boil or steep with warm water to create a mild foaming natural hair cleanser.",
+      "image": "images/products/reetha-powder/2/1200.webp",
+      "imageData": {
+        "src": "images/products/reetha-powder/2/1200.webp",
+        "srcset": "images/products/reetha-powder/2/400.webp 400w, images/products/reetha-powder/2/800.webp 800w, images/products/reetha-powder/2/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Reetha Powder - 100g"
+      },
+      "imageSrcset": "images/products/reetha-powder/2/400.webp 400w, images/products/reetha-powder/2/800.webp 800w, images/products/reetha-powder/2/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    },
+    {
+      "id": 3,
+      "name": "Bhringraj Powder",
+      "slug": "bhringraj-powder",
+      "category": "Hair Care",
+      "categoryId": 1,
+      "categorySlug": "hair-care",
+      "price": 220,
+      "weight": "100g",
+      "shortDescription": "Timeless hair herb for traditional conditioning.",
+      "description": "Traditional 'King of Herbs' for soothing hair conditioning and root revitalization.",
+      "ingredients": "100% Pure Eclipta Alba (Bhringraj) Powder",
+      "howToUse": "Combine with sesame or coconut oil or mix into water paste for scalp application.",
+      "image": "images/products/bhringraj-powder/3/1200.webp",
+      "imageData": {
+        "src": "images/products/bhringraj-powder/3/1200.webp",
+        "srcset": "images/products/bhringraj-powder/3/400.webp 400w, images/products/bhringraj-powder/3/800.webp 800w, images/products/bhringraj-powder/3/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Bhringraj Powder - 100g"
+      },
+      "imageSrcset": "images/products/bhringraj-powder/3/400.webp 400w, images/products/bhringraj-powder/3/800.webp 800w, images/products/bhringraj-powder/3/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    },
+    {
+      "id": 4,
+      "name": "Hibiscus Powder",
+      "slug": "hibiscus-powder",
+      "category": "Hair Care",
+      "categoryId": 1,
+      "categorySlug": "hair-care",
+      "price": 210,
+      "weight": "100g",
+      "shortDescription": "Nourishing botanical petal powder for shiny hair.",
+      "description": "Vibrant red hibiscus petal powder for ultra-soft texture and moisture retention.",
+      "ingredients": "100% Pure Hibiscus Rosa-Sinensis Petal Powder",
+      "howToUse": "Mix with aloe vera gel or water for a cooling 20-minute conditioning mask.",
+      "image": "images/products/hibiscus-powder/4/1200.webp",
+      "imageData": {
+        "src": "images/products/hibiscus-powder/4/1200.webp",
+        "srcset": "images/products/hibiscus-powder/4/400.webp 400w, images/products/hibiscus-powder/4/800.webp 800w, images/products/hibiscus-powder/4/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Hibiscus Powder - 100g"
+      },
+      "imageSrcset": "images/products/hibiscus-powder/4/400.webp 400w, images/products/hibiscus-powder/4/800.webp 800w, images/products/hibiscus-powder/4/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    },
+    {
+      "id": 5,
+      "name": "Multani Mitti",
+      "slug": "multani-mitti",
+      "category": "Skin Care",
+      "categoryId": 2,
+      "categorySlug": "skin-care",
+      "price": 149,
+      "weight": "150g",
+      "shortDescription": "Classic natural clay for purified cooling face packs.",
+      "description": "Authentic Indian Fuller's Earth clay for deep oil cleansing and cooling face packs.",
+      "ingredients": "100% Natural Calcium Bentonite (Multani Mitti)",
+      "howToUse": "Blend with rose water into a smooth paste. Apply to face, let dry, and rinse thoroughly.",
+      "image": "images/products/multani-mitti/5/1200.webp",
+      "imageData": {
+        "src": "images/products/multani-mitti/5/1200.webp",
+        "srcset": "images/products/multani-mitti/5/400.webp 400w, images/products/multani-mitti/5/800.webp 800w, images/products/multani-mitti/5/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Multani Mitti - 150g"
+      },
+      "imageSrcset": "images/products/multani-mitti/5/400.webp 400w, images/products/multani-mitti/5/800.webp 800w, images/products/multani-mitti/5/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    },
+    {
+      "id": 6,
+      "name": "Shikakai Powder",
+      "slug": "shikakai-powder",
+      "category": "Hair Care",
+      "categoryId": 1,
+      "categorySlug": "hair-care",
+      "price": 190,
+      "weight": "100g",
+      "shortDescription": "Gentle low-pH herb for natural hair detangling.",
+      "description": "Wild acacia concinna pods finely ground for low-pH gentle hair wash.",
+      "ingredients": "100% Pure Acacia Concinna (Shikakai) Fruit Powder",
+      "howToUse": "Mix with Reetha and Amla powders for a traditional 3-in-1 herbal shampoo pack.",
+      "image": "images/products/shikakai-powder/6/1200.webp",
+      "imageData": {
+        "src": "images/products/shikakai-powder/6/1200.webp",
+        "srcset": "images/products/shikakai-powder/6/400.webp 400w, images/products/shikakai-powder/6/800.webp 800w, images/products/shikakai-powder/6/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Shikakai Powder - 100g"
+      },
+      "imageSrcset": "images/products/shikakai-powder/6/400.webp 400w, images/products/shikakai-powder/6/800.webp 800w, images/products/shikakai-powder/6/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    },
+    {
+      "id": 7,
+      "name": "Henna Powder",
+      "slug": "henna-powder",
+      "category": "Hair Care",
+      "categoryId": 1,
+      "categorySlug": "hair-care",
+      "price": 175,
+      "weight": "100g",
+      "shortDescription": "Pure shade-dried henna leaves for rich hair sheen.",
+      "description": "Pure Lawsonia Inermis leaves ground for natural copper conditioning color and sheen.",
+      "ingredients": "100% Pure Lawsonia Inermis (Henna) Leaf Powder",
+      "howToUse": "Soak in tea water overnight, apply evenly to hair strands, and wash after 1-2 hours.",
+      "image": "images/products/henna-powder/7/1200.webp",
+      "imageData": {
+        "src": "images/products/henna-powder/7/1200.webp",
+        "srcset": "images/products/henna-powder/7/400.webp 400w, images/products/henna-powder/7/800.webp 800w, images/products/henna-powder/7/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Henna Powder - 100g"
+      },
+      "imageSrcset": "images/products/henna-powder/7/400.webp 400w, images/products/henna-powder/7/800.webp 800w, images/products/henna-powder/7/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    },
+    {
+      "id": 8,
+      "name": "Indigo Powder",
+      "slug": "indigo-powder",
+      "category": "Hair Care",
+      "categoryId": 1,
+      "categorySlug": "hair-care",
+      "price": 240,
+      "weight": "100g",
+      "shortDescription": "Botanical leaf powder for rich dark hair tones.",
+      "description": "Pure Indigofera Tinctoria leaf powder used after Henna for natural dark tones.",
+      "ingredients": "100% Pure Indigofera Tinctoria (Indigo) Powder",
+      "howToUse": "Mix fresh with lukewarm water and apply immediately after henna treatment.",
+      "image": "images/products/indigo-powder/8/1200.webp",
+      "imageData": {
+        "src": "images/products/indigo-powder/8/1200.webp",
+        "srcset": "images/products/indigo-powder/8/400.webp 400w, images/products/indigo-powder/8/800.webp 800w, images/products/indigo-powder/8/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Indigo Powder - 100g"
+      },
+      "imageSrcset": "images/products/indigo-powder/8/400.webp 400w, images/products/indigo-powder/8/800.webp 800w, images/products/indigo-powder/8/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    },
+    {
+      "id": 9,
+      "name": "Rosemary Leaves",
+      "slug": "rosemary-leaves",
+      "category": "Hair Care",
+      "categoryId": 1,
+      "categorySlug": "hair-care",
+      "price": 250,
+      "weight": "75g",
+      "shortDescription": "Dried botanical leaves for refreshing herbal hair rinses.",
+      "description": "Whole sun-dried aromatic rosemary leaves for preparing herbal hair rinse teas.",
+      "ingredients": "100% Dried Rosmarinus Officinalis Leaves",
+      "howToUse": "Steep 2 tablespoons in hot water for 15 minutes. Strain and use as a final hair rinse.",
+      "image": "images/products/rosemary-leaves/9/1200.webp",
+      "imageData": {
+        "src": "images/products/rosemary-leaves/9/1200.webp",
+        "srcset": "images/products/rosemary-leaves/9/400.webp 400w, images/products/rosemary-leaves/9/800.webp 800w, images/products/rosemary-leaves/9/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Rosemary Leaves - 75g"
+      },
+      "imageSrcset": "images/products/rosemary-leaves/9/400.webp 400w, images/products/rosemary-leaves/9/800.webp 800w, images/products/rosemary-leaves/9/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    },
+    {
+      "id": 10,
+      "name": "Brahmi Powder",
+      "slug": "brahmi-powder",
+      "category": "Herbal Powders",
+      "categoryId": 3,
+      "categorySlug": "herbal-powders",
+      "price": 210,
+      "weight": "100g",
+      "shortDescription": "Soothing herb for scalp packs and herbal routines.",
+      "description": "Traditional Bacopa Monnieri herb ground for soothing scalp applications.",
+      "ingredients": "100% Pure Bacopa Monnieri (Brahmi) Powder",
+      "howToUse": "Combine with Amla or oil for a relaxing scalp pack.",
+      "image": "images/products/brahmi-powder/10/1200.webp",
+      "imageData": {
+        "src": "images/products/brahmi-powder/10/1200.webp",
+        "srcset": "images/products/brahmi-powder/10/400.webp 400w, images/products/brahmi-powder/10/800.webp 800w, images/products/brahmi-powder/10/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Brahmi Powder - 100g"
+      },
+      "imageSrcset": "images/products/brahmi-powder/10/400.webp 400w, images/products/brahmi-powder/10/800.webp 800w, images/products/brahmi-powder/10/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    },
+    {
+      "id": 11,
+      "name": "Neem Powder",
+      "slug": "neem-powder",
+      "category": "Skin Care",
+      "categoryId": 2,
+      "categorySlug": "skin-care",
+      "price": 160,
+      "weight": "100g",
+      "shortDescription": "Clarifying leaf powder for purifying skin & scalp packs.",
+      "description": "Pure shade-dried Indian Neem leaves for clarify face packs and scalp wellness.",
+      "ingredients": "100% Pure Azadirachta Indica (Neem) Leaf Powder",
+      "howToUse": "Mix a small pinch with Multani Mitti or water for targeted purifying face packs.",
+      "image": "images/products/neem-powder/11/1200.webp",
+      "imageData": {
+        "src": "images/products/neem-powder/11/1200.webp",
+        "srcset": "images/products/neem-powder/11/400.webp 400w, images/products/neem-powder/11/800.webp 800w, images/products/neem-powder/11/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Neem Powder - 100g"
+      },
+      "imageSrcset": "images/products/neem-powder/11/400.webp 400w, images/products/neem-powder/11/800.webp 800w, images/products/neem-powder/11/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    },
+    {
+      "id": 12,
+      "name": "Mulethi Powder",
+      "slug": "mulethi-powder",
+      "category": "Skin Care",
+      "categoryId": 2,
+      "categorySlug": "skin-care",
+      "price": 195,
+      "weight": "100g",
+      "shortDescription": "Licorice root powder for gentle skin brightening packs.",
+      "description": "Sweet Licorice root powder for soothing skin complexion masks.",
+      "ingredients": "100% Pure Glycyrrhiza Glabra (Mulethi) Root Powder",
+      "howToUse": "Mix with milk or rose water to create a soothing skin pack.",
+      "image": "images/products/mulethi-powder/12/1200.webp",
+      "imageData": {
+        "src": "images/products/mulethi-powder/12/1200.webp",
+        "srcset": "images/products/mulethi-powder/12/400.webp 400w, images/products/mulethi-powder/12/800.webp 800w, images/products/mulethi-powder/12/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Mulethi Powder - 100g"
+      },
+      "imageSrcset": "images/products/mulethi-powder/12/400.webp 400w, images/products/mulethi-powder/12/800.webp 800w, images/products/mulethi-powder/12/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    },
+    {
+      "id": 13,
+      "name": "Manjistha Powder",
+      "slug": "manjistha-powder",
+      "category": "Skin Care",
+      "categoryId": 2,
+      "categorySlug": "skin-care",
+      "price": 230,
+      "weight": "100g",
+      "shortDescription": "Indian Madder root for clarifying skin masks.",
+      "description": "Traditional Indian Madder root powder for skin tone balancing masks.",
+      "ingredients": "100% Pure Rubia Cordifolia (Manjistha) Powder",
+      "howToUse": "Blend with honey or yogurt for a 15-minute skin balancing pack.",
+      "image": "images/products/manjistha-powder/13/1200.webp",
+      "imageData": {
+        "src": "images/products/manjistha-powder/13/1200.webp",
+        "srcset": "images/products/manjistha-powder/13/400.webp 400w, images/products/manjistha-powder/13/800.webp 800w, images/products/manjistha-powder/13/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Manjistha Powder - 100g"
+      },
+      "imageSrcset": "images/products/manjistha-powder/13/400.webp 400w, images/products/manjistha-powder/13/800.webp 800w, images/products/manjistha-powder/13/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    },
+    {
+      "id": 14,
+      "name": "Orange Peel Powder",
+      "slug": "orange-peel-powder",
+      "category": "Skin Care",
+      "categoryId": 2,
+      "categorySlug": "skin-care",
+      "price": 170,
+      "weight": "100g",
+      "shortDescription": "Refreshing citrus peel powder for glowing face packs.",
+      "description": "Zesty sun-dried orange peel powder packed with natural citrus brightness.",
+      "ingredients": "100% Pure Citrus Sinensis (Orange) Peel Powder",
+      "howToUse": "Mix with Multani Mitti or plain curd for an exfoliating face pack.",
+      "image": "images/products/orange-peel-powder/14/1200.webp",
+      "imageData": {
+        "src": "images/products/orange-peel-powder/14/1200.webp",
+        "srcset": "images/products/orange-peel-powder/14/400.webp 400w, images/products/orange-peel-powder/14/800.webp 800w, images/products/orange-peel-powder/14/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Orange Peel Powder - 100g"
+      },
+      "imageSrcset": "images/products/orange-peel-powder/14/400.webp 400w, images/products/orange-peel-powder/14/800.webp 800w, images/products/orange-peel-powder/14/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    },
+    {
+      "id": 15,
+      "name": "Rose Petal Powder",
+      "slug": "rose-petal-powder",
+      "category": "Skin Care",
+      "categoryId": 2,
+      "categorySlug": "skin-care",
+      "price": 220,
+      "weight": "100g",
+      "shortDescription": "Fragrant rose petal powder for soothing face masks.",
+      "description": "Aromatic shade-dried rose petals finely milled for hydrating cooling face masks.",
+      "ingredients": "100% Pure Rosa Centifolia Petal Powder",
+      "howToUse": "Combine with rose water or honey for a gentle, cooling skin mask.",
+      "image": "images/products/rose-petal-powder/15/1200.webp",
+      "imageData": {
+        "src": "images/products/rose-petal-powder/15/1200.webp",
+        "srcset": "images/products/rose-petal-powder/15/400.webp 400w, images/products/rose-petal-powder/15/800.webp 800w, images/products/rose-petal-powder/15/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Rose Petal Powder - 100g"
+      },
+      "imageSrcset": "images/products/rose-petal-powder/15/400.webp 400w, images/products/rose-petal-powder/15/800.webp 800w, images/products/rose-petal-powder/15/1200.webp 1200w",
+      "marketplace": {
+        "meesho": null,
+        "amazon": null,
+        "flipkart": null
+      },
+      "featured": 0,
+      "publishedReviewCount": 0,
+      "isBestSeller": false
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": 1,
+      "question": "How should I store HerbalVan powders?",
+      "answer": "Store HerbalVan powders in a cool, dry place away from direct sunlight and moisture. Always use a clean, dry spoon to remove powder and seal the ziplock pouch tightly after every use."
+    },
+    {
+      "id": 2,
+      "question": "How should I choose an herb for my routine?",
+      "answer": "Select herbs based on your targeted ritual. For example, Amla and Bhringraj are classic choices for hair care, while Multani Mitti and Rose Petal powder are ideal for soothing skin masks. You can also explore our 'Meet The Herbs' guide for detailed ingredient breakdowns."
+    },
+    {
+      "id": 4,
+      "question": "What is the shelf life of unopened packs?",
+      "answer": "When kept sealed in dry ambient conditions, HerbalVan pure botanicals generally maintain optimum fresh quality for up to 24 months from the manufacturing date printed on the pack."
+    },
+    {
+      "id": 3,
+      "question": "Can different herbs be combined together?",
+      "answer": "Yes! Combining botanical powders is a time-tested herbal practice. Popular combinations include Reetha + Shikakai + Amla for natural hair washing, or Multani Mitti + Orange Peel powder for skin brightness."
+    }
+  ]
+}

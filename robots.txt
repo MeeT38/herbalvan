@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://meet38.github.io/herbalvan/sitemap.xml
