@@ -1,4 +1,38 @@
 {
   "version": 1,
-  "items": []
+  "items": [
+    {
+      "id": 1,
+      "productId": 1,
+      "productSlug": "amla-powder",
+      "productName": "Amla Powder",
+      "customerName": "Customer (Herbal Hair Care Ritual)",
+      "rating": 5,
+      "reviewText": "The Amla and Bhringraj powders have completely simplified my weekend hair mask routine. Natural texture and zero gritty chemical residue.",
+      "reviewDate": "2026-01-15",
+      "verified": false
+    },
+    {
+      "id": 3,
+      "productId": 2,
+      "productSlug": "reetha-powder",
+      "productName": "Reetha Powder",
+      "customerName": "Customer (Natural Cleansing)",
+      "rating": 5,
+      "reviewText": "Pure Reetha and Shikakai powders substituted my chemical shampoo. Love the clean feel and authentic plant quality.",
+      "reviewDate": "2026-02-01",
+      "verified": false
+    },
+    {
+      "id": 2,
+      "productId": 5,
+      "productSlug": "multani-mitti",
+      "productName": "Multani Mitti",
+      "customerName": "Customer (Skincare Ritual)",
+      "rating": 5,
+      "reviewText": "Multani Mitti mixed with Rose Petal powder is my favorite Sunday face pack. Authentic fragrance and deeply purifying.",
+      "reviewDate": "2026-01-20",
+      "verified": false
+    }
+  ]
 }

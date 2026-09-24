@@ -1,33 +1,52 @@
 {
   "version": 1,
   "item": {
-    "id": 1,
-    "name": "Amla Powder",
-    "slug": "amla-powder",
-    "category": "Hair Care",
-    "categoryId": 1,
-    "categorySlug": "hair-care",
-    "price": 199,
+    "id": 15,
+    "name": "Rose Petal Powder",
+    "slug": "rose-petal-powder",
+    "category": "Skin Care",
+    "categoryId": 2,
+    "categorySlug": "skin-care",
+    "price": 220,
     "weight": "100g",
-    "shortDescription": "Pure Indian Gooseberry powder for natural hair strength.",
-    "description": "Sun-dried whole amla fruits finely ground for vitamin C hair strength and scalp vitality.",
-    "ingredients": "100% Pure Phyllanthus Emblica (Amla) Powder",
-    "howToUse": "Mix 2-3 tablespoons with warm water or yogurt. Apply to hair and scalp, keep for 30 minutes, then rinse.",
-    "image": "images/products/amla-powder/1/1200.webp",
+    "shortDescription": "Fragrant rose petal powder for soothing face masks.",
+    "description": "Aromatic shade-dried rose petals finely milled for hydrating cooling face masks.",
+    "ingredients": "100% Pure Rosa Centifolia Petal Powder",
+    "howToUse": "Combine with rose water or honey for a gentle, cooling skin mask.",
+    "image": "images/products/rose-petal-powder/39/1200.webp",
     "imageData": {
-      "src": "images/products/amla-powder/1/1200.webp",
-      "srcset": "images/products/amla-powder/1/400.webp 400w, images/products/amla-powder/1/800.webp 800w, images/products/amla-powder/1/1200.webp 1200w",
-      "width": 1200,
-      "height": 1200,
-      "alt": "HerbalVan Amla Powder - 100g"
+      "src": "images/products/rose-petal-powder/39/1200.webp",
+      "srcset": "images/products/rose-petal-powder/39/400.webp 400w, images/products/rose-petal-powder/39/800.webp 800w, images/products/rose-petal-powder/39/1200.webp 1200w",
+      "width": 945,
+      "height": 1182,
+      "alt": "HerbalVan Rose Petal Powder"
     },
-    "imageSrcset": "images/products/amla-powder/1/400.webp 400w, images/products/amla-powder/1/800.webp 800w, images/products/amla-powder/1/1200.webp 1200w",
-    "marketplace": {
-      "meesho": null,
-      "amazon": null,
-      "flipkart": null
-    },
-    "featured": 1,
+    "imageSrcset": "images/products/rose-petal-powder/39/400.webp 400w, images/products/rose-petal-powder/39/800.webp 800w, images/products/rose-petal-powder/39/1200.webp 1200w",
+    "images": [
+      {
+        "src": "images/products/rose-petal-powder/39/1200.webp",
+        "srcset": "images/products/rose-petal-powder/39/400.webp 400w, images/products/rose-petal-powder/39/800.webp 800w, images/products/rose-petal-powder/39/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Rose Petal Powder"
+      },
+      {
+        "src": "images/products/rose-petal-powder/15/1200.webp",
+        "srcset": "images/products/rose-petal-powder/15/400.webp 400w, images/products/rose-petal-powder/15/800.webp 800w, images/products/rose-petal-powder/15/1200.webp 1200w",
+        "width": 1200,
+        "height": 1200,
+        "alt": "HerbalVan Rose Petal Powder - 100g"
+      }
+    ],
+    "purchaseLinks": [
+      {
+        "shop": "meesho",
+        "label": "Meesho",
+        "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+      }
+    ],
+    "deliveryNote": "+ Meesho delivery charge",
+    "featured": 0,
     "publishedReviewCount": 0,
     "isBestSeller": true
   }

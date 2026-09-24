@@ -2,16 +2,24 @@
   "version": 1,
   "item": {
     "siteName": "HerbalVan",
-    "contactEmail": null,
+    "contactEmail": "contact@herbalvan.com",
     "supportEmail": "support@herbalvan.com",
     "phone": null,
-    "whatsapp": null,
+    "whatsapp": "9265445888",
     "instagramUrl": null,
     "facebookUrl": null,
     "youtubeUrl": null,
     "announcementText": "Welcome to HerbalVan — Pure Herbs. Simple Rituals. | 100% Natural Botanical Powders",
-    "announcementEnabled": true,
+    "announcementEnabled": false,
+    "productBadgeEnabled": false,
     "siteUrl": "https://meet38.github.io/herbalvan",
-    "metaDescription": null
+    "metaDescription": null,
+    "logo": {
+      "src": "images/site/logo/40/1200.webp",
+      "srcset": "images/site/logo/40/400.webp 400w, images/site/logo/40/800.webp 800w, images/site/logo/40/1200.webp 1200w",
+      "width": 512,
+      "height": 256,
+      "alt": ""
+    }
   }
 }

@@ -1,4 +1,12 @@
 {
   "version": 1,
-  "items": []
+  "items": [
+    {
+      "type": "privacy",
+      "title": "Privacy Policy",
+      "version": "1.0",
+      "content": "HerbalVan Privacy Policy — Draft placeholder. To be updated and approved by store owner.",
+      "updatedAt": "2026-09-24 04:53:21"
+    }
+  ]
 }

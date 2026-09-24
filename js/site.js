@@ -13,56 +13,25 @@
         let bestSeller = null;
         let reviews = [];
         let faqs = [];
-        let policies = [];
 
-        const rituals = [
-            {
-                title: "Classic Trio Hair Wash",
-                time: "30 Min",
-                category: "Hair Ritual",
-                image: "images/decorative/ritual-hair-wash.webp",
-                description: "Combine Amla, Reetha, and Shikakai in equal parts with warm water to create a chemical-free cleansing hair wash."
-            },
-            {
-                title: "Purifying Clay & Neem Mask",
-                time: "15 Min",
-                category: "Skin Ritual",
-                image: "images/decorative/ritual-clay-mask.webp",
-                description: "Mix Multani Mitti with a pinch of Neem Powder and pure rose water for a cooling, deep-cleansing facial pack."
-            },
-            {
-                title: "Cooling Hibiscus Scalp Pack",
-                time: "20 Min",
-                category: "Scalp Ritual",
-                image: "images/decorative/ritual-scalp-pack.webp",
-                description: "Blend Hibiscus powder with plain yogurt to soothe the scalp and add natural moisture to dry hair strands."
-            },
-            {
-                title: "Rose & Mulethi Glow Blend",
-                time: "15 Min",
-                category: "DIY Herbal Rituals",
-                image: "images/decorative/ritual-glow-blend.webp",
-                description: "Mix equal parts Rose Petal powder and Mulethi powder with raw milk or floral water for a soothing skin routine."
-            }
-        ];
+        // The hard-coded "herbal rituals" list that used to feed two sections and a
+        // whole view was removed in Module 48, when the owner asked for those
+        // sections to go. It was never database content, so nothing is lost from
+        // the CMS; the four ritual pictures it referred to are no longer referenced
+        // by any page.
 
         // Shopping Cart State
         let cart = [];
 
         /* ==================================================================
-         * Marketplace links (Module 22)
+         * Buy links (Modules 22 and 48)
          *
          * HerbalVan does not process purchases: there is no checkout, no
-         * payment, and no order. Every buy button is a link to a marketplace
-         * the owner configured, and a product with no configured link simply
-         * has no buy button.
+         * payment, and no order anywhere on this site. Every buy button is a
+         * link the owner configured in the CMS, and the CMS refuses to publish
+         * a product that has none — a product with no way to buy it would be a
+         * dead end for the visitor.
          * ================================================================== */
-
-        const MARKETPLACES = [
-            { key: 'meesho', label: 'Meesho' },
-            { key: 'amazon', label: 'Amazon' },
-            { key: 'flipkart', label: 'Flipkart' }
-        ];
 
         /**
          * Only absolute http(s) links are ever rendered. The CMS validates on
@@ -80,38 +49,102 @@
             }
         }
 
-        /** The marketplace links a product really has, in display order. */
-        function marketplacesFor(product) {
-            if (!product || !product.marketplace) return [];
+        /**
+         * The buy links a product really has, in the order the build chose.
+         * The order lives in the generated data so the page never has to guess
+         * which shop the owner prefers.
+         */
+        function purchaseLinksFor(product) {
+            const links = Array.isArray(product?.purchaseLinks) ? product.purchaseLinks : [];
 
-            return MARKETPLACES
-                .filter(marketplace => isSafeHttpUrl(product.marketplace[marketplace.key]))
-                .map(marketplace => ({ label: marketplace.label, url: product.marketplace[marketplace.key] }));
+            return links
+                .filter(link => link && typeof link.label === 'string' && isSafeHttpUrl(link.url))
+                .map(link => ({ label: link.label, url: link.url }));
         }
 
-        /** Small pill buttons for the marketplaces a product is listed on. */
-        function marketplaceButtonsMarkup(product, { size = 'sm' } = {}) {
-            const links = marketplacesFor(product);
+        /** The link the card's main button uses: the owner's first choice. */
+        function primaryBuyLink(product) {
+            return purchaseLinksFor(product)[0] ?? null;
+        }
+
+        /**
+         * The small line under a price: "+ Meesho delivery charge", or
+         * "+ delivery charges" when a product is listed in more than one shop.
+         * Written by the build, not guessed here.
+         */
+        function deliveryNoteMarkup(product) {
+            return product && product.deliveryNote
+                ? `<span class="block text-[10px] text-gray-500 font-semibold mt-0.5">${product.deliveryNote}</span>`
+                : '';
+        }
+
+        /**
+         * One price, one shape: `₹199.00`.
+         *
+         * The card, the basket, the search results, and the showcase each built
+         * this string themselves, and the product page added a second ₹ on top of
+         * it (Module 50). One function means a price cannot be right in one place
+         * and wrong in another, and a price with paise cannot produce `₹199.5.00`.
+         * The build formats the same way in `scripts/build/pages.js`.
+         */
+        function formatPrice(price) {
+            const value = Number(price);
+
+            return Number.isFinite(value) ? `₹${value.toFixed(2)}` : '';
+        }
+
+        /**
+         * One picture frame, one shape: square, always.
+         *
+         * Product photographs arrive in every ratio there is — 1200×1200, 1774×887,
+         * 945×1182 in this shop's own library — so a frame with a fixed height
+         * cropped each of them differently and the grid looked like three different
+         * shops. Every product picture is now drawn in a square frame: `object-cover`
+         * fills it for cards, thumbnails, the basket and the search results, and the
+         * product page's large view uses `object-contain` (see `website/templates/`),
+         * because there the whole product has to be visible.
+         */
+        function productImageFrame(inner, { className = '' } = {}) {
+            return `<div class="aspect-square w-full overflow-hidden rounded-xl bg-brand-ivory flex items-center justify-center ${className}">${inner}</div>`;
+        }
+
+        /**
+         * Buy buttons for a product. `lg` is the product details view, where
+         * these are the main call to action; the card uses the compact form.
+         */
+        function buyButtonsMarkup(product, { size = 'sm' } = {}) {
+            const links = purchaseLinksFor(product);
 
             if (links.length === 0) return '';
 
-            const classes = size === 'lg'
-                ? 'text-xs font-bold text-white bg-brand-forest hover:bg-brand-darkText px-4 py-2.5 rounded-full transition-colors'
-                : 'text-[11px] font-bold text-brand-forest bg-brand-ivory hover:bg-brand-cream border border-brand-sandDark/60 px-3 py-1.5 rounded-full transition-colors';
+            return links.map(link => {
+                const classes = size === 'lg'
+                    ? 'w-full flex items-center justify-center gap-2 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-extrabold px-5 py-3.5 rounded-2xl text-sm shadow-md transition-all active:scale-[0.99]'
+                    : 'flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all active:scale-[0.98]';
 
-            return links.map(link => `
-                            <a href="${link.url}" target="_blank" rel="noopener noreferrer nofollow"
-                               class="${classes}">Buy on ${link.label}</a>`).join('');
+                return `<a href="${link.url}" target="_blank" rel="noopener noreferrer nofollow"
+                           class="${classes}" data-buy-link="${link.label.toLowerCase()}">Buy on ${link.label}</a>`;
+            }).join('');
         }
 
+        /**
+         * Draws the catalogue.
+         *
+         * The cards here and the cards the build writes into the collection pages
+         * (`scripts/build/pages.js`) are two renderers of one shape, because this
+         * one has to run in the browser when a tab or a search changes the list.
+         * What keeps them in step is the contract the build checks: a card links
+         * to `product-<slug>.html`, offers `data-buy-link` for the shop, and carries
+         * an add-to-basket button — the same three things in both places.
+         */
         function renderProducts(itemsToRender = products) {
             const grid = document.getElementById('product-grid');
             if (!grid) return;
             grid.innerHTML = '';
 
             itemsToRender.forEach(product => {
-                const card = document.createElement('div');
-                card.className = "bg-white rounded-3xl p-5 border border-brand-sandDark/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group";
+                const card = document.createElement('article');
+                card.className = 'bg-white rounded-3xl p-5 border border-brand-sandDark/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group';
 
                 // The best seller badge comes from the database selection
                 // (best_seller -> generated data), never from the markup.
@@ -120,33 +153,42 @@
                                 <i class="fa-solid fa-star text-[9px] mr-0.5"></i> Best Seller
                             </span>` : '';
 
-                // Marketplace buttons only appear when the owner has filled in a
-                // real link; an empty or unsafe link is left out entirely.
-                const marketplaceRow = marketplacesFor(product).length > 0 ? `
-                    <div class="flex flex-wrap gap-2 pt-3 mt-3 border-t border-brand-sandDark/40">
-                        ${marketplaceButtonsMarkup(product)}
-                    </div>` : '';
+                // The "100% NATURAL" badge is printed only while the owner has it
+                // switched on in Site Settings (Module 48; off by default).
+                const naturalBadge = siteSettings.productBadgeEnabled ? `
+                            <span class="absolute top-3 left-3 bg-brand-botanicalDark text-white font-extrabold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm z-10">
+                                100% NATURAL
+                            </span>` : '';
+
+                const buy = primaryBuyLink(product);
+
+                // A buy button is the card's main action. The CMS will not publish
+                // a product without a link, so this normally always renders; if the
+                // data ever arrives without one, the button is left out rather than
+                // shown pointing nowhere.
+                const buyButton = buy
+                    ? `<a href="${buy.url}" target="_blank" rel="noopener noreferrer nofollow"
+                          data-buy-link="${buy.label.toLowerCase()}"
+                          class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all active:scale-[0.98]">
+                           <i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on ${buy.label}
+                       </a>`
+                    : '';
 
                 const imageAlt = product.imageData && product.imageData.alt ? product.imageData.alt : product.name;
                 const imageSrcset = product.imageSrcset ? ` srcset="${product.imageSrcset}" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 90vw"` : '';
                 const imageMarkup = product.image
-                    ? `<img src="${product.image}"${imageSrcset} alt="${imageAlt}" loading="lazy" width="400" height="400" class="w-full h-48 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">`
-                    : `<div class="w-full h-48 rounded-xl bg-brand-cream/50 flex items-center justify-center text-xs font-semibold text-gray-500">Image coming soon</div>`;
+                    ? `<img src="${product.image}"${imageSrcset} alt="${imageAlt}" loading="lazy" width="800" height="800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`
+                    : '<span class="text-xs font-semibold text-gray-500">Image coming soon</span>';
 
                 card.innerHTML = `
-                    <div>
+                    <a href="product-${product.slug}.html" class="block">
                         <div class="relative bg-brand-ivory rounded-2xl p-4 mb-4 overflow-hidden text-center border border-brand-beige">
-                            <span class="absolute top-3 left-3 bg-brand-botanicalDark text-white font-extrabold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm z-10">
-                                100% NATURAL
-                            </span>${bestSellerBadge}
-                            ${imageMarkup}
-                            <button data-action="open-quick-view" data-product-id="${product.id}" class="absolute bottom-3 right-3 bg-white/90 hover:bg-white text-brand-forest w-9 h-9 rounded-full shadow-md flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity" title="Quick View">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
+                            ${naturalBadge}${bestSellerBadge}
+                            ${productImageFrame(imageMarkup)}
                         </div>
 
                         <div class="flex items-center gap-1 text-brand-botanicalDark text-xs mb-1">
-                            <i class="fa-solid fa-leaf"></i><span class="font-bold text-gray-700 ml-1">${product.category}</span>
+                            <i class="fa-solid fa-leaf" aria-hidden="true"></i><span class="font-bold text-gray-700 ml-1">${product.category}</span>
                             <span class="text-gray-500 text-[10px] ml-auto font-semibold">${product.weight}</span>
                         </div>
 
@@ -156,149 +198,69 @@
                         <p class="text-xs text-gray-600 line-clamp-2 mb-4">
                             ${product.shortDescription || product.description}
                         </p>
-                    </div>
+                    </a>
 
-                    <div>
-                        <div class="flex items-center justify-between pt-3 border-t border-brand-sandDark/40">
-                            <div>
-                                <span class="text-xl font-extrabold text-brand-forest">₹${product.price}.00</span>
-                            </div>
-                            <button data-action="add-to-cart" data-product-id="${product.id}" class="bg-brand-forest hover:bg-brand-darkText text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-md active:scale-95 transition-all">
-                                <i class="fa-solid fa-plus text-[10px]"></i> Add
+                    <div class="pt-3 border-t border-brand-sandDark/40">
+                        <div class="mb-3">
+                            <span class="text-xl font-extrabold text-brand-forest">${formatPrice(product.price)}</span>
+                            ${deliveryNoteMarkup(product)}
+                        </div>
+                        <div class="flex items-center gap-2">
+                            ${buyButton}
+                            <button data-action="add-to-cart" data-product-id="${product.id}" aria-label="Add ${product.name} to the basket" title="Add to basket" class="shrink-0 w-10 h-10 flex items-center justify-center bg-brand-ivory hover:bg-brand-cream text-brand-forest border border-brand-sandDark/70 rounded-xl transition-colors active:scale-95">
+                                <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i>
                             </button>
                         </div>
-                        ${marketplaceRow}
                     </div>
                 `;
                 grid.appendChild(card);
             });
         }
 
-        function renderRituals() {
-            const previewGrid = document.getElementById('rituals-grid');
-            const allGrid = document.getElementById('all-rituals-grid');
-
-            if (previewGrid) {
-                previewGrid.innerHTML = '';
-                rituals.forEach(r => {
-                    const card = document.createElement('div');
-                    card.className = "bg-brand-ivory rounded-3xl p-4 border border-brand-sandDark/70 flex flex-col justify-between group hover:bg-brand-cream/40 transition-all";
-                    card.innerHTML = `
-                        <div>
-                            <div class="relative rounded-2xl overflow-hidden mb-3 h-40">
-                                <img src="${r.image}" alt="${r.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <span class="absolute bottom-2 left-2 bg-brand-forest/90 text-white text-[10px] px-2.5 py-1 rounded-full backdrop-blur-sm">
-                                    <i class="fa-regular fa-clock mr-1"></i>${r.time}
-                                </span>
-                            </div>
-                            <span class="text-[10px] font-extrabold text-brand-botanicalDark uppercase tracking-wider">${r.category}</span>
-                            <h4 class="font-serif-heading font-bold text-base text-brand-forest mb-1 mt-0.5">${r.title}</h4>
-                            <p class="text-xs text-gray-600 mb-3 leading-relaxed">${r.description}</p>
-                        </div>
-                        <div class="flex justify-between items-center text-xs font-bold text-brand-botanicalDark pt-2 border-t border-brand-sandDark/40">
-                            <span>Herbal Routine</span>
-                            <button data-action="toast" data-message="Ritual: ${r.title}" class="hover:underline">Explore Ritual &rarr;</button>
-                        </div>
-                    `;
-                    previewGrid.appendChild(card);
-                });
-            }
-
-            if (allGrid) {
-                allGrid.innerHTML = '';
-                rituals.forEach(r => {
-                    const card = document.createElement('div');
-                    card.className = "bg-white p-6 rounded-3xl border border-brand-sandDark/70 flex flex-col md:flex-row gap-6 items-center shadow-sm";
-                    card.innerHTML = `
-                        <img src="${r.image}" alt="${r.title}" loading="lazy" decoding="async" class="w-full md:w-48 h-48 object-cover rounded-2xl shrink-0">
-                        <div class="space-y-2">
-                            <span class="text-xs font-extrabold text-brand-botanicalDark uppercase tracking-wider">${r.category} &bull; ${r.time}</span>
-                            <h3 class="font-serif-heading font-bold text-xl text-brand-forest">${r.title}</h3>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">${r.description}</p>
-                            <button data-action="toast" data-message="Starting ritual: ${r.title}" class="mt-2 bg-brand-forest text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-brand-botanicalDark transition-colors">
-                                Explore Step-By-Step
-                            </button>
-                        </div>
-                    `;
-                    allGrid.appendChild(card);
-                });
-            }
-        }
-
-        function renderIngredientsCatalogue() {
-            const grid = document.getElementById('ingredients-catalogue-grid');
-            if (!grid) return;
-            grid.innerHTML = '';
-
-            products.forEach(p => {
-                const card = document.createElement('div');
-                card.className = "bg-white p-6 rounded-3xl border border-brand-sandDark/70 hover:shadow-lg transition-all space-y-3";
-                card.innerHTML = `
-                    <div class="flex items-center gap-4">
-                        <img src="${p.image}" alt="${p.name}" class="w-16 h-16 object-cover rounded-2xl border border-brand-beige">
-                        <div>
-                            <span class="text-[10px] font-bold text-brand-botanicalDark uppercase">${p.category}</span>
-                            <h4 class="font-serif-heading font-bold text-lg text-brand-forest">${p.name}</h4>
-                            <span class="text-xs text-gray-500">${p.weight} Pack</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-gray-600 leading-relaxed">${p.description}</p>
-                    <div class="pt-2 border-t border-brand-sandDark/40 flex justify-between items-center text-xs">
-                        <span class="font-bold text-brand-forest">₹${p.price}.00</span>
-                        <button data-action="open-quick-view" data-product-id="${p.id}" class="text-brand-botanicalDark font-bold hover:underline">View Botanicals &rarr;</button>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
+        /* renderRituals() / renderIngredientsCatalogue() lived here (Module 48):
+           both views, their sections, and the markup they filled were removed at
+           the owner's request, so the renderers went with them. */
 
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
             if (!product) return;
 
-            const existing = cart.find(item => item.id === productId);
-            if (existing) {
-                existing.quantity += 1;
-            } else {
-                cart.push({ ...product, quantity: 1 });
+            if (cart.some(item => item.id === productId)) {
+                // The basket is a shortlist, not an order (Module 48): a product is
+                // either in it or not. Quantity is chosen on the shop's own page.
+                showToast(`${product.name} is already in your basket`);
+                toggleCartDrawer(true);
+                return;
             }
+
+            cart.push({ ...product });
 
             updateCartUI();
             toggleCartDrawer(true);
-            showToast(`Added ${product.name} to cart`);
+            showToast(`Added ${product.name} to your basket`);
         }
 
-        function updateCartQuantity(productId, change) {
-            const item = cart.find(i => i.id === productId);
+        function removeFromCart(productId) {
+            const item = cart.find(entry => entry.id === productId);
             if (!item) return;
 
-            item.quantity += change;
-            if (item.quantity <= 0) {
-                cart = cart.filter(i => i.id !== productId);
-            }
-
+            cart = cart.filter(entry => entry.id !== productId);
             updateCartUI();
+            showToast(`Removed ${item.name} from your basket`);
         }
 
         function updateCartUI() {
             const countBadge = document.getElementById('cart-count-badge');
             const itemsList = document.getElementById('cart-items-list');
-            const subtotalElem = document.getElementById('cart-subtotal');
-            const totalElem = document.getElementById('cart-total');
 
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
-            if (countBadge) countBadge.innerText = totalItems;
-            if (subtotalElem) subtotalElem.innerText = `₹${subtotal.toFixed(2)}`;
-            if (totalElem) totalElem.innerText = `₹${subtotal.toFixed(2)}`;
+            if (countBadge) countBadge.innerText = cart.length;
 
             if (!itemsList) return;
 
             if (cart.length === 0) {
                 itemsList.innerHTML = `
                     <div class="text-center py-12 space-y-3">
-                        <i class="fa-solid fa-basket-shopping text-4xl text-gray-300"></i>
+                        <i class="fa-solid fa-basket-shopping text-4xl text-gray-300" aria-hidden="true"></i>
                         <p class="text-gray-500 font-bold text-sm">Your basket is currently empty.</p>
                         <button data-action="toggle-cart" class="bg-brand-botanicalDark text-white font-bold px-6 py-2 rounded-full text-xs">Start Browsing Herbs</button>
                     </div>
@@ -307,19 +269,26 @@
             }
 
             itemsList.innerHTML = '';
+
             cart.forEach(item => {
                 const div = document.createElement('div');
-                div.className = "flex items-center justify-between gap-4 p-3 bg-brand-ivory rounded-2xl border border-brand-sandDark/60";
+                div.className = "p-3 bg-brand-ivory rounded-2xl border border-brand-sandDark/60";
                 div.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-xl shrink-0 border border-brand-beige">
-                    <div class="flex-1 min-w-0">
-                        <h4 class="font-bold text-xs text-brand-forest truncate">${item.name}</h4>
-                        <div class="text-xs font-bold text-brand-botanicalDark mt-0.5">₹${item.price}.00</div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 shrink-0">${productImageFrame(`<img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">`)}</div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-xs text-brand-forest truncate">${item.name}</h4>
+                            <div class="text-xs font-bold text-brand-botanicalDark mt-0.5">${formatPrice(item.price)}</div>
+                            ${deliveryNoteMarkup(item)}
+                        </div>
+                        <button data-action="remove-from-cart" data-product-id="${item.id}"
+                                class="shrink-0 w-8 h-8 flex items-center justify-center text-gray-500 hover:text-brand-forest rounded-lg"
+                                aria-label="Remove ${item.name} from the basket" title="Remove from basket">
+                            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                        </button>
                     </div>
-                    <div class="flex items-center gap-2 bg-white px-2 py-1 rounded-lg border border-brand-sandDark/60">
-                        <button data-action="cart-decrease" data-product-id="${item.id}" class="text-gray-500 hover:text-brand-botanicalDark font-bold text-xs p-1" aria-label="Remove one from the basket">-</button>
-                        <span class="text-xs font-extrabold text-brand-forest w-4 text-center">${item.quantity}</span>
-                        <button data-action="cart-increase" data-product-id="${item.id}" class="text-gray-500 hover:text-brand-botanicalDark font-bold text-xs p-1" aria-label="Add one more to the basket">+</button>
+                    <div class="flex items-center gap-2 mt-3">
+                        ${buyButtonsMarkup(item)}
                     </div>
                 `;
                 itemsList.appendChild(div);
@@ -338,6 +307,7 @@
 
             if (shouldOpen) {
                 rememberTrigger('cart');
+                lockPageScroll('cart', true);
                 drawer.classList.remove('invisible');
                 setTimeout(() => {
                     backdrop.classList.remove('opacity-0');
@@ -357,6 +327,7 @@
             } else {
                 backdrop.classList.add('opacity-0');
                 panel.children[0].classList.add('translate-x-full');
+                lockPageScroll('cart', false);
                 setTimeout(() => {
                     drawer.classList.add('invisible');
                 }, 300);
@@ -377,9 +348,11 @@
 
             if (shouldOpen) {
                 rememberTrigger('menu');
+                lockPageScroll('menu', true);
                 const close = menu.querySelector('[data-action="toggle-mobile-menu"]');
                 if (close) close.focus();
             } else {
+                lockPageScroll('menu', false);
                 restoreTrigger('menu');
             }
 
@@ -397,13 +370,52 @@
 
             if (shouldOpen) {
                 rememberTrigger('search');
+                lockPageScroll('search', true);
                 const input = document.getElementById('search-input');
                 if (input) input.focus();
             } else {
+                resetSearch();
+                lockPageScroll('search', false);
                 restoreTrigger('search');
             }
 
             setExpanded('search-button', shouldOpen);
+        }
+
+        /**
+         * Puts the search back to the state it opens in, and gives the catalogue
+         * back to the category the visitor had chosen.
+         *
+         * The search filters the product grid as you type, and that grid lives on
+         * the page behind the panel. Closing the panel without this left the shop
+         * section showing whatever was last typed: searching for something that
+         * does not exist left the catalogue with no products at all, and searching
+         * for one herb left a single card, with nothing on screen explaining either.
+         * The field is cleared for the same reason — a query kept behind a closed
+         * panel is a trap, not a convenience.
+         */
+        function resetSearch() {
+            const input = document.getElementById('search-input');
+            const list = document.getElementById('search-result-list');
+            const suggestions = document.getElementById('search-results');
+            const summary = document.getElementById('search-results-summary');
+
+            if (input) input.value = '';
+
+            if (list) {
+                list.innerHTML = '';
+                list.hidden = true;
+            }
+
+            if (suggestions) suggestions.hidden = false;
+
+            if (summary) {
+                summary.textContent = '';
+                summary.classList.add('hidden');
+            }
+
+            // Back to the category that was on screen, not necessarily everything.
+            applyCategoryFilter(activeCategory);
         }
 
         /*
@@ -439,11 +451,40 @@
                 && !element.classList.contains('invisible');
         }
 
+        /*
+         * Holds the page behind an open modal still.
+         *
+         * Both centred panels scroll their own content, but a wheel over the dimmed
+         * backdrop — or a scroll that reaches the end of the list inside the panel —
+         * carried on into the page underneath. That read as "the list is not
+         * scrolling, the site is", which is exactly how the search panel behaved.
+         *
+         * The width of the scrollbar is added as padding while it is hidden, so
+         * removing it does not shift the whole page sideways.
+         */
+        const SCROLLABLE_OVERLAYS = new Set();
+
+        function lockPageScroll(name, locked) {
+            if (locked) {
+                SCROLLABLE_OVERLAYS.add(name);
+            } else {
+                SCROLLABLE_OVERLAYS.delete(name);
+            }
+
+            // Another overlay may still be open; only the last one out unlocks.
+            if (SCROLLABLE_OVERLAYS.size > 0) {
+                const gap = window.innerWidth - document.documentElement.clientWidth;
+                document.body.style.overflow = 'hidden';
+                document.body.style.paddingRight = gap > 0 ? `${gap}px` : '';
+                return;
+            }
+
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+        }
+
         /** The panel a keyboard user is currently inside, if any. */
         function openOverlay() {
-            const quickView = document.getElementById('quickview-modal');
-            if (isShown(quickView)) return { element: quickView, close: closeQuickView };
-
             const search = document.getElementById('search-modal');
             if (isShown(search)) return { element: search, close: () => toggleSearchModal(false) };
 
@@ -456,9 +497,9 @@
             return null;
         }
 
-        /** Keeps Tab inside the modal panels (quick view and search). */
+        /** Keeps Tab inside the modal panel that is open. */
         function trapFocus(event) {
-            const container = document.querySelector('#quickview-modal:not(.hidden) [role="dialog"], #search-modal:not(.hidden) [role="dialog"]');
+            const container = document.querySelector('#search-modal:not(.hidden) [role="dialog"]');
             if (!container) return;
 
             const items = [...container.querySelectorAll(
@@ -529,6 +570,7 @@
             ].some(field => String(field || '').toLowerCase().includes(query)));
 
             renderProducts(results);
+            renderSearchResults(results, query);
 
             // An empty query is not a search: the full catalogue comes back and the
             // grid says nothing about matches.
@@ -548,6 +590,55 @@
                 : `${results.length} product${results.length === 1 ? '' : 's'} match “${input.value.trim()}”.`;
         }
 
+        /**
+         * Lists the matches inside the search panel.
+         *
+         * The catalogue grid is filtered as well, but that grid sits behind the
+         * open panel, so on its own it looked like the search had found nothing:
+         * the summary said “1 product matches” and the panel stayed empty. The
+         * matches therefore appear here, where the visitor is looking, and each
+         * one opens that product's details.
+         */
+        function renderSearchResults(results, query) {
+            const host = document.getElementById('search-result-list');
+            const suggestions = document.getElementById('search-results');
+
+            if (!host) return;
+
+            if (query.length === 0) {
+                host.innerHTML = '';
+                host.hidden = true;
+                if (suggestions) suggestions.hidden = false;
+                return;
+            }
+
+            // Nothing found: the summary already says so, and the suggestions stay
+            // visible so the visitor is not left at a dead end.
+            if (results.length === 0) {
+                host.innerHTML = '';
+                host.hidden = true;
+                if (suggestions) suggestions.hidden = false;
+                return;
+            }
+
+            if (suggestions) suggestions.hidden = true;
+            host.hidden = false;
+
+            host.innerHTML = results.map((product) => `
+                <a href="product-${product.slug}.html"
+                        class="w-full flex items-center gap-3 p-2.5 rounded-2xl border border-brand-sandDark/60 hover:border-brand-botanical hover:bg-brand-sageLight/60 transition-colors text-left">
+                    <span class="w-12 shrink-0">${productImageFrame(product.image
+                        ? `<img src="${product.image}" alt="" class="w-full h-full object-cover" loading="lazy">`
+                        : '')}</span>
+                    <span class="flex-1 min-w-0">
+                        <span class="block font-bold text-sm text-brand-forest truncate">${product.name}</span>
+                        <span class="block text-[11px] text-gray-600 truncate">${product.category} · ${product.weight || ''}</span>
+                    </span>
+                    <span class="font-extrabold text-sm text-brand-forest shrink-0">${formatPrice(product.price)}</span>
+                </a>
+            `).join('');
+        }
+
         function quickSearch(keyword) {
             const input = document.getElementById('search-input');
             if (input) {
@@ -556,71 +647,38 @@
             }
         }
 
-        function openQuickView(id) {
-            const product = products.find(p => p.id === id);
-            if (!product) return;
+        /*
+         * The product details view lived here as a popup (Modules 33 and 48).
+         *
+         * It was replaced by real pages — `product-<slug>.html` — at the owner's
+         * request: a page can be linked to, shared, and indexed, and the popup could
+         * do none of those. Everything it showed (gallery, delivery note, reviews,
+         * buy buttons) is written into the page by the build instead, from the same
+         * data, so there is nothing left here to keep in step.
+         */
 
-            const modal = document.getElementById('quickview-modal');
-            const container = document.getElementById('quickview-content');
+        /**
+         * Swaps the large picture when a thumbnail is chosen, and marks which one
+         * is showing so the choice is visible rather than only remembered.
+         * Used by the product pages the build generates.
+         */
+        function showProductImage(button) {
+            const main = document.getElementById('product-main-image');
 
-            container.innerHTML = `
-                <div>
-                    <img src="${product.image}" alt="${product.name}" class="w-full h-64 sm:h-80 object-cover rounded-2xl bg-brand-ivory border border-brand-sandDark/60">
-                </div>
-                <div class="space-y-4 flex flex-col justify-between">
-                    <div>
-                        <span class="bg-brand-sageLight text-brand-forest text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full border border-brand-sage/40">100% Pure Botanical</span>
-                        <h3 id="quickview-heading" class="font-serif-heading font-black text-2xl text-brand-forest mt-2">${product.name}</h3>
-                        <p class="text-xs text-gray-600 mt-1">${product.description}</p>
-                        
-                        <div class="mt-4 p-4 bg-brand-ivory rounded-2xl space-y-2 border border-brand-sandDark/60">
-                            <div class="font-bold text-xs text-brand-forest">Ingredients & Usage</div>
-                            <p class="text-[11px] text-gray-600"><strong>Ingredients:</strong> ${product.ingredients}</p>
-                            <p class="text-[11px] text-gray-600"><strong>How To Use:</strong> ${product.howToUse}</p>
-                        </div>
-                    </div>
+            if (!main || !button.dataset.imageSrc) return;
 
-                    <div class="pt-4 border-t border-brand-sandDark/40">
-                        <div class="flex items-center justify-between mb-4">
-                            <div>
-                                <span class="text-2xl font-black text-brand-forest">₹${product.price}.00</span>
-                            </div>
-                            <span class="text-xs font-bold text-gray-500">${product.weight} Pack</span>
-                        </div>
-                        ${product.publishedReviewCount > 0 ? `
-                        <p class="text-xs text-gray-500 mb-3">
-                            <i class="fa-solid fa-star text-brand-amber"></i>
-                            ${product.publishedReviewCount} published review${product.publishedReviewCount === 1 ? '' : 's'} for this herb
-                        </p>` : ''}
-                        <button data-action="add-to-cart" data-product-id="${product.id}" data-close-quick-view="true" class="w-full bg-brand-botanicalDark hover:bg-brand-botanical text-white font-extrabold py-3 rounded-full text-sm shadow-md transition-all">
-                            Add To Cart &bull; ₹${product.price}.00
-                        </button>
-                        ${marketplacesFor(product).length > 0 ? `
-                        <div class="flex flex-wrap gap-2 mt-3">
-                            ${marketplaceButtonsMarkup(product, { size: 'lg' })}
-                        </div>
-                        <p class="text-[10px] text-gray-500 mt-2">Payment and delivery are handled by the marketplace you choose.</p>` : `
-                        <p class="text-[10px] text-gray-500 mt-2">No marketplace link is set up for this herb yet, so there is nothing to buy from this page.</p>`}
-                    </div>
-                </div>
-            `;
+            main.src = button.dataset.imageSrc;
+            main.srcset = button.dataset.imageSrcset || '';
 
-            modal.classList.remove('hidden');
+            if (button.dataset.imageAlt) main.alt = button.dataset.imageAlt;
 
-            // Focus follows the dialog in, and goes back to the card that opened
-            // it on close (Module 40).
-            rememberTrigger('quickview');
-            const panel = modal.querySelector('[role="dialog"]');
-            if (panel) {
-                panel.setAttribute('tabindex', '-1');
-                panel.focus();
-            }
-        }
+            button.parentElement?.querySelectorAll('[data-action="view-product-image"]').forEach(other => {
+                const isCurrent = other === button;
 
-        function closeQuickView() {
-            const modal = document.getElementById('quickview-modal');
-            if (modal) modal.classList.add('hidden');
-            restoreTrigger('quickview');
+                other.setAttribute('aria-current', isCurrent ? 'true' : 'false');
+                other.classList.toggle('ring-2', isCurrent);
+                other.classList.toggle('ring-brand-botanical', isCurrent);
+            });
         }
 
         function toggleFAQ(button) {
@@ -638,104 +696,186 @@
             }
         }
 
+        /*
+         * Shows one of the views that still exist (Module 48), and only that.
+         *
+         * There used to be five on this page. The ingredients dictionary and the
+         * rituals guide were removed at the owner's request, and the policy view
+         * went in Module 49 when policies became real pages, so two are left: the
+         * home view (with the catalogue) and Our Story. A request for a view that
+         * is gone therefore falls back to home rather than blanking the page — the
+         * footer and the menu are generated from data and can outlive a removal.
+         */
         function navigateTo(viewId) {
             const views = document.querySelectorAll('.view-section');
-            views.forEach(v => v.classList.add('hidden'));
+            views.forEach(view => view.classList.add('hidden'));
 
-            if (viewId === 'home') {
-                document.getElementById('home-view').classList.remove('hidden');
-            } else if (viewId === 'shop') {
+            if (viewId === 'shop') {
                 document.getElementById('home-view').classList.remove('hidden');
                 scrollToElement(document.getElementById('products-section'));
-                renderProducts(products);
-            } else if (viewId === 'ingredients') {
-                document.getElementById('ingredients-view').classList.remove('hidden');
-                renderIngredientsCatalogue();
-            } else if (viewId === 'rituals') {
-                document.getElementById('rituals-view').classList.remove('hidden');
-                renderRituals();
-            } else if (viewId === 'story') {
-                document.getElementById('story-view').classList.remove('hidden');
-            } else if (viewId === 'faq') {
+                applyCategoryFilter(activeCategory);
+                return;
+            }
+
+            const target = document.getElementById(`${viewId}-view`);
+
+            if (target) {
+                target.classList.remove('hidden');
+            } else {
                 document.getElementById('home-view').classList.remove('hidden');
-                scrollToElement(document.getElementById('faq-section'));
+
+                // A section inside the home view (the FAQ, for example) is reached
+                // by scrolling to it rather than by showing a view of its own.
+                scrollToElement(document.getElementById(viewId === 'faq' ? 'faq-section' : viewId));
+                return;
             }
 
             scrollToTop();
         }
 
-        function filterCategoryAndNavigate(catName) {
-            navigateTo('shop');
-            const filtered = products.filter(p => p.category.toLowerCase() === catName.toLowerCase() || (catName === 'Herbal Powders' && p.category === 'Herbal Powders'));
+        /*
+         * Shows whatever the address asked for after the page has loaded.
+         *
+         * The menu on the generated pages (Module 49) sends a visitor back with an
+         * address like `index.html#story-view`, because a link that only works
+         * through this script is not a link. Nothing here is new behaviour — it is
+         * the same two steps the in-page menu uses, applied to the fragment the
+         * browser was given.
+         */
+        function applyAddressFragment() {
+            const id = location.hash.replace(/^#/, '');
+
+            if (!id) return;
+
+            const target = document.getElementById(id);
+
+            if (!target) return;
+
+            if (target.classList.contains('view-section')) {
+                navigateTo(id.endsWith('-view') ? id.slice(0, -'-view'.length) : id);
+                return;
+            }
+
+            scrollToElement(target);
+        }
+
+        /*
+         * The category the catalogue is currently showing ('' means everything).
+         *
+         * One variable, because the catalogue can be filtered from four places —
+         * the tab row, the header menu, the mobile menu, and the footer — and they
+         * used to disagree: a footer link filtered the products but left the tab
+         * row highlighting "All Products". The live search also filters the grid,
+         * so this is what the grid is put back to when the search panel closes.
+         */
+        let activeCategory = '';
+
+        /** Shows one category of the catalogue, and keeps the tab row in step. */
+        function applyCategoryFilter(category) {
+            const wanted = String(category ?? '').trim();
+
+            activeCategory = wanted === 'All Products' ? '' : wanted;
+
+            document.querySelectorAll('[data-category-tabs] .tab-btn, .tab-btn').forEach(button => {
+                const isActive = (button.dataset.category ?? '') === activeCategory;
+
+                button.className = isActive
+                    ? "tab-btn bg-brand-forest text-white font-bold px-5 py-2 rounded-full text-xs sm:text-sm whitespace-nowrap shadow-sm transition-all"
+                    : "tab-btn bg-white hover:bg-brand-beige text-brand-forest font-bold px-5 py-2 rounded-full text-xs sm:text-sm whitespace-nowrap transition-all border border-brand-sandDark/80";
+
+                if (button.dataset.action === 'filter-tab') {
+                    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                }
+            });
+
+            // An empty or unknown category shows the whole catalogue rather than
+            // nothing, which is what the tab row promises with "All Products".
+            const filtered = activeCategory
+                ? products.filter(p => p.category.toLowerCase() === activeCategory.toLowerCase())
+                : products;
+
             renderProducts(filtered.length > 0 ? filtered : products);
         }
 
-        function filterTab(category, btnElement) {
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.className = "tab-btn bg-white hover:bg-brand-beige text-brand-forest font-bold px-5 py-2 rounded-full text-xs sm:text-sm whitespace-nowrap transition-all border border-brand-sandDark/80";
-            });
-            btnElement.className = "tab-btn bg-brand-forest text-white font-bold px-5 py-2 rounded-full text-xs sm:text-sm whitespace-nowrap shadow-sm transition-all";
-
-            if (category === 'All Products') {
-                renderProducts(products);
-            } else {
-                const filtered = products.filter(p => p.category === category);
-                renderProducts(filtered);
-            }
+        function filterTab(category) {
+            applyCategoryFilter(category);
         }
 
         /**
-         * The buy step of the basket (Module 22).
+         * Removes the hand-off step and the account notice (Module 48).
          *
-         * There is no checkout and no payment on this website, so instead of
-         * promising one, the basket hands the customer to the marketplace the
-         * owner configured for each product.
+         * The basket used to end in a "Continue To Marketplace" button that listed
+         * the links again, and the header had an account icon that opened a notice
+         * saying there is no account system. The owner asked for both to go: the buy
+         * buttons now sit on each basket line, where the decision is actually made,
+         * and the account icon is gone from the markup. There is still no checkout
+         * and no payment anywhere on this site.
          */
-        function triggerCheckout() {
-            if (cart.length === 0) {
-                showToast('Your herbal basket is empty. Please add items!');
+
+        /**
+         * Shares the page the button sits on (Module 49).
+         *
+         * Giving every product its own address is what makes this possible: the
+         * native share sheet where the device has one, and a copy of the address
+         * where it does not. Deliberately no third-party widget and no request to
+         * another host — the policy every page carries allows none of that, and a
+         * share button that needs someone else's server is a button that breaks.
+         *
+         * Cancelling the share sheet rejects with `AbortError`, which is not a
+         * failure and must not be reported as one.
+         */
+        async function shareCurrentPage(button) {
+            const url = window.location.href;
+            const title = document.title;
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({ title, url });
+                    return;
+                } catch (error) {
+                    if (error && error.name === 'AbortError') return;
+                    // Anything else (a browser that refuses without a gesture, a
+                    // device with no target app) falls through to copying.
+                }
+            }
+
+            const copied = await copyToClipboard(url);
+
+            if (copied) {
+                showToast('Link copied — paste it anywhere.');
                 return;
             }
 
-            const withLinks = cart
-                .map(item => ({ item, links: marketplacesFor(item) }))
-                .filter(entry => entry.links.length > 0);
+            // Last resort: put the address in front of them rather than in a toast
+            // that disappears before it can be read.
+            showToast(url);
+        }
 
-            if (withLinks.length === 0) {
-                showToast('Buying happens on the marketplace: no purchase links are configured yet.');
-                return;
+        /** Copies text, with a fallback for browsers without the clipboard API. */
+        async function copyToClipboard(text) {
+            if (navigator.clipboard?.writeText) {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    return true;
+                } catch {
+                    // Fall through to the older mechanism below.
+                }
             }
 
-            renderBasketMarketplaceLinks(withLinks);
-        }
-
-        /** Lists the marketplace links for the basket inside the drawer. */
-        function renderBasketMarketplaceLinks(entries) {
-            const host = document.getElementById('cart-marketplace-links');
-
-            if (!host) return;
-
-            host.innerHTML = `
-                <p class="text-[11px] font-bold text-brand-forest mb-2">Continue on the marketplace</p>
-                ${entries.map(({ item, links }) => `
-                    <div class="flex items-center justify-between gap-2 text-xs py-1">
-                        <span class="text-gray-600 truncate">${item.name} &times; ${item.quantity}</span>
-                        <span class="flex gap-2">${links.map(link => `
-                            <a href="${link.url}" target="_blank" rel="noopener noreferrer nofollow"
-                               class="font-bold text-brand-forest underline hover:text-brand-botanicalDark">${link.label}</a>`).join('')}
-                        </span>
-                    </div>`).join('')}
-                <p class="text-[10px] text-gray-500 mt-2">Payment, delivery, and returns are handled by the marketplace. HerbalVan takes no payment on this website.</p>`;
-
-            host.classList.remove('hidden');
-        }
-
-        function openAccountModal() {
-            // There is no account system, and there is not going to be one: the
-            // site has no login, no orders, and no customer records. The icon is
-            // part of the approved design, so it stays and says so plainly rather
-            // than promising a login that does not exist.
-            showToast('HerbalVan has no account system — buying happens on the marketplace.');
+            try {
+                const field = document.createElement('textarea');
+                field.value = text;
+                field.setAttribute('readonly', 'readonly');
+                field.style.position = 'fixed';
+                field.style.opacity = '0';
+                document.body.appendChild(field);
+                field.select();
+                const ok = document.execCommand('copy');
+                field.remove();
+                return ok;
+            } catch {
+                return false;
+            }
         }
 
         function showToast(message) {
@@ -766,7 +906,20 @@
         }
 
         const ACTIONS = {
-            navigate: (element) => navigateTo(element.dataset.target),
+            /*
+             * The menu asks for a view of the home page, which only exists there.
+             * On every other page the link's own address (index.html, with a
+             * fragment when a view was asked for) is the answer, so the browser is
+             * left to follow it rather than being interrupted with an action that
+             * has no view to show. That silence is what used to make the logo and
+             * the menu do nothing at all outside the home page.
+             */
+            navigate: (element, event) => {
+                if (!document.getElementById('home-view')) return;
+
+                event.preventDefault();
+                navigateTo(element.dataset.target);
+            },
             'toggle-mobile-menu': (element, event) => {
                 // The backdrop only closes the menu when the backdrop itself is
                 // clicked. This replaces the inline `event.stopPropagation()` that
@@ -777,37 +930,44 @@
             },
             'toggle-cart': () => toggleCartDrawer(),
             'toggle-search': () => toggleSearchModal(),
-            'close-quick-view': () => closeQuickView(),
-            'basket-to-marketplace': () => triggerCheckout(),
-            'open-account': () => openAccountModal(),
             'dismiss-announcement': () => {
                 const bar = document.getElementById('announcement-bar');
                 if (bar) bar.remove();
             },
-            'filter-category': (element) => filterCategoryAndNavigate(element.dataset.category),
             // The "All Products" tab carries an empty category, so it is the
             // absence of a value that means "everything" — the same default the
             // per-button listener used to apply.
-            'filter-tab': (element) => filterTab(element.dataset.category || 'All Products', element),
+            'filter-tab': (element) => filterTab(element.dataset.category || 'All Products'),
             'quick-search': (element) => quickSearch(element.dataset.query),
             toast: (element) => showToast(element.dataset.message),
-            'open-quick-view': (element) => openQuickView(actionProductId(element)),
             'add-to-cart': (element) => {
                 const id = actionProductId(element);
                 if (id === null) return;
 
                 addToCart(id);
-
-                if (element.dataset.closeQuickView === 'true') closeQuickView();
             },
-            'cart-increase': (element) => updateCartQuantity(actionProductId(element), 1),
-            'cart-decrease': (element) => updateCartQuantity(actionProductId(element), -1),
+            'remove-from-cart': (element) => removeFromCart(actionProductId(element)),
+            'view-product-image': (element) => showProductImage(element),
+            'share-product': (element) => shareCurrentPage(element),
             'toggle-faq': (element) => toggleFAQ(element)
         };
 
         document.addEventListener('click', (event) => {
             const element = event.target.closest('[data-action]');
             if (!element) return;
+
+            /*
+             * A real link wins over the action around it.
+             *
+             * A product card is clickable as a whole (Module 48) and contains a
+             * "Buy on Meesho" link. Without this, clicking that link would open
+             * the product details *and* leave for the shop. Only a link nested
+             * *inside* the action element counts — clicking the element itself
+             * still runs its action, and many controls are anchors themselves.
+             */
+            const clickedLink = event.target.closest('a[href]');
+
+            if (clickedLink && clickedLink !== element && element.contains(clickedLink)) return;
 
             const action = ACTIONS[element.dataset.action];
 
@@ -829,14 +989,12 @@
         const searchInput = document.getElementById('search-input');
         if (searchInput) searchInput.addEventListener('input', handleLiveSearch);
 
-        /** The newsletter form has no server: it acknowledges and stops there. */
-        const newsletterForm = document.getElementById('newsletter-form');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', (event) => {
-                event.preventDefault();
-                showToast('Thank you for subscribing to HerbalVan!');
-            });
-        }
+        /*
+         * The newsletter form and its acknowledgement lived here. The whole section
+         * was removed at the owner's request (Module 48), so there is no form left to
+         * listen to and no "thank you for subscribing" that promises an email list
+         * nobody runs.
+         */
 
         // Initialize App on Window Load
         window.onload = function() {
@@ -849,9 +1007,11 @@
                     renderProducts();
                     renderReviews();
                     renderFaqs();
-                    renderPolicies();
-                    renderRituals();
                     updateCartUI();
+
+                    // Last, because it may scroll: every section has to be in its
+                    // final place before the page can be moved to one of them.
+                    applyAddressFragment();
                 })
                 .catch(error => {
                     // The page stays usable without data: the layout, hero, and
@@ -874,8 +1034,7 @@
             'data/products.json',
             'data/best-seller.json',
             'data/reviews.json',
-            'data/faqs.json',
-            'data/policies.json'
+            'data/faqs.json'
         ];
 
         /**
@@ -896,7 +1055,7 @@
                 })
             );
 
-            const [settingsFile, categoriesFile, productsFile, bestSellerFile, reviewsFile, faqsFile, policiesFile] = payloads;
+            const [settingsFile, categoriesFile, productsFile, bestSellerFile, reviewsFile, faqsFile] = payloads;
 
             siteSettings = settingsFile.item || {};
             categories = categoriesFile.items || [];
@@ -904,7 +1063,6 @@
             bestSeller = bestSellerFile.item || null;
             reviews = reviewsFile.items || [];
             faqs = faqsFile.items || [];
-            policies = policiesFile.items || [];
 
             return true;
         }
@@ -935,6 +1093,38 @@
                 if (!name) return;
 
                 node.textContent = node.dataset.siteName === 'upper' ? name.toUpperCase() : name;
+            });
+
+            /*
+             * The owner's own logo, when they have uploaded one (Module 47).
+             *
+             * The logo and the monogram are two separate elements, not two children
+             * of one badge (Module 50): the logo is a transparent wordmark and is
+             * shown at its own width with no panel or circle behind it, so squeezing
+             * it into a 40px badge was what made it unreadable. Exactly one of the two
+             * is shown, and with no logo set the approved monogram design stays.
+             */
+            const logo = siteSettings.logo;
+
+            document.querySelectorAll('[data-site-logo]').forEach(img => {
+                const fallback = img.parentElement?.querySelector('[data-logo-fallback]');
+
+                if (!logo?.src) {
+                    img.hidden = true;
+                    img.removeAttribute('src');
+                    if (fallback) fallback.hidden = false;
+                    return;
+                }
+
+                if (logo.srcset) img.srcset = logo.srcset;
+                img.src = logo.src;
+                // The site name is a better name than nothing when the owner has not
+                // written alt text for the logo; an unlabelled brand image helps nobody.
+                img.alt = logo.alt || siteSettings.siteName || 'HerbalVan';
+                if (logo.width) img.width = logo.width;
+                if (logo.height) img.height = logo.height;
+                img.hidden = false;
+                if (fallback) fallback.hidden = true;
             });
 
             document.querySelectorAll('[data-contact-email]').forEach(node => {
@@ -1030,18 +1220,15 @@
          * desktop navigation, the mobile menu, and the footer column.
          */
         function renderCategories() {
-            // Shop tabs
+            // Shop tabs stay buttons: they filter the grid in place, which is what
+            // the owner asked for on the home page.
             const tabs = document.querySelector('[data-category-tabs]');
 
             if (tabs) {
                 const activeClass = "tab-btn bg-brand-forest text-white font-bold px-5 py-2 rounded-full text-xs sm:text-sm whitespace-nowrap shadow-sm transition-all";
                 const idleClass = "tab-btn bg-white hover:bg-brand-beige text-brand-forest font-bold px-5 py-2 rounded-full text-xs sm:text-sm whitespace-nowrap transition-all border border-brand-sandDark/80";
 
-                // The generated tabs carry the same `data-action="filter-tab"` as
-                // the ones already in the markup, so one delegated listener serves
-                // both — including the tabs that are still on the page before this
-                // script runs, and if the data never loads at all.
-                tabs.innerHTML = `<button type="button" class="${activeClass}" data-action="filter-tab" data-category="">All Products</button>`;
+                tabs.innerHTML = `<button type="button" class="${activeClass}" data-action="filter-tab" data-category="All Products">All Products</button>`;
 
                 categories.forEach(category => {
                     const button = document.createElement('button');
@@ -1055,38 +1242,37 @@
                 });
             }
 
-            // Desktop navigation
-            replaceCategoryItems('[data-category-nav]', category => {
-                const button = document.createElement('button');
-                button.type = 'button';
-                button.className = 'nav-link hover:text-brand-botanicalDark transition-colors';
-                button.textContent = category.name;
-                button.addEventListener('click', () => filterCategoryAndNavigate(category.name));
-                return button;
-            });
+            /*
+             * Everything else is a real link to the generated collection page
+             * (Module 49), so the menu, the mobile list, and the footer work with
+             * JavaScript switched off, and every collection has one address that can
+             * be shared and crawled. The markup carries the same links as a fallback,
+             * and the build fails if a link has no page — which is what makes
+             * hard-coding these addresses safe.
+             */
+            const collectionLink = (category, className) => {
+                const link = document.createElement('a');
 
-            // Mobile menu
-            replaceCategoryItems('[data-category-mobile]', category => {
-                const button = document.createElement('button');
-                button.type = 'button';
-                button.className = 'text-left text-gray-600 pl-4 hover:text-brand-botanicalDark';
-                button.textContent = `• ${category.name}`;
-                button.addEventListener('click', () => {
-                    filterCategoryAndNavigate(category.name);
-                    toggleMobileMenu();
-                });
-                return button;
-            });
+                link.className = className;
+                link.href = `collection-${category.slug}.html`;
+                link.textContent = category.name;
+                return link;
+            };
 
-            // Footer shop column
+            replaceCategoryItems('[data-category-nav]', category => collectionLink(
+                category,
+                'nav-link hover:text-brand-botanicalDark transition-colors'
+            ));
+
+            replaceCategoryItems('[data-category-mobile]', category => collectionLink(
+                category,
+                'text-left text-gray-600 pl-4 hover:text-brand-botanicalDark'
+            ));
+
             replaceCategoryItems('[data-category-footer]', category => {
                 const item = document.createElement('li');
-                const button = document.createElement('button');
-                button.type = 'button';
-                button.className = 'hover:text-brand-cream transition-colors';
-                button.textContent = category.name;
-                button.addEventListener('click', () => filterCategoryAndNavigate(category.name));
-                item.appendChild(button);
+
+                item.appendChild(collectionLink(category, 'hover:text-brand-cream transition-colors'));
                 return item;
             });
         }
@@ -1135,7 +1321,7 @@
             setText('[data-best-seller-name]', bestSeller.name);
             setText('[data-best-seller-category]', bestSeller.category);
             setText('[data-best-seller-description]', bestSeller.shortDescription || bestSeller.description);
-            setText('[data-best-seller-price]', `₹${bestSeller.price}.00`);
+            setText('[data-best-seller-price]', formatPrice(bestSeller.price));
             setText('[data-best-seller-weight]', bestSeller.weight ? `${bestSeller.weight} Pure Herb` : null);
 
             const addButton = host.querySelector('[data-best-seller-add]');
@@ -1143,7 +1329,31 @@
             if (addButton) {
                 addButton.setAttribute('data-action', 'add-to-cart');
                 addButton.setAttribute('data-product-id', String(bestSeller.id));
-                addButton.setAttribute('aria-label', `Add ${bestSeller.name} to cart`);
+                addButton.setAttribute('aria-label', `Add ${bestSeller.name} to your basket`);
+            }
+
+            // The showcase links to the best seller's own page, like every card does.
+            host.querySelectorAll('[data-best-seller-link]').forEach(link => {
+                link.setAttribute('href', `product-${bestSeller.slug}.html`);
+            });
+
+            // The same buy button the cards use, so the showcase sends the visitor
+            // to the shop rather than only into the basket (Module 48).
+            const buyHost = host.querySelector('[data-best-seller-buy]');
+
+            if (buyHost) {
+                buyHost.innerHTML = buyButtonsMarkup(bestSeller);
+            }
+
+            const note = host.querySelector('[data-best-seller-note]');
+
+            if (note) {
+                if (bestSeller.deliveryNote) {
+                    note.textContent = bestSeller.deliveryNote;
+                    note.hidden = false;
+                } else {
+                    note.hidden = true;
+                }
             }
 
             const badge = host.querySelector('[data-best-seller-badge]');
@@ -1199,7 +1409,7 @@
             grid.innerHTML = reviews.map((review, index) => {
                 const product = products.find(item => item.id === review.productId);
                 const productLine = product
-                    ? `<button type="button" data-action="open-quick-view" data-product-id="${product.id}" class="hover:text-brand-botanicalDark transition-colors">${product.name}</button>`
+                    ? `<a href="product-${product.slug}.html" class="hover:text-brand-botanicalDark transition-colors">${product.name}</a>`
                     : `${review.productName}`;
                 const verification = review.verified ? 'Verified Customer Review' : 'Customer Review';
 
@@ -1248,59 +1458,14 @@
                         </div>`).join('');
         }
 
-        /**
-         * Policy pages (Module 21).
+        /*
+         * The in-page policy view lived here (Module 21).
          *
-         * Only published policies are linked. An unpublished policy has nothing
-         * to show, so its link is removed instead of opening a placeholder.
+         * Policies are real pages now — `policy-privacy.html`, `policy-terms.html`
+         * and so on (Module 49) — so the footer links straight at them and the
+         * published text is written into the page by the build. Nothing about a
+         * policy is rendered in the browser any more.
          */
-        function renderPolicies() {
-            const section = document.getElementById('policy-view');
-            const body = document.querySelector('[data-policy-body]');
-            const title = document.querySelector('[data-policy-title]');
-            const meta = document.querySelector('[data-policy-meta]');
-
-            const links = {
-                privacy: 'Privacy Policy',
-                terms: 'Terms & Conditions',
-                refund: 'Refund Policy',
-                shipping: 'Shipping Policy'
-            };
-
-            document.querySelectorAll('[data-policy-link]').forEach(link => {
-                const type = link.dataset.policyLink;
-                const published = policies.find(policy => policy.type === type);
-
-                if (!published) {
-                    link.remove();
-                    return;
-                }
-
-                link.removeAttribute('onclick');
-                link.setAttribute('href', '#');
-                link.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    openPolicy(type);
-                });
-            });
-
-            function openPolicy(type) {
-                const policy = policies.find(row => row.type === type);
-
-                if (!section || !body || !policy) return;
-
-                title.textContent = policy.title || links[type] || 'Policy';
-                meta.textContent = `Version ${policy.version} · updated ${String(policy.updatedAt || '').slice(0, 10)}`;
-                body.innerHTML = policy.content || '';
-
-                document.querySelectorAll('.view-section').forEach(view => view.classList.add('hidden'));
-                section.classList.remove('hidden');
-                scrollToTop();
-            }
-
-            // The generated content is stored HTML sanitized by the CMS.
-            window.openPolicy = openPolicy;
-        }
 
         /**
          * Contact details (Module 21): every public location reads the same

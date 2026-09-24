@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "bestSellerProductId": 1,
+  "bestSellerProductId": 15,
   "items": [
     {
       "id": 1,
@@ -15,23 +15,49 @@
       "description": "Sun-dried whole amla fruits finely ground for vitamin C hair strength and scalp vitality.",
       "ingredients": "100% Pure Phyllanthus Emblica (Amla) Powder",
       "howToUse": "Mix 2-3 tablespoons with warm water or yogurt. Apply to hair and scalp, keep for 30 minutes, then rinse.",
-      "image": "images/products/amla-powder/1/1200.webp",
+      "image": "images/products/amla-powder/25/1200.webp",
       "imageData": {
-        "src": "images/products/amla-powder/1/1200.webp",
-        "srcset": "images/products/amla-powder/1/400.webp 400w, images/products/amla-powder/1/800.webp 800w, images/products/amla-powder/1/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Amla Powder - 100g"
+        "src": "images/products/amla-powder/25/1200.webp",
+        "srcset": "images/products/amla-powder/25/400.webp 400w, images/products/amla-powder/25/800.webp 800w, images/products/amla-powder/25/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Amla Powder"
       },
-      "imageSrcset": "images/products/amla-powder/1/400.webp 400w, images/products/amla-powder/1/800.webp 800w, images/products/amla-powder/1/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/amla-powder/25/400.webp 400w, images/products/amla-powder/25/800.webp 800w, images/products/amla-powder/25/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/amla-powder/25/1200.webp",
+          "srcset": "images/products/amla-powder/25/400.webp 400w, images/products/amla-powder/25/800.webp 800w, images/products/amla-powder/25/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Amla Powder"
+        },
+        {
+          "src": "images/products/amla-powder/22/1200.webp",
+          "srcset": "images/products/amla-powder/22/400.webp 400w, images/products/amla-powder/22/800.webp 800w, images/products/amla-powder/22/1200.webp 1200w",
+          "width": 1774,
+          "height": 887,
+          "alt": "HerbalVan Amla Powder"
+        },
+        {
+          "src": "images/products/amla-powder/1/1200.webp",
+          "srcset": "images/products/amla-powder/1/400.webp 400w, images/products/amla-powder/1/800.webp 800w, images/products/amla-powder/1/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Amla Powder - 100g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 1,
-      "publishedReviewCount": 0,
-      "isBestSeller": true
+      "publishedReviewCount": 1,
+      "isBestSeller": false
     },
     {
       "id": 2,
@@ -46,22 +72,41 @@
       "description": "Natural soapnut powder rich in gentle plant saponins for mild chemical-free hair cleansing.",
       "ingredients": "100% Pure Sapindus Mukorossi (Reetha) Fruit Powder",
       "howToUse": "Boil or steep with warm water to create a mild foaming natural hair cleanser.",
-      "image": "images/products/reetha-powder/2/1200.webp",
+      "image": "images/products/reetha-powder/26/1200.webp",
       "imageData": {
-        "src": "images/products/reetha-powder/2/1200.webp",
-        "srcset": "images/products/reetha-powder/2/400.webp 400w, images/products/reetha-powder/2/800.webp 800w, images/products/reetha-powder/2/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Reetha Powder - 100g"
+        "src": "images/products/reetha-powder/26/1200.webp",
+        "srcset": "images/products/reetha-powder/26/400.webp 400w, images/products/reetha-powder/26/800.webp 800w, images/products/reetha-powder/26/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Reetha Powder"
       },
-      "imageSrcset": "images/products/reetha-powder/2/400.webp 400w, images/products/reetha-powder/2/800.webp 800w, images/products/reetha-powder/2/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/reetha-powder/26/400.webp 400w, images/products/reetha-powder/26/800.webp 800w, images/products/reetha-powder/26/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/reetha-powder/26/1200.webp",
+          "srcset": "images/products/reetha-powder/26/400.webp 400w, images/products/reetha-powder/26/800.webp 800w, images/products/reetha-powder/26/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Reetha Powder"
+        },
+        {
+          "src": "images/products/reetha-powder/2/1200.webp",
+          "srcset": "images/products/reetha-powder/2/400.webp 400w, images/products/reetha-powder/2/800.webp 800w, images/products/reetha-powder/2/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Reetha Powder - 100g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
-      "publishedReviewCount": 0,
+      "publishedReviewCount": 1,
       "isBestSeller": false
     },
     {
@@ -77,20 +122,39 @@
       "description": "Traditional 'King of Herbs' for soothing hair conditioning and root revitalization.",
       "ingredients": "100% Pure Eclipta Alba (Bhringraj) Powder",
       "howToUse": "Combine with sesame or coconut oil or mix into water paste for scalp application.",
-      "image": "images/products/bhringraj-powder/3/1200.webp",
+      "image": "images/products/bhringraj-powder/27/1200.webp",
       "imageData": {
-        "src": "images/products/bhringraj-powder/3/1200.webp",
-        "srcset": "images/products/bhringraj-powder/3/400.webp 400w, images/products/bhringraj-powder/3/800.webp 800w, images/products/bhringraj-powder/3/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Bhringraj Powder - 100g"
+        "src": "images/products/bhringraj-powder/27/1200.webp",
+        "srcset": "images/products/bhringraj-powder/27/400.webp 400w, images/products/bhringraj-powder/27/800.webp 800w, images/products/bhringraj-powder/27/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Bhringraj Powder"
       },
-      "imageSrcset": "images/products/bhringraj-powder/3/400.webp 400w, images/products/bhringraj-powder/3/800.webp 800w, images/products/bhringraj-powder/3/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/bhringraj-powder/27/400.webp 400w, images/products/bhringraj-powder/27/800.webp 800w, images/products/bhringraj-powder/27/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/bhringraj-powder/27/1200.webp",
+          "srcset": "images/products/bhringraj-powder/27/400.webp 400w, images/products/bhringraj-powder/27/800.webp 800w, images/products/bhringraj-powder/27/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Bhringraj Powder"
+        },
+        {
+          "src": "images/products/bhringraj-powder/3/1200.webp",
+          "srcset": "images/products/bhringraj-powder/3/400.webp 400w, images/products/bhringraj-powder/3/800.webp 800w, images/products/bhringraj-powder/3/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Bhringraj Powder - 100g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
       "publishedReviewCount": 0,
       "isBestSeller": false
@@ -108,20 +172,39 @@
       "description": "Vibrant red hibiscus petal powder for ultra-soft texture and moisture retention.",
       "ingredients": "100% Pure Hibiscus Rosa-Sinensis Petal Powder",
       "howToUse": "Mix with aloe vera gel or water for a cooling 20-minute conditioning mask.",
-      "image": "images/products/hibiscus-powder/4/1200.webp",
+      "image": "images/products/hibiscus-powder/28/1200.webp",
       "imageData": {
-        "src": "images/products/hibiscus-powder/4/1200.webp",
-        "srcset": "images/products/hibiscus-powder/4/400.webp 400w, images/products/hibiscus-powder/4/800.webp 800w, images/products/hibiscus-powder/4/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Hibiscus Powder - 100g"
+        "src": "images/products/hibiscus-powder/28/1200.webp",
+        "srcset": "images/products/hibiscus-powder/28/400.webp 400w, images/products/hibiscus-powder/28/800.webp 800w, images/products/hibiscus-powder/28/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Hibiscus Powder"
       },
-      "imageSrcset": "images/products/hibiscus-powder/4/400.webp 400w, images/products/hibiscus-powder/4/800.webp 800w, images/products/hibiscus-powder/4/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/hibiscus-powder/28/400.webp 400w, images/products/hibiscus-powder/28/800.webp 800w, images/products/hibiscus-powder/28/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/hibiscus-powder/28/1200.webp",
+          "srcset": "images/products/hibiscus-powder/28/400.webp 400w, images/products/hibiscus-powder/28/800.webp 800w, images/products/hibiscus-powder/28/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Hibiscus Powder"
+        },
+        {
+          "src": "images/products/hibiscus-powder/4/1200.webp",
+          "srcset": "images/products/hibiscus-powder/4/400.webp 400w, images/products/hibiscus-powder/4/800.webp 800w, images/products/hibiscus-powder/4/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Hibiscus Powder - 100g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
       "publishedReviewCount": 0,
       "isBestSeller": false
@@ -139,22 +222,41 @@
       "description": "Authentic Indian Fuller's Earth clay for deep oil cleansing and cooling face packs.",
       "ingredients": "100% Natural Calcium Bentonite (Multani Mitti)",
       "howToUse": "Blend with rose water into a smooth paste. Apply to face, let dry, and rinse thoroughly.",
-      "image": "images/products/multani-mitti/5/1200.webp",
+      "image": "images/products/multani-mitti/29/1200.webp",
       "imageData": {
-        "src": "images/products/multani-mitti/5/1200.webp",
-        "srcset": "images/products/multani-mitti/5/400.webp 400w, images/products/multani-mitti/5/800.webp 800w, images/products/multani-mitti/5/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Multani Mitti - 150g"
+        "src": "images/products/multani-mitti/29/1200.webp",
+        "srcset": "images/products/multani-mitti/29/400.webp 400w, images/products/multani-mitti/29/800.webp 800w, images/products/multani-mitti/29/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Multani Mitti"
       },
-      "imageSrcset": "images/products/multani-mitti/5/400.webp 400w, images/products/multani-mitti/5/800.webp 800w, images/products/multani-mitti/5/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/multani-mitti/29/400.webp 400w, images/products/multani-mitti/29/800.webp 800w, images/products/multani-mitti/29/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/multani-mitti/29/1200.webp",
+          "srcset": "images/products/multani-mitti/29/400.webp 400w, images/products/multani-mitti/29/800.webp 800w, images/products/multani-mitti/29/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Multani Mitti"
+        },
+        {
+          "src": "images/products/multani-mitti/5/1200.webp",
+          "srcset": "images/products/multani-mitti/5/400.webp 400w, images/products/multani-mitti/5/800.webp 800w, images/products/multani-mitti/5/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Multani Mitti - 150g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
-      "publishedReviewCount": 0,
+      "publishedReviewCount": 1,
       "isBestSeller": false
     },
     {
@@ -170,20 +272,39 @@
       "description": "Wild acacia concinna pods finely ground for low-pH gentle hair wash.",
       "ingredients": "100% Pure Acacia Concinna (Shikakai) Fruit Powder",
       "howToUse": "Mix with Reetha and Amla powders for a traditional 3-in-1 herbal shampoo pack.",
-      "image": "images/products/shikakai-powder/6/1200.webp",
+      "image": "images/products/shikakai-powder/30/1200.webp",
       "imageData": {
-        "src": "images/products/shikakai-powder/6/1200.webp",
-        "srcset": "images/products/shikakai-powder/6/400.webp 400w, images/products/shikakai-powder/6/800.webp 800w, images/products/shikakai-powder/6/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Shikakai Powder - 100g"
+        "src": "images/products/shikakai-powder/30/1200.webp",
+        "srcset": "images/products/shikakai-powder/30/400.webp 400w, images/products/shikakai-powder/30/800.webp 800w, images/products/shikakai-powder/30/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Shikakai Powder"
       },
-      "imageSrcset": "images/products/shikakai-powder/6/400.webp 400w, images/products/shikakai-powder/6/800.webp 800w, images/products/shikakai-powder/6/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/shikakai-powder/30/400.webp 400w, images/products/shikakai-powder/30/800.webp 800w, images/products/shikakai-powder/30/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/shikakai-powder/30/1200.webp",
+          "srcset": "images/products/shikakai-powder/30/400.webp 400w, images/products/shikakai-powder/30/800.webp 800w, images/products/shikakai-powder/30/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Shikakai Powder"
+        },
+        {
+          "src": "images/products/shikakai-powder/6/1200.webp",
+          "srcset": "images/products/shikakai-powder/6/400.webp 400w, images/products/shikakai-powder/6/800.webp 800w, images/products/shikakai-powder/6/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Shikakai Powder - 100g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
       "publishedReviewCount": 0,
       "isBestSeller": false
@@ -201,20 +322,39 @@
       "description": "Pure Lawsonia Inermis leaves ground for natural copper conditioning color and sheen.",
       "ingredients": "100% Pure Lawsonia Inermis (Henna) Leaf Powder",
       "howToUse": "Soak in tea water overnight, apply evenly to hair strands, and wash after 1-2 hours.",
-      "image": "images/products/henna-powder/7/1200.webp",
+      "image": "images/products/henna-powder/31/1200.webp",
       "imageData": {
-        "src": "images/products/henna-powder/7/1200.webp",
-        "srcset": "images/products/henna-powder/7/400.webp 400w, images/products/henna-powder/7/800.webp 800w, images/products/henna-powder/7/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Henna Powder - 100g"
+        "src": "images/products/henna-powder/31/1200.webp",
+        "srcset": "images/products/henna-powder/31/400.webp 400w, images/products/henna-powder/31/800.webp 800w, images/products/henna-powder/31/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Henna Powder"
       },
-      "imageSrcset": "images/products/henna-powder/7/400.webp 400w, images/products/henna-powder/7/800.webp 800w, images/products/henna-powder/7/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/henna-powder/31/400.webp 400w, images/products/henna-powder/31/800.webp 800w, images/products/henna-powder/31/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/henna-powder/31/1200.webp",
+          "srcset": "images/products/henna-powder/31/400.webp 400w, images/products/henna-powder/31/800.webp 800w, images/products/henna-powder/31/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Henna Powder"
+        },
+        {
+          "src": "images/products/henna-powder/7/1200.webp",
+          "srcset": "images/products/henna-powder/7/400.webp 400w, images/products/henna-powder/7/800.webp 800w, images/products/henna-powder/7/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Henna Powder - 100g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
       "publishedReviewCount": 0,
       "isBestSeller": false
@@ -232,20 +372,39 @@
       "description": "Pure Indigofera Tinctoria leaf powder used after Henna for natural dark tones.",
       "ingredients": "100% Pure Indigofera Tinctoria (Indigo) Powder",
       "howToUse": "Mix fresh with lukewarm water and apply immediately after henna treatment.",
-      "image": "images/products/indigo-powder/8/1200.webp",
+      "image": "images/products/indigo-powder/32/1200.webp",
       "imageData": {
-        "src": "images/products/indigo-powder/8/1200.webp",
-        "srcset": "images/products/indigo-powder/8/400.webp 400w, images/products/indigo-powder/8/800.webp 800w, images/products/indigo-powder/8/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Indigo Powder - 100g"
+        "src": "images/products/indigo-powder/32/1200.webp",
+        "srcset": "images/products/indigo-powder/32/400.webp 400w, images/products/indigo-powder/32/800.webp 800w, images/products/indigo-powder/32/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Indigo Powder"
       },
-      "imageSrcset": "images/products/indigo-powder/8/400.webp 400w, images/products/indigo-powder/8/800.webp 800w, images/products/indigo-powder/8/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/indigo-powder/32/400.webp 400w, images/products/indigo-powder/32/800.webp 800w, images/products/indigo-powder/32/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/indigo-powder/32/1200.webp",
+          "srcset": "images/products/indigo-powder/32/400.webp 400w, images/products/indigo-powder/32/800.webp 800w, images/products/indigo-powder/32/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Indigo Powder"
+        },
+        {
+          "src": "images/products/indigo-powder/8/1200.webp",
+          "srcset": "images/products/indigo-powder/8/400.webp 400w, images/products/indigo-powder/8/800.webp 800w, images/products/indigo-powder/8/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Indigo Powder - 100g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
       "publishedReviewCount": 0,
       "isBestSeller": false
@@ -263,20 +422,39 @@
       "description": "Whole sun-dried aromatic rosemary leaves for preparing herbal hair rinse teas.",
       "ingredients": "100% Dried Rosmarinus Officinalis Leaves",
       "howToUse": "Steep 2 tablespoons in hot water for 15 minutes. Strain and use as a final hair rinse.",
-      "image": "images/products/rosemary-leaves/9/1200.webp",
+      "image": "images/products/rosemary-leaves/33/1200.webp",
       "imageData": {
-        "src": "images/products/rosemary-leaves/9/1200.webp",
-        "srcset": "images/products/rosemary-leaves/9/400.webp 400w, images/products/rosemary-leaves/9/800.webp 800w, images/products/rosemary-leaves/9/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Rosemary Leaves - 75g"
+        "src": "images/products/rosemary-leaves/33/1200.webp",
+        "srcset": "images/products/rosemary-leaves/33/400.webp 400w, images/products/rosemary-leaves/33/800.webp 800w, images/products/rosemary-leaves/33/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Rosemary Leaves"
       },
-      "imageSrcset": "images/products/rosemary-leaves/9/400.webp 400w, images/products/rosemary-leaves/9/800.webp 800w, images/products/rosemary-leaves/9/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/rosemary-leaves/33/400.webp 400w, images/products/rosemary-leaves/33/800.webp 800w, images/products/rosemary-leaves/33/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/rosemary-leaves/33/1200.webp",
+          "srcset": "images/products/rosemary-leaves/33/400.webp 400w, images/products/rosemary-leaves/33/800.webp 800w, images/products/rosemary-leaves/33/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Rosemary Leaves"
+        },
+        {
+          "src": "images/products/rosemary-leaves/9/1200.webp",
+          "srcset": "images/products/rosemary-leaves/9/400.webp 400w, images/products/rosemary-leaves/9/800.webp 800w, images/products/rosemary-leaves/9/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Rosemary Leaves - 75g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
       "publishedReviewCount": 0,
       "isBestSeller": false
@@ -294,20 +472,39 @@
       "description": "Traditional Bacopa Monnieri herb ground for soothing scalp applications.",
       "ingredients": "100% Pure Bacopa Monnieri (Brahmi) Powder",
       "howToUse": "Combine with Amla or oil for a relaxing scalp pack.",
-      "image": "images/products/brahmi-powder/10/1200.webp",
+      "image": "images/products/brahmi-powder/34/1200.webp",
       "imageData": {
-        "src": "images/products/brahmi-powder/10/1200.webp",
-        "srcset": "images/products/brahmi-powder/10/400.webp 400w, images/products/brahmi-powder/10/800.webp 800w, images/products/brahmi-powder/10/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Brahmi Powder - 100g"
+        "src": "images/products/brahmi-powder/34/1200.webp",
+        "srcset": "images/products/brahmi-powder/34/400.webp 400w, images/products/brahmi-powder/34/800.webp 800w, images/products/brahmi-powder/34/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Brahmi Powder"
       },
-      "imageSrcset": "images/products/brahmi-powder/10/400.webp 400w, images/products/brahmi-powder/10/800.webp 800w, images/products/brahmi-powder/10/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/brahmi-powder/34/400.webp 400w, images/products/brahmi-powder/34/800.webp 800w, images/products/brahmi-powder/34/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/brahmi-powder/34/1200.webp",
+          "srcset": "images/products/brahmi-powder/34/400.webp 400w, images/products/brahmi-powder/34/800.webp 800w, images/products/brahmi-powder/34/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Brahmi Powder"
+        },
+        {
+          "src": "images/products/brahmi-powder/10/1200.webp",
+          "srcset": "images/products/brahmi-powder/10/400.webp 400w, images/products/brahmi-powder/10/800.webp 800w, images/products/brahmi-powder/10/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Brahmi Powder - 100g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
       "publishedReviewCount": 0,
       "isBestSeller": false
@@ -325,20 +522,39 @@
       "description": "Pure shade-dried Indian Neem leaves for clarify face packs and scalp wellness.",
       "ingredients": "100% Pure Azadirachta Indica (Neem) Leaf Powder",
       "howToUse": "Mix a small pinch with Multani Mitti or water for targeted purifying face packs.",
-      "image": "images/products/neem-powder/11/1200.webp",
+      "image": "images/products/neem-powder/35/1200.webp",
       "imageData": {
-        "src": "images/products/neem-powder/11/1200.webp",
-        "srcset": "images/products/neem-powder/11/400.webp 400w, images/products/neem-powder/11/800.webp 800w, images/products/neem-powder/11/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Neem Powder - 100g"
+        "src": "images/products/neem-powder/35/1200.webp",
+        "srcset": "images/products/neem-powder/35/400.webp 400w, images/products/neem-powder/35/800.webp 800w, images/products/neem-powder/35/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Neem Powder"
       },
-      "imageSrcset": "images/products/neem-powder/11/400.webp 400w, images/products/neem-powder/11/800.webp 800w, images/products/neem-powder/11/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/neem-powder/35/400.webp 400w, images/products/neem-powder/35/800.webp 800w, images/products/neem-powder/35/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/neem-powder/35/1200.webp",
+          "srcset": "images/products/neem-powder/35/400.webp 400w, images/products/neem-powder/35/800.webp 800w, images/products/neem-powder/35/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Neem Powder"
+        },
+        {
+          "src": "images/products/neem-powder/11/1200.webp",
+          "srcset": "images/products/neem-powder/11/400.webp 400w, images/products/neem-powder/11/800.webp 800w, images/products/neem-powder/11/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Neem Powder - 100g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
       "publishedReviewCount": 0,
       "isBestSeller": false
@@ -356,20 +572,39 @@
       "description": "Sweet Licorice root powder for soothing skin complexion masks.",
       "ingredients": "100% Pure Glycyrrhiza Glabra (Mulethi) Root Powder",
       "howToUse": "Mix with milk or rose water to create a soothing skin pack.",
-      "image": "images/products/mulethi-powder/12/1200.webp",
+      "image": "images/products/mulethi-powder/36/1200.webp",
       "imageData": {
-        "src": "images/products/mulethi-powder/12/1200.webp",
-        "srcset": "images/products/mulethi-powder/12/400.webp 400w, images/products/mulethi-powder/12/800.webp 800w, images/products/mulethi-powder/12/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Mulethi Powder - 100g"
+        "src": "images/products/mulethi-powder/36/1200.webp",
+        "srcset": "images/products/mulethi-powder/36/400.webp 400w, images/products/mulethi-powder/36/800.webp 800w, images/products/mulethi-powder/36/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Mulethi Powder"
       },
-      "imageSrcset": "images/products/mulethi-powder/12/400.webp 400w, images/products/mulethi-powder/12/800.webp 800w, images/products/mulethi-powder/12/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/mulethi-powder/36/400.webp 400w, images/products/mulethi-powder/36/800.webp 800w, images/products/mulethi-powder/36/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/mulethi-powder/36/1200.webp",
+          "srcset": "images/products/mulethi-powder/36/400.webp 400w, images/products/mulethi-powder/36/800.webp 800w, images/products/mulethi-powder/36/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Mulethi Powder"
+        },
+        {
+          "src": "images/products/mulethi-powder/12/1200.webp",
+          "srcset": "images/products/mulethi-powder/12/400.webp 400w, images/products/mulethi-powder/12/800.webp 800w, images/products/mulethi-powder/12/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Mulethi Powder - 100g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
       "publishedReviewCount": 0,
       "isBestSeller": false
@@ -387,20 +622,39 @@
       "description": "Traditional Indian Madder root powder for skin tone balancing masks.",
       "ingredients": "100% Pure Rubia Cordifolia (Manjistha) Powder",
       "howToUse": "Blend with honey or yogurt for a 15-minute skin balancing pack.",
-      "image": "images/products/manjistha-powder/13/1200.webp",
+      "image": "images/products/manjistha-powder/37/1200.webp",
       "imageData": {
-        "src": "images/products/manjistha-powder/13/1200.webp",
-        "srcset": "images/products/manjistha-powder/13/400.webp 400w, images/products/manjistha-powder/13/800.webp 800w, images/products/manjistha-powder/13/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Manjistha Powder - 100g"
+        "src": "images/products/manjistha-powder/37/1200.webp",
+        "srcset": "images/products/manjistha-powder/37/400.webp 400w, images/products/manjistha-powder/37/800.webp 800w, images/products/manjistha-powder/37/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Manjistha Powder"
       },
-      "imageSrcset": "images/products/manjistha-powder/13/400.webp 400w, images/products/manjistha-powder/13/800.webp 800w, images/products/manjistha-powder/13/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/manjistha-powder/37/400.webp 400w, images/products/manjistha-powder/37/800.webp 800w, images/products/manjistha-powder/37/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/manjistha-powder/37/1200.webp",
+          "srcset": "images/products/manjistha-powder/37/400.webp 400w, images/products/manjistha-powder/37/800.webp 800w, images/products/manjistha-powder/37/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Manjistha Powder"
+        },
+        {
+          "src": "images/products/manjistha-powder/13/1200.webp",
+          "srcset": "images/products/manjistha-powder/13/400.webp 400w, images/products/manjistha-powder/13/800.webp 800w, images/products/manjistha-powder/13/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Manjistha Powder - 100g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
       "publishedReviewCount": 0,
       "isBestSeller": false
@@ -418,20 +672,39 @@
       "description": "Zesty sun-dried orange peel powder packed with natural citrus brightness.",
       "ingredients": "100% Pure Citrus Sinensis (Orange) Peel Powder",
       "howToUse": "Mix with Multani Mitti or plain curd for an exfoliating face pack.",
-      "image": "images/products/orange-peel-powder/14/1200.webp",
+      "image": "images/products/orange-peel-powder/38/1200.webp",
       "imageData": {
-        "src": "images/products/orange-peel-powder/14/1200.webp",
-        "srcset": "images/products/orange-peel-powder/14/400.webp 400w, images/products/orange-peel-powder/14/800.webp 800w, images/products/orange-peel-powder/14/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Orange Peel Powder - 100g"
+        "src": "images/products/orange-peel-powder/38/1200.webp",
+        "srcset": "images/products/orange-peel-powder/38/400.webp 400w, images/products/orange-peel-powder/38/800.webp 800w, images/products/orange-peel-powder/38/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Orange Peel Powder"
       },
-      "imageSrcset": "images/products/orange-peel-powder/14/400.webp 400w, images/products/orange-peel-powder/14/800.webp 800w, images/products/orange-peel-powder/14/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/orange-peel-powder/38/400.webp 400w, images/products/orange-peel-powder/38/800.webp 800w, images/products/orange-peel-powder/38/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/orange-peel-powder/38/1200.webp",
+          "srcset": "images/products/orange-peel-powder/38/400.webp 400w, images/products/orange-peel-powder/38/800.webp 800w, images/products/orange-peel-powder/38/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Orange Peel Powder"
+        },
+        {
+          "src": "images/products/orange-peel-powder/14/1200.webp",
+          "srcset": "images/products/orange-peel-powder/14/400.webp 400w, images/products/orange-peel-powder/14/800.webp 800w, images/products/orange-peel-powder/14/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Orange Peel Powder - 100g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
       "publishedReviewCount": 0,
       "isBestSeller": false
@@ -449,23 +722,42 @@
       "description": "Aromatic shade-dried rose petals finely milled for hydrating cooling face masks.",
       "ingredients": "100% Pure Rosa Centifolia Petal Powder",
       "howToUse": "Combine with rose water or honey for a gentle, cooling skin mask.",
-      "image": "images/products/rose-petal-powder/15/1200.webp",
+      "image": "images/products/rose-petal-powder/39/1200.webp",
       "imageData": {
-        "src": "images/products/rose-petal-powder/15/1200.webp",
-        "srcset": "images/products/rose-petal-powder/15/400.webp 400w, images/products/rose-petal-powder/15/800.webp 800w, images/products/rose-petal-powder/15/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Rose Petal Powder - 100g"
+        "src": "images/products/rose-petal-powder/39/1200.webp",
+        "srcset": "images/products/rose-petal-powder/39/400.webp 400w, images/products/rose-petal-powder/39/800.webp 800w, images/products/rose-petal-powder/39/1200.webp 1200w",
+        "width": 945,
+        "height": 1182,
+        "alt": "HerbalVan Rose Petal Powder"
       },
-      "imageSrcset": "images/products/rose-petal-powder/15/400.webp 400w, images/products/rose-petal-powder/15/800.webp 800w, images/products/rose-petal-powder/15/1200.webp 1200w",
-      "marketplace": {
-        "meesho": null,
-        "amazon": null,
-        "flipkart": null
-      },
+      "imageSrcset": "images/products/rose-petal-powder/39/400.webp 400w, images/products/rose-petal-powder/39/800.webp 800w, images/products/rose-petal-powder/39/1200.webp 1200w",
+      "images": [
+        {
+          "src": "images/products/rose-petal-powder/39/1200.webp",
+          "srcset": "images/products/rose-petal-powder/39/400.webp 400w, images/products/rose-petal-powder/39/800.webp 800w, images/products/rose-petal-powder/39/1200.webp 1200w",
+          "width": 945,
+          "height": 1182,
+          "alt": "HerbalVan Rose Petal Powder"
+        },
+        {
+          "src": "images/products/rose-petal-powder/15/1200.webp",
+          "srcset": "images/products/rose-petal-powder/15/400.webp 400w, images/products/rose-petal-powder/15/800.webp 800w, images/products/rose-petal-powder/15/1200.webp 1200w",
+          "width": 1200,
+          "height": 1200,
+          "alt": "HerbalVan Rose Petal Powder - 100g"
+        }
+      ],
+      "purchaseLinks": [
+        {
+          "shop": "meesho",
+          "label": "Meesho",
+          "url": "https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h"
+        }
+      ],
+      "deliveryNote": "+ Meesho delivery charge",
       "featured": 0,
       "publishedReviewCount": 0,
-      "isBestSeller": false
+      "isBestSeller": true
     }
   ]
 }
