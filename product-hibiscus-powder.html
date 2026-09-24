@@ -50,6 +50,18 @@
 <!-- Keyboard users should not have to tab through the whole header first -->
     <a href="#main-content" class="skip-link">Skip to the products</a>
 
+    <!--
+        Short announcements for screen readers (Module 53).
+
+        It exists because the basket no longer opens itself when something is added: a
+        visitor using a screen reader would otherwise get no confirmation at all, since
+        the bump and the count are visual. The toast writes its message here as well as
+        on screen, so "Added Amla Powder to your basket" is spoken without moving focus
+        or interrupting anything. The region is empty until there is something to say,
+        which is what makes a live region announce reliably.
+    -->
+    <p id="live-status" class="sr-only" role="status" aria-live="polite"></p>
+
     <!-- Top Announcement Bar -->
     <div id="announcement-bar" class="bg-brand-forest text-brand-ivory text-xs sm:text-sm py-2 px-4 text-center font-medium transition-all duration-300 relative z-50">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
@@ -205,9 +217,12 @@
 <!--
     Product page body (Module 49, laid out again in Module 50).
 
-    Filled by `scripts/build/pages.js` at build time. Every `Hibiscus Powder` must have a
-    value — the build fails on an unknown or unfilled placeholder rather than
-    shipping a page with `₹210.00` in it.
+    Filled by `scripts/build/pages.js` at build time. Every placeholder must have a
+    value — the build fails on an unknown or unfilled one rather than shipping a
+    page with the braces still visible to a customer. (The placeholders are written
+    as double curly braces; they are described here in words on purpose, because the
+    build reads this comment too and a placeholder named in prose is read as one the
+    template needs.)
 
     The order is the one every large shop uses, because it is the order a customer
     reads in: pictures, then the facts and the price, then the button that buys it,
@@ -276,15 +291,16 @@
 
                     <p class="text-sm text-gray-600 leading-relaxed">Vibrant red hibiscus petal powder for ultra-soft texture and moisture retention.</p>
 
-                    <!-- Price. The currency symbol comes from the build, so this
-                         template must not add a second one (Module 50). -->
-                    <div class="border-t border-b border-brand-sandDark/60 py-5">
-                        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                            <span class="text-3xl sm:text-4xl font-black text-brand-forest">₹210.00</span>
-                            <span class="text-sm font-semibold text-gray-500">per 100g</span>
-                        </div>
-                        <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                    </div>
+                    <!--
+                        The price area. The build writes this whole block — the price,
+                        the pack size, and the delivery line — or replaces it with the
+                        pack size alone when the owner has switched prices off (Module 52).
+                        It is one placeholder rather than three so the switch cannot leave
+                        an empty bordered box behind. The words are deliberately described
+                        rather than written here: this comment is published, and a price
+                        hidden from the shop should not be readable in the source either.
+                    -->
+                    <p class="text-sm font-semibold text-gray-500">100g pack</p>
 
                     <!-- The buy button is the main action (Module 48); the basket is
                          the quiet second choice, and sharing is third. -->
@@ -340,10 +356,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹199.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="1"
@@ -371,10 +384,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹180.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="2"
@@ -402,10 +412,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹220.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="3"
@@ -433,10 +440,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹190.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="6"

@@ -71,11 +71,28 @@
          * The small line under a price: "+ Meesho delivery charge", or
          * "+ delivery charges" when a product is listed in more than one shop.
          * Written by the build, not guessed here.
+         *
+         * Empty when the owner has switched prices off (Module 52): the delivery line
+         * only means anything under a price, and the owner asked for the two to go
+         * together.
          */
         function deliveryNoteMarkup(product) {
+            if (!pricesAreShown()) return '';
+
             return product && product.deliveryNote
                 ? `<span class="block text-[10px] text-gray-500 font-semibold mt-0.5">${product.deliveryNote}</span>`
                 : '';
+        }
+
+        /**
+         * Whether prices may be shown at all (Module 52).
+         *
+         * Shown unless the owner has switched them off, so the site keeps working if
+         * the data predates the setting — and one place decides, rather than a check
+         * repeated in every renderer that happens to print a price.
+         */
+        function pricesAreShown() {
+            return siteSettings.showPrices !== false;
         }
 
         /**
@@ -91,6 +108,45 @@
             const value = Number(price);
 
             return Number.isFinite(value) ? `₹${value.toFixed(2)}` : '';
+        }
+
+        /**
+         * A price, or nothing at all (Module 52).
+         *
+         * Every place that prints a price calls this, so switching prices off cannot
+         * leave one of them behind. The markup around it stays where it is: the
+         * element simply has no text.
+         */
+        function priceMarkup(price) {
+            return pricesAreShown() ? formatPrice(price) : '';
+        }
+
+        /**
+         * The card's price block — price and delivery line — or nothing (Module 52).
+         *
+         * A wrapper of its own so that hiding the price also removes the space it
+         * was holding, rather than leaving an empty row pushing the buy button away
+         * from the description.
+         */
+        function cardPriceBlock(product) {
+            const price = priceMarkup(product.price);
+
+            if (!price) return '';
+
+            return `<div class="mb-3">
+                            <span class="text-xl font-extrabold text-brand-forest">${price}</span>
+                            ${deliveryNoteMarkup(product)}
+                        </div>`;
+        }
+
+        /** The basket line for one item's price, or nothing (Module 52). */
+        function cartPriceBlock(item) {
+            const price = priceMarkup(item.price);
+
+            if (!price) return '';
+
+            return `<div class="text-xs font-bold text-brand-botanicalDark mt-0.5">${price}</div>`
+                + deliveryNoteMarkup(item);
         }
 
         /**
@@ -201,10 +257,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">${formatPrice(product.price)}</span>
-                            ${deliveryNoteMarkup(product)}
-                        </div>
+                        ${cardPriceBlock(product)}
                         <div class="flex items-center gap-2">
                             ${buyButton}
                             <button data-action="add-to-cart" data-product-id="${product.id}" aria-label="Add ${product.name} to the basket" title="Add to basket" class="shrink-0 w-10 h-10 flex items-center justify-center bg-brand-ivory hover:bg-brand-cream text-brand-forest border border-brand-sandDark/70 rounded-xl transition-colors active:scale-95">
@@ -221,6 +274,15 @@
            both views, their sections, and the markup they filled were removed at
            the owner's request, so the renderers went with them. */
 
+        /**
+         * Adds a product to the basket (Module 53, owner request).
+         *
+         * The drawer used to open on every add, which interrupted whatever the visitor
+         * was reading — and on a product page it covered the page they had just decided
+         * to buy from. It stays shut now. The confirmation is the cart button bumping,
+         * the count going up, and a line of text: on screen as a toast, and spoken
+         * through the live region for anyone who cannot see either.
+         */
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
             if (!product) return;
@@ -228,16 +290,41 @@
             if (cart.some(item => item.id === productId)) {
                 // The basket is a shortlist, not an order (Module 48): a product is
                 // either in it or not. Quantity is chosen on the shop's own page.
+                bumpCart();
                 showToast(`${product.name} is already in your basket`);
-                toggleCartDrawer(true);
                 return;
             }
 
             cart.push({ ...product });
 
             updateCartUI();
-            toggleCartDrawer(true);
+            bumpCart();
             showToast(`Added ${product.name} to your basket`);
+        }
+
+        /**
+         * The cart button's one-shot confirmation: a bump, and a pop on the count.
+         *
+         * The class is removed and the layout is read before it goes back on, because
+         * adding a class that is already there changes nothing — and a visitor who adds
+         * two products in a row should see it twice. Skipped entirely when the visitor
+         * has asked for reduced motion.
+         */
+        function bumpCart() {
+            if (prefersReducedMotion()) return;
+
+            for (const [id, className] of [
+                ['cart-button', 'cart-bump'],
+                ['cart-count-badge', 'cart-count-pop']
+            ]) {
+                const element = document.getElementById(id);
+
+                if (!element) continue;
+
+                element.classList.remove(className);
+                void element.offsetWidth;
+                element.classList.add(className);
+            }
         }
 
         function removeFromCart(productId) {
@@ -278,8 +365,7 @@
                         <div class="w-16 shrink-0">${productImageFrame(`<img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">`)}</div>
                         <div class="flex-1 min-w-0">
                             <h4 class="font-bold text-xs text-brand-forest truncate">${item.name}</h4>
-                            <div class="text-xs font-bold text-brand-botanicalDark mt-0.5">${formatPrice(item.price)}</div>
-                            ${deliveryNoteMarkup(item)}
+                            ${cartPriceBlock(item)}
                         </div>
                         <button data-action="remove-from-cart" data-product-id="${item.id}"
                                 class="shrink-0 w-8 h-8 flex items-center justify-center text-gray-500 hover:text-brand-forest rounded-lg"
@@ -624,7 +710,12 @@
             if (suggestions) suggestions.hidden = true;
             host.hidden = false;
 
-            host.innerHTML = results.map((product) => `
+            host.innerHTML = results.map((product) => {
+                // Read once: the row prints the price in one place, and with prices
+                // switched off there is nothing to print (Module 52).
+                const price = priceMarkup(product.price);
+
+                return `
                 <a href="product-${product.slug}.html"
                         class="w-full flex items-center gap-3 p-2.5 rounded-2xl border border-brand-sandDark/60 hover:border-brand-botanical hover:bg-brand-sageLight/60 transition-colors text-left">
                     <span class="w-12 shrink-0">${productImageFrame(product.image
@@ -634,9 +725,12 @@
                         <span class="block font-bold text-sm text-brand-forest truncate">${product.name}</span>
                         <span class="block text-[11px] text-gray-600 truncate">${product.category} · ${product.weight || ''}</span>
                     </span>
-                    <span class="font-extrabold text-sm text-brand-forest shrink-0">${formatPrice(product.price)}</span>
+                    ${price
+                        ? `<span class="font-extrabold text-sm text-brand-forest shrink-0">${price}</span>`
+                        : ''}
                 </a>
-            `).join('');
+            `;
+            }).join('');
         }
 
         function quickSearch(keyword) {
@@ -884,6 +978,18 @@
             toast.innerHTML = `<i class="fa-solid fa-leaf text-brand-cream" aria-hidden="true"></i> ${message}`;
             document.body.appendChild(toast);
             setTimeout(() => toast.remove(), 3000);
+
+            /*
+             * The same sentence, for anyone who cannot see the toast (Module 53).
+             *
+             * The toast itself is not a live region: it is created with its content
+             * already inside it, which is the case screen readers are least reliable
+             * about announcing. Writing into a region that is already on the page, and
+             * that was empty until now, is the pattern that works.
+             */
+            const status = document.getElementById('live-status');
+
+            if (status) status.textContent = message;
         }
 
         /* ==================================================================
@@ -1321,7 +1427,7 @@
             setText('[data-best-seller-name]', bestSeller.name);
             setText('[data-best-seller-category]', bestSeller.category);
             setText('[data-best-seller-description]', bestSeller.shortDescription || bestSeller.description);
-            setText('[data-best-seller-price]', formatPrice(bestSeller.price));
+            setText('[data-best-seller-price]', priceMarkup(bestSeller.price));
             setText('[data-best-seller-weight]', bestSeller.weight ? `${bestSeller.weight} Pure Herb` : null);
 
             const addButton = host.querySelector('[data-best-seller-add]');

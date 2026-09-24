@@ -344,6 +344,18 @@
     <!-- Keyboard users should not have to tab through the whole header first -->
     <a href="#main-content" class="skip-link">Skip to the products</a>
 
+    <!--
+        Short announcements for screen readers (Module 53).
+
+        It exists because the basket no longer opens itself when something is added: a
+        visitor using a screen reader would otherwise get no confirmation at all, since
+        the bump and the count are visual. The toast writes its message here as well as
+        on screen, so "Added Amla Powder to your basket" is spoken without moving focus
+        or interrupting anything. The region is empty until there is something to say,
+        which is what makes a live region announce reliably.
+    -->
+    <p id="live-status" class="sr-only" role="status" aria-live="polite"></p>
+
     <!-- Top Announcement Bar -->
     <div id="announcement-bar" class="bg-brand-forest text-brand-ivory text-xs sm:text-sm py-2 px-4 text-center font-medium transition-all duration-300 relative z-50">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
@@ -584,7 +596,15 @@
                                                 (Module 50.)
                                             -->
                                             <div class="flex flex-col">
-                                                <span class="text-2xl font-extrabold text-brand-forest" data-best-seller-price>₹199.00</span>
+                                                <!--
+                                                    Empty on purpose (Module 52). This is the pre-JS
+                                                    placeholder for the showcase, and it used to hold a
+                                                    hard-coded price — one that was wrong until the
+                                                    script ran, and that could not be hidden when the
+                                                    owner switches prices off. js/site.js fills it in
+                                                    from the real best seller when prices are shown.
+                                                -->
+                                                <span class="text-2xl font-extrabold text-brand-forest" data-best-seller-price></span>
                                                 <span class="text-[10px] text-gray-500 font-semibold" data-best-seller-note hidden></span>
                                                 <span class="text-[10px] text-gray-500 font-semibold" data-best-seller-weight>100g Pure Herb</span>
                                             </div>

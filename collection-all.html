@@ -136,6 +136,18 @@
 <!-- Keyboard users should not have to tab through the whole header first -->
     <a href="#main-content" class="skip-link">Skip to the products</a>
 
+    <!--
+        Short announcements for screen readers (Module 53).
+
+        It exists because the basket no longer opens itself when something is added: a
+        visitor using a screen reader would otherwise get no confirmation at all, since
+        the bump and the count are visual. The toast writes its message here as well as
+        on screen, so "Added Amla Powder to your basket" is spoken without moving focus
+        or interrupting anything. The region is empty until there is something to say,
+        which is what makes a live region announce reliably.
+    -->
+    <p id="live-status" class="sr-only" role="status" aria-live="polite"></p>
+
     <!-- Top Announcement Bar -->
     <div id="announcement-bar" class="bg-brand-forest text-brand-ivory text-xs sm:text-sm py-2 px-4 text-center font-medium transition-all duration-300 relative z-50">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
@@ -349,10 +361,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹199.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="1"
@@ -381,10 +390,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹180.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="2"
@@ -413,10 +419,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹220.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="3"
@@ -445,10 +448,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹210.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="4"
@@ -477,10 +477,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹149.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="5"
@@ -509,10 +506,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹190.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="6"
@@ -541,10 +535,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹175.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="7"
@@ -573,10 +564,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹240.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="8"
@@ -605,10 +593,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹250.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="9"
@@ -637,10 +622,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹210.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="10"
@@ -669,10 +651,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹160.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="11"
@@ -701,10 +680,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹195.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="12"
@@ -733,10 +709,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹230.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="13"
@@ -765,10 +738,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹170.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="14"
@@ -797,10 +767,7 @@
                     </a>
 
                     <div class="pt-3 border-t border-brand-sandDark/40">
-                        <div class="mb-3">
-                            <span class="text-xl font-extrabold text-brand-forest">₹220.00</span>
-                            <span class="block text-[10px] text-gray-500 font-semibold mt-0.5">+ Meesho delivery charge</span>
-                        </div>
+                        
                         <div class="flex items-center gap-2">
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="15"

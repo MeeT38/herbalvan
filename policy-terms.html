@@ -39,6 +39,18 @@
 <!-- Keyboard users should not have to tab through the whole header first -->
     <a href="#main-content" class="skip-link">Skip to the products</a>
 
+    <!--
+        Short announcements for screen readers (Module 53).
+
+        It exists because the basket no longer opens itself when something is added: a
+        visitor using a screen reader would otherwise get no confirmation at all, since
+        the bump and the count are visual. The toast writes its message here as well as
+        on screen, so "Added Amla Powder to your basket" is spoken without moving focus
+        or interrupting anything. The region is empty until there is something to say,
+        which is what makes a live region announce reliably.
+    -->
+    <p id="live-status" class="sr-only" role="status" aria-live="polite"></p>
+
     <!-- Top Announcement Bar -->
     <div id="announcement-bar" class="bg-brand-forest text-brand-ivory text-xs sm:text-sm py-2 px-4 text-center font-medium transition-all duration-300 relative z-50">
         <div class="max-w-7xl mx-auto flex items-center justify-between">

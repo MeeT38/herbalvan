@@ -12,6 +12,7 @@
     "announcementText": null,
     "announcementEnabled": false,
     "productBadgeEnabled": false,
+    "showPrices": false,
     "siteUrl": "https://meet38.github.io/herbalvan",
     "metaDescription": null,
     "logo": {
