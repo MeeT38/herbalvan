@@ -1,40 +1,40 @@
 {
   "version": 1,
   "item": {
-    "id": 15,
-    "name": "Rose Petal Powder",
-    "slug": "rose-petal-powder",
-    "category": "Skin Care",
-    "categoryId": 2,
-    "categorySlug": "skin-care",
+    "id": 4,
+    "name": "Hibiscus Powder",
+    "slug": "hibiscus-powder",
+    "category": "Hair Care",
+    "categoryId": 1,
+    "categorySlug": "hair-care",
     "weight": "100g",
-    "shortDescription": "Fragrant rose petal powder for soothing face masks.",
-    "description": "Aromatic shade-dried rose petals finely milled for hydrating cooling face masks.",
-    "ingredients": "100% Pure Rosa Centifolia Petal Powder",
-    "howToUse": "Combine with rose water or honey for a gentle, cooling skin mask.",
-    "image": "images/products/rose-petal-powder/39/1200.webp",
+    "shortDescription": "Nourishing botanical petal powder for shiny hair.",
+    "description": "Vibrant red hibiscus petal powder for ultra-soft texture and moisture retention.",
+    "ingredients": "100% Pure Hibiscus Rosa-Sinensis Petal Powder",
+    "howToUse": "Mix with aloe vera gel or water for a cooling 20-minute conditioning mask.",
+    "image": "images/products/hibiscus-powder/53/1200.webp",
     "imageData": {
-      "src": "images/products/rose-petal-powder/39/1200.webp",
-      "srcset": "images/products/rose-petal-powder/39/400.webp 400w, images/products/rose-petal-powder/39/800.webp 800w, images/products/rose-petal-powder/39/1200.webp 1200w",
-      "width": 945,
-      "height": 1182,
-      "alt": "HerbalVan Rose Petal Powder"
+      "src": "images/products/hibiscus-powder/53/1200.webp",
+      "srcset": "images/products/hibiscus-powder/53/400.webp 400w, images/products/hibiscus-powder/53/800.webp 800w, images/products/hibiscus-powder/53/1200.webp 1200w",
+      "width": 1254,
+      "height": 1254,
+      "alt": "HerbalVan Hibiscus Powder"
     },
-    "imageSrcset": "images/products/rose-petal-powder/39/400.webp 400w, images/products/rose-petal-powder/39/800.webp 800w, images/products/rose-petal-powder/39/1200.webp 1200w",
+    "imageSrcset": "images/products/hibiscus-powder/53/400.webp 400w, images/products/hibiscus-powder/53/800.webp 800w, images/products/hibiscus-powder/53/1200.webp 1200w",
     "images": [
       {
-        "src": "images/products/rose-petal-powder/39/1200.webp",
-        "srcset": "images/products/rose-petal-powder/39/400.webp 400w, images/products/rose-petal-powder/39/800.webp 800w, images/products/rose-petal-powder/39/1200.webp 1200w",
-        "width": 945,
-        "height": 1182,
-        "alt": "HerbalVan Rose Petal Powder"
+        "src": "images/products/hibiscus-powder/53/1200.webp",
+        "srcset": "images/products/hibiscus-powder/53/400.webp 400w, images/products/hibiscus-powder/53/800.webp 800w, images/products/hibiscus-powder/53/1200.webp 1200w",
+        "width": 1254,
+        "height": 1254,
+        "alt": "HerbalVan Hibiscus Powder"
       },
       {
-        "src": "images/products/rose-petal-powder/15/1200.webp",
-        "srcset": "images/products/rose-petal-powder/15/400.webp 400w, images/products/rose-petal-powder/15/800.webp 800w, images/products/rose-petal-powder/15/1200.webp 1200w",
-        "width": 1200,
-        "height": 1200,
-        "alt": "HerbalVan Rose Petal Powder - 100g"
+        "src": "images/products/hibiscus-powder/52/1200.webp",
+        "srcset": "images/products/hibiscus-powder/52/400.webp 400w, images/products/hibiscus-powder/52/800.webp 800w, images/products/hibiscus-powder/52/1200.webp 1200w",
+        "width": 1254,
+        "height": 1254,
+        "alt": "HerbalVan Hibiscus Powder"
       }
     ],
     "purchaseLinks": [

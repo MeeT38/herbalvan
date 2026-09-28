@@ -16,10 +16,17 @@
     "siteUrl": "https://meet38.github.io/herbalvan",
     "metaDescription": null,
     "logo": {
-      "src": "images/site/logo/40/1200.webp",
-      "srcset": "images/site/logo/40/400.webp 400w, images/site/logo/40/800.webp 800w, images/site/logo/40/1200.webp 1200w",
-      "width": 512,
-      "height": 256,
+      "src": "images/site/logo/45/1200.webp",
+      "srcset": "images/site/logo/45/400.webp 400w, images/site/logo/45/800.webp 800w, images/site/logo/45/1200.webp 1200w",
+      "width": 2084,
+      "height": 648,
+      "alt": ""
+    },
+    "footerLogo": {
+      "src": "images/site/footer-logo/76/1200.webp",
+      "srcset": "images/site/footer-logo/76/400.webp 400w, images/site/footer-logo/76/800.webp 800w, images/site/footer-logo/76/1200.webp 1200w",
+      "width": 2084,
+      "height": 2084,
       "alt": ""
     }
   }

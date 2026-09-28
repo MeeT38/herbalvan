@@ -5,9 +5,9 @@
       "id": 2,
       "name": "Skin Care",
       "slug": "skin-care",
-      "description": "Purifying clays and botanicals from the approved HTML category navigation.",
+      "description": "Purifying clays and botanicals",
       "sortOrder": 10,
-      "productCount": 6,
+      "productCount": 8,
       "image": {
         "src": "images/categories/skin-care/23/1200.webp",
         "srcset": "images/categories/skin-care/23/400.webp 400w, images/categories/skin-care/23/800.webp 800w, images/categories/skin-care/23/1200.webp 1200w",
@@ -20,18 +20,9 @@
       "id": 1,
       "name": "Hair Care",
       "slug": "hair-care",
-      "description": "Nourishment and cleansing botanicals from the approved HTML category navigation.",
+      "description": "Nourishment and cleansing botanicals",
       "sortOrder": 20,
-      "productCount": 8,
-      "image": null
-    },
-    {
-      "id": 3,
-      "name": "Herbal Powders",
-      "slug": "herbal-powders",
-      "description": "Pure single-ingredient herbs from the approved HTML category navigation.",
-      "sortOrder": 30,
-      "productCount": 1,
+      "productCount": 11,
       "image": null
     }
   ]

@@ -161,7 +161,9 @@
          * because there the whole product has to be visible.
          */
         function productImageFrame(inner, { className = '' } = {}) {
-            return `<div class="aspect-square w-full overflow-hidden rounded-xl bg-brand-ivory flex items-center justify-center ${className}">${inner}</div>`;
+            // Transparent, so a product photograph with a cut-out background sits on
+            // whatever it is placed on instead of on a cream square (Module 56).
+            return `<div class="aspect-square w-full overflow-hidden rounded-xl flex items-center justify-center ${className}">${inner}</div>`;
         }
 
         /**
@@ -238,7 +240,7 @@
 
                 card.innerHTML = `
                     <a href="product-${product.slug}.html" class="block">
-                        <div class="relative bg-brand-ivory rounded-2xl p-4 mb-4 overflow-hidden text-center border border-brand-beige">
+                        <div class="relative rounded-2xl p-4 mb-4 overflow-hidden text-center border border-brand-beige">
                             ${naturalBadge}${bestSellerBadge}
                             ${productImageFrame(imageMarkup)}
                         </div>
@@ -775,6 +777,30 @@
             });
         }
 
+        /**
+         * Moves to the next or previous picture in the gallery (Module 57).
+         *
+         * The arrows and the thumbnails are two ways to make the same choice, so this
+         * goes through `showProductImage` rather than repeating what it does: the
+         * large picture, the thumbnail ring, and `aria-current` all stay in step
+         * whichever control the visitor used.
+         *
+         * It wraps around at both ends, so the arrows are always useful.
+         */
+        function stepProductImage(direction) {
+            const thumbs = [...document.querySelectorAll('[data-action="view-product-image"]')];
+
+            if (thumbs.length < 2) return;
+
+            const current = thumbs.findIndex(thumb => thumb.getAttribute('aria-current') === 'true');
+            // Nothing marked yet means the first picture is showing, which is what
+            // the build writes into the markup.
+            const from = current === -1 ? 0 : current;
+            const next = (from + direction + thumbs.length) % thumbs.length;
+
+            showProductImage(thumbs[next]);
+        }
+
         function toggleFAQ(button) {
             const answer = button.nextElementSibling;
             const icon = button.querySelector('i');
@@ -1054,6 +1080,7 @@
             },
             'remove-from-cart': (element) => removeFromCart(actionProductId(element)),
             'view-product-image': (element) => showProductImage(element),
+            'gallery-step': (element) => stepProductImage(Number(element.dataset.galleryStep) || 1),
             'share-product': (element) => shareCurrentPage(element),
             'toggle-faq': (element) => toggleFAQ(element)
         };
@@ -1212,23 +1239,32 @@
              */
             const logo = siteSettings.logo;
 
-            document.querySelectorAll('[data-site-logo]').forEach(img => {
+            /*
+             * The footer's own logo (Module 58). It sits on dark green, where the
+             * brown wordmark cannot be read, so it is a separate setting — and when
+             * the owner has only one logo the footer shows that one, exactly as it did
+             * before this setting existed.
+             */
+            const footerLogo = siteSettings.footerLogo || logo;
+
+            document.querySelectorAll('[data-site-logo], [data-footer-logo]').forEach(img => {
+                const chosen = img.hasAttribute('data-footer-logo') ? footerLogo : logo;
                 const fallback = img.parentElement?.querySelector('[data-logo-fallback]');
 
-                if (!logo?.src) {
+                if (!chosen?.src) {
                     img.hidden = true;
                     img.removeAttribute('src');
                     if (fallback) fallback.hidden = false;
                     return;
                 }
 
-                if (logo.srcset) img.srcset = logo.srcset;
-                img.src = logo.src;
+                if (chosen.srcset) img.srcset = chosen.srcset;
+                img.src = chosen.src;
                 // The site name is a better name than nothing when the owner has not
                 // written alt text for the logo; an unlabelled brand image helps nobody.
-                img.alt = logo.alt || siteSettings.siteName || 'HerbalVan';
-                if (logo.width) img.width = logo.width;
-                if (logo.height) img.height = logo.height;
+                img.alt = chosen.alt || siteSettings.siteName || 'HerbalVan';
+                if (chosen.width) img.width = chosen.width;
+                if (chosen.height) img.height = chosen.height;
                 img.hidden = false;
                 if (fallback) fallback.hidden = true;
             });
@@ -1558,7 +1594,7 @@
                                 <span>${faq.question}</span>
                                 <i class="fa-solid fa-chevron-down text-brand-botanical transition-transform"></i>
                             </button>
-                            <div class="faq-answer hidden p-5 bg-white border-t border-brand-sandDark/40 text-sm text-gray-600 leading-relaxed">
+                            <div class="hidden p-5 bg-white border-t border-brand-sandDark/40 text-sm text-gray-600 leading-relaxed">
                                 ${faq.answer}
                             </div>
                         </div>`).join('');

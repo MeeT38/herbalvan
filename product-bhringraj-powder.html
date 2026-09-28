@@ -32,8 +32,8 @@
   "name": "Bhringraj Powder",
   "description": "Timeless hair herb for traditional conditioning.",
   "image": [
-    "https://meet38.github.io/herbalvan/images/products/bhringraj-powder/27/1200.webp",
-    "https://meet38.github.io/herbalvan/images/products/bhringraj-powder/3/1200.webp"
+    "https://meet38.github.io/herbalvan/images/products/bhringraj-powder/50/1200.webp",
+    "https://meet38.github.io/herbalvan/images/products/bhringraj-powder/51/1200.webp"
   ],
   "category": "Hair Care",
   "url": "https://meet38.github.io/herbalvan/product-bhringraj-powder.html",
@@ -63,18 +63,7 @@
     <p id="live-status" class="sr-only" role="status" aria-live="polite"></p>
 
     <!-- Top Announcement Bar -->
-    <div id="announcement-bar" class="bg-brand-forest text-brand-ivory text-xs sm:text-sm py-2 px-4 text-center font-medium transition-all duration-300 relative z-50">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <span class="w-4"></span>
-            <div class="flex items-center gap-2 justify-center">
-                <span class="bg-brand-botanicalDark text-white text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" data-announcement-badge>HERBALVAN</span>
-                <p class="inline" data-announcement-text>Welcome to HerbalVan — <span class="font-bold text-brand-cream">Pure Herbs. Simple Rituals.</span> | 100% Natural Botanical Powders</p>
-            </div>
-                <button data-action="dismiss-announcement" class="text-brand-ivory/70 hover:text-white" aria-label="Close the announcement">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
-    </div>
+    
 
     <!-- Main Navigation Header -->
     <header class="sticky top-0 z-40 bg-brand-ivory/95 backdrop-blur-md border-b border-brand-sandDark/60 transition-all duration-200">
@@ -97,14 +86,14 @@
                     js/site.js shows whichever one applies.
                 -->
                 <a href="index.html" data-action="navigate" data-target="home" data-prevent="true" class="flex items-center group" aria-label="HerbalVan home">
-                    <img data-site-logo class="h-12 sm:h-16 w-auto max-w-[240px] object-contain group-hover:scale-[1.03] transition-transform" alt="HerbalVan" width="512" height="256" sizes="240px" hidden>
+                    <img data-site-logo class="h-12 sm:h-16 w-auto max-w-[240px] object-contain group-hover:scale-[1.03] transition-transform" sizes="240px" src="images/site/logo/45/1200.webp" srcset="images/site/logo/45/400.webp 400w, images/site/logo/45/800.webp 800w, images/site/logo/45/1200.webp 1200w" alt="HerbalVan" width="2084" height="648">
                     <!--
                         The fallback is the wrapper, and it carries no display class of
                         its own. `hidden` sets `display: none`, but a `flex` on the same
                         element wins over it in the compiled stylesheet, so the badge used
                         to stay visible beside the logo (Module 50).
                     -->
-                    <span data-logo-fallback>
+                    <span data-logo-fallback hidden>
                         <span class="w-10 h-10 rounded-full bg-brand-forest flex items-center justify-center text-white font-serif-heading font-extrabold text-xl shadow-md group-hover:scale-105 transition-transform border border-brand-botanical/30">
                             <svg data-logo-monogram class="w-6 h-6 text-brand-botanical fill-current" viewBox="0 0 24 24">
                             <path d="M17,8C15.5,8 14.15,8.5 13.09,9.34C11.66,6.77 9,5 6,5C5.66,5 5.33,5.03 5,5.08C5,5.08 5,5.08 5,5.08C5,8.39 6.77,11.05 9.34,12.49C8.5,13.55 8,14.9 8,16.4C8,20.05 10.95,23 14.6,23C18.25,23 21.2,20.05 21.2,16.4C21.2,12.75 18.25,8 17,8ZM9,8C8.45,8 8,7.55 8,7C8,6.45 8.45,6 9,6C9.55,6 10,6.45 10,7C10,7.55 9.55,8 9,8ZM14.6,21C12.06,21 10,18.94 10,16.4C10,14.73 10.89,13.27 12.23,12.48C13.08,13.91 14.41,15 16,15.5C15.82,15.8 15.71,16.14 15.71,16.5C15.71,17.33 16.38,18 17.21,18C17.57,18 17.91,17.89 18.21,17.71C18.71,19.3 19.8,20.63 21.2,21C21.2,21 17.14,21 14.6,21Z"/>
@@ -115,9 +104,16 @@
 
                 <!-- Desktop Navigation Links -->
                 <nav class="hidden lg:flex items-center space-x-7 font-semibold text-sm text-brand-forest" data-category-nav>
-                    <a href="collection-hair-care.html" class="nav-link hover:text-brand-botanical transition-colors" data-category-item>Hair Care</a>
-                    <a href="collection-skin-care.html" class="nav-link hover:text-brand-botanical transition-colors" data-category-item>Skin Care</a>
-                    <a href="collection-herbal-powders.html" class="nav-link hover:text-brand-botanical transition-colors" data-category-item>Herbal Powders</a>
+                    <!--
+                        The collection links are written by the build from the database
+                        (Module 56). They used to be typed out here, which is what broke the
+                        build the moment a category was switched off, and what a visitor saw
+                        for a moment before the script replaced it.
+                    -->
+                    <!-- build:category-nav -->
+                    <a href="collection-skin-care.html" class="nav-link hover:text-brand-botanicalDark transition-colors">Skin Care</a>
+                    <a href="collection-hair-care.html" class="nav-link hover:text-brand-botanicalDark transition-colors">Hair Care</a>
+                <!-- /build:category-nav -->
                     <a href="index.html#story-view" data-action="navigate" data-target="story" class="nav-link hover:text-brand-botanical transition-colors">Our Story</a>
                     <a href="index.html#faq-section" data-action="navigate" data-target="faq" class="nav-link hover:text-brand-botanical transition-colors">FAQ</a>
                 </nav>
@@ -147,8 +143,8 @@
             <div>
                 <div class="flex items-center justify-between pb-6 border-b border-brand-sandDark">
                     <div class="flex items-center gap-2">
-                        <img data-site-logo class="h-10 w-auto max-w-[170px] object-contain" alt="HerbalVan" width="512" height="256" sizes="170px" hidden>
-                        <span data-logo-fallback>
+                        <img data-site-logo class="h-10 w-auto max-w-[170px] object-contain" sizes="170px" src="images/site/logo/45/1200.webp" srcset="images/site/logo/45/400.webp 400w, images/site/logo/45/800.webp 800w, images/site/logo/45/1200.webp 1200w" alt="HerbalVan" width="2084" height="648">
+                        <span data-logo-fallback hidden>
                             <span class="w-8 h-8 rounded-full bg-brand-forest flex items-center justify-center text-white font-serif-heading font-bold">
                                 <span data-logo-monogram>HV</span>
                             </span>
@@ -158,16 +154,17 @@
                 </div>
                 <nav class="flex flex-col gap-4 py-6 font-semibold text-brand-forest" data-category-mobile>
                     <a href="collection-all.html" class="text-left text-lg hover:text-brand-botanical">Shop All Products</a>
-                    <a href="collection-hair-care.html" class="text-left text-gray-600 pl-4 hover:text-brand-botanical" data-category-item>• Hair Care</a>
-                    <a href="collection-skin-care.html" class="text-left text-gray-600 pl-4 hover:text-brand-botanical" data-category-item>• Skin Care</a>
-                    <a href="collection-herbal-powders.html" class="text-left text-gray-600 pl-4 hover:text-brand-botanical" data-category-item>• Herbal Powders</a>
+                    <!-- build:category-mobile -->
+                    <a href="collection-skin-care.html" class="text-left text-gray-600 pl-4 hover:text-brand-botanicalDark">Skin Care</a>
+                    <a href="collection-hair-care.html" class="text-left text-gray-600 pl-4 hover:text-brand-botanicalDark">Hair Care</a>
+                <!-- /build:category-mobile -->
                     <a href="index.html#story-view" data-action="navigate" data-target="story" data-close-menu="true" class="text-left text-lg hover:text-brand-botanical">Our Story</a>
                     <a href="index.html#faq-section" data-action="navigate" data-target="faq" data-close-menu="true" class="text-left text-lg hover:text-brand-botanical">FAQ &amp; Help</a>
                 </nav>
             </div>
             <div class="pt-6 border-t border-brand-sandDark text-xs text-gray-600">
                 <p class="font-bold text-brand-forest mb-1">HerbalVan Assistance</p>
-                <p data-contact-email><i class="fa-solid fa-envelope mr-1 text-brand-botanical"></i> support@herbalvan.com</p>
+                <p data-contact-email><i class="fa-solid fa-envelope mr-1 text-brand-botanical"></i><a href="mailto:support@herbalvan.com" class="hover:text-brand-cream transition-colors">support@herbalvan.com</a></p>
                 <p><i class="fa-solid fa-shield-halved mr-1 text-brand-botanical"></i> 100% Authentic Natural Products</p>
             </div>
         </div>
@@ -256,26 +253,36 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
                 <div class="lg:col-span-7">
-                    <div class="aspect-square w-full rounded-2xl bg-white border border-brand-sandDark/60 flex items-center justify-center overflow-hidden p-2 sm:p-4"><img id="product-main-image" src="images/products/bhringraj-powder/27/1200.webp" srcset="images/products/bhringraj-powder/27/400.webp 400w, images/products/bhringraj-powder/27/800.webp 800w, images/products/bhringraj-powder/27/1200.webp 1200w" sizes="(min-width: 1024px) 620px, 92vw" alt="HerbalVan Bhringraj Powder" width="800" height="800" class="w-full h-full object-contain"></div>
+                    <div class="gallery-frame group relative"><div class="aspect-square w-full rounded-2xl bg-white border border-brand-sandDark/60 flex items-center justify-center overflow-hidden p-2 sm:p-4"><img id="product-main-image" src="images/products/bhringraj-powder/50/1200.webp" srcset="images/products/bhringraj-powder/50/400.webp 400w, images/products/bhringraj-powder/50/800.webp 800w, images/products/bhringraj-powder/50/1200.webp 1200w" sizes="(min-width: 1024px) 620px, 92vw" alt="HerbalVan Bhringraj Powder" width="800" height="800" class="w-full h-full object-contain"></div>
+                            <button type="button" data-action="gallery-step" data-gallery-step="-1"
+                                    class="gallery-arrow absolute top-1/2 -translate-y-1/2 left-2 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-brand-forest border border-brand-sandDark/70 shadow-md transition-colors"
+                                    aria-label="Previous picture">
+                                <i class="fa-solid fa-chevron-left text-sm" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" data-action="gallery-step" data-gallery-step="1"
+                                    class="gallery-arrow absolute top-1/2 -translate-y-1/2 right-2 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-brand-forest border border-brand-sandDark/70 shadow-md transition-colors"
+                                    aria-label="Next picture">
+                                <i class="fa-solid fa-chevron-right text-sm" aria-hidden="true"></i>
+                            </button></div>
                         <div class="flex gap-2.5 mt-4 overflow-x-auto pb-1" role="tablist" aria-label="Product pictures">
                             
                             <button type="button" data-action="view-product-image"
-                                    data-image-src="images/products/bhringraj-powder/27/1200.webp"
-                                    data-image-srcset="images/products/bhringraj-powder/27/400.webp 400w, images/products/bhringraj-powder/27/800.webp 800w, images/products/bhringraj-powder/27/1200.webp 1200w"
+                                    data-image-src="images/products/bhringraj-powder/50/1200.webp"
+                                    data-image-srcset="images/products/bhringraj-powder/50/400.webp 400w, images/products/bhringraj-powder/50/800.webp 800w, images/products/bhringraj-powder/50/1200.webp 1200w"
                                     data-image-alt="HerbalVan Bhringraj Powder"
                                     aria-current="true"
                                     aria-label="Show picture 1 of 2"
                                     class="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-white border border-brand-sandDark/70 hover:border-brand-botanical transition-colors ring-2 ring-brand-botanical">
-                                <img src="images/products/bhringraj-powder/27/1200.webp" alt="" loading="lazy" width="80" height="80" class="w-full h-full object-cover">
+                                <img src="images/products/bhringraj-powder/50/1200.webp" alt="" loading="lazy" width="80" height="80" class="w-full h-full object-cover">
                             </button>
                             <button type="button" data-action="view-product-image"
-                                    data-image-src="images/products/bhringraj-powder/3/1200.webp"
-                                    data-image-srcset="images/products/bhringraj-powder/3/400.webp 400w, images/products/bhringraj-powder/3/800.webp 800w, images/products/bhringraj-powder/3/1200.webp 1200w"
-                                    data-image-alt="HerbalVan Bhringraj Powder - 100g"
+                                    data-image-src="images/products/bhringraj-powder/51/1200.webp"
+                                    data-image-srcset="images/products/bhringraj-powder/51/400.webp 400w, images/products/bhringraj-powder/51/800.webp 800w, images/products/bhringraj-powder/51/1200.webp 1200w"
+                                    data-image-alt="HerbalVan Bhringraj Powder"
                                     aria-current="false"
                                     aria-label="Show picture 2 of 2"
                                     class="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-white border border-brand-sandDark/70 hover:border-brand-botanical transition-colors ">
-                                <img src="images/products/bhringraj-powder/3/1200.webp" alt="" loading="lazy" width="80" height="80" class="w-full h-full object-cover">
+                                <img src="images/products/bhringraj-powder/51/1200.webp" alt="" loading="lazy" width="80" height="80" class="w-full h-full object-cover">
                             </button>
                         </div>
                 </div>
@@ -340,10 +347,94 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     
                 <article class="bg-white rounded-3xl p-5 border border-brand-sandDark/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <a href="product-classic-hair-pack.html" class="block">
+                        <div class="relative rounded-2xl p-4 mb-4 overflow-hidden text-center border border-brand-beige">
+                            
+                            <div class="aspect-square w-full overflow-hidden rounded-xl flex items-center justify-center "><img src="images/products/classic-hair-pack/41/1200.webp" srcset="images/products/classic-hair-pack/41/400.webp 400w, images/products/classic-hair-pack/41/800.webp 800w, images/products/classic-hair-pack/41/1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 90vw" alt="HerbalVan Classic Hair Pack" loading="lazy" width="800" height="800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
+                        </div>
+
+                        <div class="flex items-center gap-1 text-brand-botanicalDark text-xs mb-1">
+                            <i class="fa-solid fa-leaf" aria-hidden="true"></i><span class="font-bold text-gray-700 ml-1">Hair Care</span>
+                            <span class="text-gray-500 text-[10px] ml-auto font-semibold">100g</span>
+                        </div>
+
+                        <h2 class="font-serif-heading font-bold text-lg text-brand-forest line-clamp-1 mb-1.5 group-hover:text-brand-botanicalDark transition-colors">Classic Hair Pack</h2>
+                        <p class="text-xs text-gray-600 line-clamp-2 mb-4">Classic Hair Pack - Amla + Reetha + Sikkai</p>
+                    </a>
+
+                    <div class="pt-3 border-t border-brand-sandDark/40">
+                        
+                        <div class="flex items-center gap-2">
+                            <a href="https://www.meesho.com/valioso-amla-reetha-shikakai-hibiscus-and-bhringraj-powder-for-hair-growth-50-gms-each-combo-pack-of-5/p/7uxc4u" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
+                            <button type="button" data-action="add-to-cart" data-product-id="18"
+                                    aria-label="Add Classic Hair Pack to the basket" title="Add to basket"
+                                    class="shrink-0 w-10 h-10 flex items-center justify-center bg-brand-ivory hover:bg-brand-cream text-brand-forest border border-brand-sandDark/70 rounded-xl transition-colors">
+                                <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <article class="bg-white rounded-3xl p-5 border border-brand-sandDark/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <a href="product-complete-herbal-hair-care-7-herb-blend.html" class="block">
+                        <div class="relative rounded-2xl p-4 mb-4 overflow-hidden text-center border border-brand-beige">
+                            
+                            <div class="aspect-square w-full overflow-hidden rounded-xl flex items-center justify-center "><img src="images/products/complete-herbal-hair-care-7-herb-blend/42/1200.webp" srcset="images/products/complete-herbal-hair-care-7-herb-blend/42/400.webp 400w, images/products/complete-herbal-hair-care-7-herb-blend/42/800.webp 800w, images/products/complete-herbal-hair-care-7-herb-blend/42/1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 90vw" alt="HerbalVan Complete Herbal Hair Care – 7 Herb Blend" loading="lazy" width="800" height="800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
+                        </div>
+
+                        <div class="flex items-center gap-1 text-brand-botanicalDark text-xs mb-1">
+                            <i class="fa-solid fa-leaf" aria-hidden="true"></i><span class="font-bold text-gray-700 ml-1">Hair Care</span>
+                            <span class="text-gray-500 text-[10px] ml-auto font-semibold">100g</span>
+                        </div>
+
+                        <h2 class="font-serif-heading font-bold text-lg text-brand-forest line-clamp-1 mb-1.5 group-hover:text-brand-botanicalDark transition-colors">Complete Herbal Hair Care – 7 Herb Blend</h2>
+                        <p class="text-xs text-gray-600 line-clamp-2 mb-4">A seven-herb combination bringing together classic Indian botanicals for a complete herbal hair-care routine.</p>
+                    </a>
+
+                    <div class="pt-3 border-t border-brand-sandDark/40">
+                        
+                        <div class="flex items-center gap-2">
+                            <a href="https://www.meesho.com/valioso-amla-reetha-shikakai-hibiscus-and-bhringraj-powder-for-hair-growth-50-gms-each-combo-pack-of-5/p/7uxc4u" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
+                            <button type="button" data-action="add-to-cart" data-product-id="20"
+                                    aria-label="Add Complete Herbal Hair Care – 7 Herb Blend to the basket" title="Add to basket"
+                                    class="shrink-0 w-10 h-10 flex items-center justify-center bg-brand-ivory hover:bg-brand-cream text-brand-forest border border-brand-sandDark/70 rounded-xl transition-colors">
+                                <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <article class="bg-white rounded-3xl p-5 border border-brand-sandDark/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <a href="product-herbal-hair-care-blend-5-herb-formula.html" class="block">
+                        <div class="relative rounded-2xl p-4 mb-4 overflow-hidden text-center border border-brand-beige">
+                            
+                            <div class="aspect-square w-full overflow-hidden rounded-xl flex items-center justify-center "><img src="images/products/herbal-hair-care-blend-5-herb-formula/44/1200.webp" srcset="images/products/herbal-hair-care-blend-5-herb-formula/44/400.webp 400w, images/products/herbal-hair-care-blend-5-herb-formula/44/800.webp 800w, images/products/herbal-hair-care-blend-5-herb-formula/44/1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 90vw" alt="HerbalVan Herbal Hair Care Blend – 5 Herb Formula" loading="lazy" width="800" height="800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
+                        </div>
+
+                        <div class="flex items-center gap-1 text-brand-botanicalDark text-xs mb-1">
+                            <i class="fa-solid fa-leaf" aria-hidden="true"></i><span class="font-bold text-gray-700 ml-1">Hair Care</span>
+                            <span class="text-gray-500 text-[10px] ml-auto font-semibold">100g</span>
+                        </div>
+
+                        <h2 class="font-serif-heading font-bold text-lg text-brand-forest line-clamp-1 mb-1.5 group-hover:text-brand-botanicalDark transition-colors">Herbal Hair Care Blend – 5 Herb Formula</h2>
+                        <p class="text-xs text-gray-600 line-clamp-2 mb-4">A five-herb blend combining traditional hair-care ingredients in one convenient pack.</p>
+                    </a>
+
+                    <div class="pt-3 border-t border-brand-sandDark/40">
+                        
+                        <div class="flex items-center gap-2">
+                            <a href="https://www.meesho.com/valioso-amla-reetha-shikakai-hibiscus-and-bhringraj-powder-for-hair-growth-50-gms-each-combo-pack-of-5/p/7uxc4u" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
+                            <button type="button" data-action="add-to-cart" data-product-id="19"
+                                    aria-label="Add Herbal Hair Care Blend – 5 Herb Formula to the basket" title="Add to basket"
+                                    class="shrink-0 w-10 h-10 flex items-center justify-center bg-brand-ivory hover:bg-brand-cream text-brand-forest border border-brand-sandDark/70 rounded-xl transition-colors">
+                                <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <article class="bg-white rounded-3xl p-5 border border-brand-sandDark/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                     <a href="product-amla-powder.html" class="block">
-                        <div class="relative bg-brand-ivory rounded-2xl p-4 mb-4 overflow-hidden text-center border border-brand-beige">
-                            <span class="absolute top-3 left-3 bg-brand-botanicalDark text-white font-extrabold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm z-10">100% NATURAL</span>
-                            <div class="aspect-square w-full overflow-hidden rounded-xl bg-brand-ivory flex items-center justify-center "><img src="images/products/amla-powder/25/1200.webp" srcset="images/products/amla-powder/25/400.webp 400w, images/products/amla-powder/25/800.webp 800w, images/products/amla-powder/25/1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 90vw" alt="HerbalVan Amla Powder" loading="lazy" width="800" height="800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
+                        <div class="relative rounded-2xl p-4 mb-4 overflow-hidden text-center border border-brand-beige">
+                            
+                            <div class="aspect-square w-full overflow-hidden rounded-xl flex items-center justify-center "><img src="images/products/amla-powder/47/1200.webp" srcset="images/products/amla-powder/47/400.webp 400w, images/products/amla-powder/47/800.webp 800w, images/products/amla-powder/47/1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 90vw" alt="HerbalVan Seedless Amla Powder" loading="lazy" width="800" height="800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
                         </div>
 
                         <div class="flex items-center gap-1 text-brand-botanicalDark text-xs mb-1">
@@ -361,90 +452,6 @@
                             <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
                             <button type="button" data-action="add-to-cart" data-product-id="1"
                                     aria-label="Add Seedless Amla Powder to the basket" title="Add to basket"
-                                    class="shrink-0 w-10 h-10 flex items-center justify-center bg-brand-ivory hover:bg-brand-cream text-brand-forest border border-brand-sandDark/70 rounded-xl transition-colors">
-                                <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-                <article class="bg-white rounded-3xl p-5 border border-brand-sandDark/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-                    <a href="product-reetha-powder.html" class="block">
-                        <div class="relative bg-brand-ivory rounded-2xl p-4 mb-4 overflow-hidden text-center border border-brand-beige">
-                            <span class="absolute top-3 left-3 bg-brand-botanicalDark text-white font-extrabold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm z-10">100% NATURAL</span>
-                            <div class="aspect-square w-full overflow-hidden rounded-xl bg-brand-ivory flex items-center justify-center "><img src="images/products/reetha-powder/26/1200.webp" srcset="images/products/reetha-powder/26/400.webp 400w, images/products/reetha-powder/26/800.webp 800w, images/products/reetha-powder/26/1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 90vw" alt="HerbalVan Reetha Powder" loading="lazy" width="800" height="800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
-                        </div>
-
-                        <div class="flex items-center gap-1 text-brand-botanicalDark text-xs mb-1">
-                            <i class="fa-solid fa-leaf" aria-hidden="true"></i><span class="font-bold text-gray-700 ml-1">Hair Care</span>
-                            <span class="text-gray-500 text-[10px] ml-auto font-semibold">100g</span>
-                        </div>
-
-                        <h2 class="font-serif-heading font-bold text-lg text-brand-forest line-clamp-1 mb-1.5 group-hover:text-brand-botanicalDark transition-colors">Reetha Powder</h2>
-                        <p class="text-xs text-gray-600 line-clamp-2 mb-4">Natural botanical cleanser for soft scalp wash.</p>
-                    </a>
-
-                    <div class="pt-3 border-t border-brand-sandDark/40">
-                        
-                        <div class="flex items-center gap-2">
-                            <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
-                            <button type="button" data-action="add-to-cart" data-product-id="2"
-                                    aria-label="Add Reetha Powder to the basket" title="Add to basket"
-                                    class="shrink-0 w-10 h-10 flex items-center justify-center bg-brand-ivory hover:bg-brand-cream text-brand-forest border border-brand-sandDark/70 rounded-xl transition-colors">
-                                <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-                <article class="bg-white rounded-3xl p-5 border border-brand-sandDark/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-                    <a href="product-hibiscus-powder.html" class="block">
-                        <div class="relative bg-brand-ivory rounded-2xl p-4 mb-4 overflow-hidden text-center border border-brand-beige">
-                            <span class="absolute top-3 left-3 bg-brand-botanicalDark text-white font-extrabold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm z-10">100% NATURAL</span>
-                            <div class="aspect-square w-full overflow-hidden rounded-xl bg-brand-ivory flex items-center justify-center "><img src="images/products/hibiscus-powder/28/1200.webp" srcset="images/products/hibiscus-powder/28/400.webp 400w, images/products/hibiscus-powder/28/800.webp 800w, images/products/hibiscus-powder/28/1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 90vw" alt="HerbalVan Hibiscus Powder" loading="lazy" width="800" height="800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
-                        </div>
-
-                        <div class="flex items-center gap-1 text-brand-botanicalDark text-xs mb-1">
-                            <i class="fa-solid fa-leaf" aria-hidden="true"></i><span class="font-bold text-gray-700 ml-1">Hair Care</span>
-                            <span class="text-gray-500 text-[10px] ml-auto font-semibold">100g</span>
-                        </div>
-
-                        <h2 class="font-serif-heading font-bold text-lg text-brand-forest line-clamp-1 mb-1.5 group-hover:text-brand-botanicalDark transition-colors">Hibiscus Powder</h2>
-                        <p class="text-xs text-gray-600 line-clamp-2 mb-4">Nourishing botanical petal powder for shiny hair.</p>
-                    </a>
-
-                    <div class="pt-3 border-t border-brand-sandDark/40">
-                        
-                        <div class="flex items-center gap-2">
-                            <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
-                            <button type="button" data-action="add-to-cart" data-product-id="4"
-                                    aria-label="Add Hibiscus Powder to the basket" title="Add to basket"
-                                    class="shrink-0 w-10 h-10 flex items-center justify-center bg-brand-ivory hover:bg-brand-cream text-brand-forest border border-brand-sandDark/70 rounded-xl transition-colors">
-                                <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-                <article class="bg-white rounded-3xl p-5 border border-brand-sandDark/70 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-                    <a href="product-shikakai-powder.html" class="block">
-                        <div class="relative bg-brand-ivory rounded-2xl p-4 mb-4 overflow-hidden text-center border border-brand-beige">
-                            <span class="absolute top-3 left-3 bg-brand-botanicalDark text-white font-extrabold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm z-10">100% NATURAL</span>
-                            <div class="aspect-square w-full overflow-hidden rounded-xl bg-brand-ivory flex items-center justify-center "><img src="images/products/shikakai-powder/30/1200.webp" srcset="images/products/shikakai-powder/30/400.webp 400w, images/products/shikakai-powder/30/800.webp 800w, images/products/shikakai-powder/30/1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 90vw" alt="HerbalVan Shikakai Powder" loading="lazy" width="800" height="800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
-                        </div>
-
-                        <div class="flex items-center gap-1 text-brand-botanicalDark text-xs mb-1">
-                            <i class="fa-solid fa-leaf" aria-hidden="true"></i><span class="font-bold text-gray-700 ml-1">Hair Care</span>
-                            <span class="text-gray-500 text-[10px] ml-auto font-semibold">100g</span>
-                        </div>
-
-                        <h2 class="font-serif-heading font-bold text-lg text-brand-forest line-clamp-1 mb-1.5 group-hover:text-brand-botanicalDark transition-colors">Shikakai Powder</h2>
-                        <p class="text-xs text-gray-600 line-clamp-2 mb-4">Gentle low-pH herb for natural hair detangling.</p>
-                    </a>
-
-                    <div class="pt-3 border-t border-brand-sandDark/40">
-                        
-                        <div class="flex items-center gap-2">
-                            <a href="https://www.meesho.com/valioso-bhringraj-powder-and-amla-powder-for-hair-growth-and-healthy-hair-combo-pack-of-2-100-gms-each-200-gms/p/7v9y5h" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm transition-all"><i class="fa-solid fa-bag-shopping text-[10px]" aria-hidden="true"></i> Buy on Meesho</a>
-                            <button type="button" data-action="add-to-cart" data-product-id="6"
-                                    aria-label="Add Shikakai Powder to the basket" title="Add to basket"
                                     class="shrink-0 w-10 h-10 flex items-center justify-center bg-brand-ivory hover:bg-brand-cream text-brand-forest border border-brand-sandDark/70 rounded-xl transition-colors">
                                 <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i>
                             </button>
@@ -514,20 +521,20 @@
                 <!-- Col 1: Brand Info -->
                 <div class="lg:col-span-2 space-y-4">
                     <!--
-                        The footer sits on deep forest green (#0B2823), and the logo is
-                        drawn in brown (7.43:1 on the ivory header, but only 1.93:1 on
-                        this background — measured, not guessed). So the footer keeps the
-                        logo whole and uncropped on a flat ivory plate with square corners:
-                        no circle, no badge, no part of the mark hidden.
+                        The footer has a logo setting of its own (Module 58). It sits on
+                        deep forest green (#0B2823), where the brown wordmark measures
+                        1.93:1 against the background — far below the 3:1 a large mark
+                        needs — so the owner supplies a light version for here. With none
+                        set, the footer shows the main logo, and with no logo at all the
+                        monogram below is the mark.
 
-                        This is the one place the "no background" instruction is not
-                        followed literally, because without it the brand name cannot be
-                        read at all. A light or white version of the logo would remove the
-                        plate entirely — that is the cleaner fix and only you can supply it.
+                        The plate the logo used to sit on is gone at the owner's request:
+                        both logos are shown as they are. A dark or light wordmark is what
+                        makes this legible now, not a background behind it.
                     -->
-                    <div class="inline-flex items-center rounded-xl bg-brand-ivory px-4 py-3">
-                        <img data-site-logo class="h-10 w-auto max-w-[180px] object-contain" alt="HerbalVan" width="512" height="256" sizes="180px" hidden>
-                        <span data-logo-fallback>
+                    <div class="inline-flex items-center">
+                        <img data-footer-logo class="h-10 w-auto max-w-[180px] object-contain" sizes="180px" src="images/site/footer-logo/76/1200.webp" srcset="images/site/footer-logo/76/400.webp 400w, images/site/footer-logo/76/800.webp 800w, images/site/footer-logo/76/1200.webp 1200w" alt="HerbalVan" width="2084" height="2084">
+                        <span data-logo-fallback hidden>
                             <span class="w-10 h-10 rounded-full bg-brand-botanicalDark flex items-center justify-center text-white font-serif-heading font-extrabold text-xl">
                                 <span data-logo-monogram>HV</span>
                             </span>
@@ -537,11 +544,11 @@
                         100% natural and authentic herbal products. Pure botanical powders for simple, everyday hair and skincare rituals.
                     </p>
                     <!-- Contact details (Module 21): shown only for values that are set. -->
-                    <p class="text-xs text-brand-cream/90 pt-1 hidden" data-contact-line></p>
+                    <p class="text-xs text-brand-cream/90 pt-1" data-contact-line><i class="fa-solid fa-headset mr-1.5 text-brand-botanical"></i><a href="mailto:support@herbalvan.com" class="hover:text-white transition-colors">support@herbalvan.com</a><span class="mx-1.5 text-brand-sage/50">·</span><a href="https://wa.me/9265445888" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">WhatsApp</a></p>
                     <div class="flex items-center gap-3 pt-2 text-brand-cream">
-                        <a href="#" data-action="toast" data-message="HerbalVan Instagram link placeholder" data-prevent="true" data-social="instagram" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-botanical hover:text-white transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" data-action="toast" data-message="HerbalVan Facebook link placeholder" data-prevent="true" data-social="facebook" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-botanical hover:text-white transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" data-action="toast" data-message="HerbalVan YouTube link placeholder" data-prevent="true" data-social="youtube" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-botanical hover:text-white transition-colors" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        
+                        
+                        
                     </div>
                 </div>
 
@@ -550,9 +557,10 @@
                     <h4 class="font-bold text-sm text-white mb-4 uppercase tracking-wider">SHOP</h4>
                     <ul class="space-y-2.5 text-xs text-brand-sage" data-category-footer>
                         <li><a href="collection-all.html" class="hover:text-brand-cream transition-colors">All Products</a></li>
-                        <li><a href="collection-herbal-powders.html" class="hover:text-brand-cream transition-colors" data-category-item>Herbal Powders</a></li>
-                        <li><a href="collection-hair-care.html" class="hover:text-brand-cream transition-colors" data-category-item>Hair Care</a></li>
-                        <li><a href="collection-skin-care.html" class="hover:text-brand-cream transition-colors" data-category-item>Skin Care</a></li>
+                        <!-- build:category-footer -->
+                        <li><a href="collection-skin-care.html" class="hover:text-brand-cream transition-colors">Skin Care</a></li>
+                        <li><a href="collection-hair-care.html" class="hover:text-brand-cream transition-colors">Hair Care</a></li>
+                    <!-- /build:category-footer -->
                     </ul>
                 </div>
 
