@@ -24,6 +24,15 @@
       "sortOrder": 20,
       "productCount": 11,
       "image": null
+    },
+    {
+      "id": 3,
+      "name": "Herbal Powders",
+      "slug": "herbal-powders",
+      "description": "Pure single-ingredient herbs",
+      "sortOrder": 30,
+      "productCount": 12,
+      "image": null
     }
   ]
 }

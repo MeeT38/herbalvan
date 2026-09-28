@@ -25,6 +25,17 @@
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/site.css">
+    <!--
+        The tab icon, written by the build from the footer logo (Module 60, owner
+        request). There was no favicon at all before this, so every tab showed the
+        browser's blank page icon. Empty means no logo is set, and then there is
+        nothing to point at.
+    -->
+    <!-- build:favicon -->
+        <link rel="icon" type="image/webp" href="images/site/footer-logo/77/400.webp">
+        <link rel="apple-touch-icon" href="images/site/footer-logo/77/800.webp">
+    
+<!-- /build:favicon -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -124,6 +135,7 @@
                     <!-- build:category-nav -->
                     <a href="collection-skin-care.html" class="nav-link hover:text-brand-botanicalDark transition-colors">Skin Care</a>
                     <a href="collection-hair-care.html" class="nav-link hover:text-brand-botanicalDark transition-colors">Hair Care</a>
+                    <a href="collection-herbal-powders.html" class="nav-link hover:text-brand-botanicalDark transition-colors">Herbal Powders</a>
                 <!-- /build:category-nav -->
                     <a href="index.html#story-view" data-action="navigate" data-target="story" class="nav-link hover:text-brand-botanical transition-colors">Our Story</a>
                     <a href="index.html#faq-section" data-action="navigate" data-target="faq" class="nav-link hover:text-brand-botanical transition-colors">FAQ</a>
@@ -168,6 +180,7 @@
                     <!-- build:category-mobile -->
                     <a href="collection-skin-care.html" class="text-left text-gray-600 pl-4 hover:text-brand-botanicalDark">Skin Care</a>
                     <a href="collection-hair-care.html" class="text-left text-gray-600 pl-4 hover:text-brand-botanicalDark">Hair Care</a>
+                    <a href="collection-herbal-powders.html" class="text-left text-gray-600 pl-4 hover:text-brand-botanicalDark">Herbal Powders</a>
                 <!-- /build:category-mobile -->
                     <a href="index.html#story-view" data-action="navigate" data-target="story" data-close-menu="true" class="text-left text-lg hover:text-brand-botanical">Our Story</a>
                     <a href="index.html#faq-section" data-action="navigate" data-target="faq" data-close-menu="true" class="text-left text-lg hover:text-brand-botanical">FAQ &amp; Help</a>
@@ -264,7 +277,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
                 <div class="lg:col-span-7">
-                    <div class="gallery-frame group relative"><div class="aspect-square w-full rounded-2xl bg-white border border-brand-sandDark/60 flex items-center justify-center overflow-hidden p-2 sm:p-4"><img id="product-main-image" src="images/products/shikakai-powder/57/1200.webp" srcset="images/products/shikakai-powder/57/400.webp 400w, images/products/shikakai-powder/57/800.webp 800w, images/products/shikakai-powder/57/1200.webp 1200w" sizes="(min-width: 1024px) 620px, 92vw" alt="HerbalVan Shikakai Powder" width="800" height="800" class="w-full h-full object-contain"></div>
+                    <div class="gallery-frame group relative mx-auto w-full gallery-fit"><div class="aspect-square w-full rounded-2xl bg-white border border-brand-sandDark/60 flex items-center justify-center overflow-hidden p-2 sm:p-4"><img id="product-main-image" src="images/products/shikakai-powder/57/1200.webp" srcset="images/products/shikakai-powder/57/400.webp 400w, images/products/shikakai-powder/57/800.webp 800w, images/products/shikakai-powder/57/1200.webp 1200w" sizes="(min-width: 1024px) 620px, 92vw" alt="HerbalVan Shikakai Powder" width="800" height="800" class="w-full h-full object-contain"></div>
                             <button type="button" data-action="gallery-step" data-gallery-step="-1"
                                     class="gallery-arrow absolute top-1/2 -translate-y-1/2 left-2 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-brand-forest border border-brand-sandDark/70 shadow-md transition-colors"
                                     aria-label="Previous picture">
@@ -471,6 +484,13 @@
                 </article>
                 </div>
             </div>
+
+            <!--
+                The marketplace store (Module 61, owner request): below the similar items,
+                so the visitor is offered the shop itself once they have seen what else
+                there is. Empty when no store link is set, or when products are switched off.
+            -->
+            
         </div>
     </section>
 </main>
@@ -544,7 +564,12 @@
                         makes this legible now, not a background behind it.
                     -->
                     <div class="inline-flex items-center">
-                        <img data-footer-logo class="h-10 w-auto max-w-[180px] object-contain" sizes="180px" src="images/site/footer-logo/77/1200.webp" srcset="images/site/footer-logo/77/400.webp 400w, images/site/footer-logo/77/800.webp 800w, images/site/footer-logo/77/1200.webp 1200w" alt="HerbalVan" width="2084" height="2084">
+                        <!--
+                            Bigger than the header's mark (Module 60, owner request): the footer
+                            has room, and the logo here is read against a dark background rather
+                            than beside the navigation.
+                        -->
+                        <img data-footer-logo class="h-16 sm:h-20 w-auto max-w-[260px] object-contain" sizes="260px" src="images/site/footer-logo/77/1200.webp" srcset="images/site/footer-logo/77/400.webp 400w, images/site/footer-logo/77/800.webp 800w, images/site/footer-logo/77/1200.webp 1200w" alt="HerbalVan" width="2084" height="2084">
                         <span data-logo-fallback hidden>
                             <span class="w-10 h-10 rounded-full bg-brand-botanicalDark flex items-center justify-center text-white font-serif-heading font-extrabold text-xl">
                                 <span data-logo-monogram>HV</span>
@@ -571,6 +596,7 @@
                         <!-- build:category-footer -->
                         <li><a href="collection-skin-care.html" class="hover:text-brand-cream transition-colors">Skin Care</a></li>
                         <li><a href="collection-hair-care.html" class="hover:text-brand-cream transition-colors">Hair Care</a></li>
+                        <li><a href="collection-herbal-powders.html" class="hover:text-brand-cream transition-colors">Herbal Powders</a></li>
                     <!-- /build:category-footer -->
                     </ul>
                 </div>

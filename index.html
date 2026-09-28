@@ -29,6 +29,17 @@
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/site.css">
+    <!--
+        The tab icon, written by the build from the footer logo (Module 60, owner
+        request). There was no favicon at all before this, so every tab showed the
+        browser's blank page icon. Empty means no logo is set, and then there is
+        nothing to point at.
+    -->
+    <!-- build:favicon -->
+        <link rel="icon" type="image/webp" href="images/site/footer-logo/77/400.webp">
+        <link rel="apple-touch-icon" href="images/site/footer-logo/77/800.webp">
+    
+<!-- /build:favicon -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -52,6 +63,11 @@
           "@type": "ListItem",
           "position": 2,
           "name": "Hair Care"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Herbal Powders"
         }
       ]
     },
@@ -481,6 +497,7 @@
                     <!-- build:category-nav -->
                     <a href="collection-skin-care.html" class="nav-link hover:text-brand-botanicalDark transition-colors">Skin Care</a>
                     <a href="collection-hair-care.html" class="nav-link hover:text-brand-botanicalDark transition-colors">Hair Care</a>
+                    <a href="collection-herbal-powders.html" class="nav-link hover:text-brand-botanicalDark transition-colors">Herbal Powders</a>
                 <!-- /build:category-nav -->
                     <a href="index.html#story-view" data-action="navigate" data-target="story" class="nav-link hover:text-brand-botanical transition-colors">Our Story</a>
                     <a href="index.html#faq-section" data-action="navigate" data-target="faq" class="nav-link hover:text-brand-botanical transition-colors">FAQ</a>
@@ -525,6 +542,7 @@
                     <!-- build:category-mobile -->
                     <a href="collection-skin-care.html" class="text-left text-gray-600 pl-4 hover:text-brand-botanicalDark">Skin Care</a>
                     <a href="collection-hair-care.html" class="text-left text-gray-600 pl-4 hover:text-brand-botanicalDark">Hair Care</a>
+                    <a href="collection-herbal-powders.html" class="text-left text-gray-600 pl-4 hover:text-brand-botanicalDark">Herbal Powders</a>
                 <!-- /build:category-mobile -->
                     <a href="index.html#story-view" data-action="navigate" data-target="story" data-close-menu="true" class="text-left text-lg hover:text-brand-botanical">Our Story</a>
                     <a href="index.html#faq-section" data-action="navigate" data-target="faq" data-close-menu="true" class="text-left text-lg hover:text-brand-botanical">FAQ &amp; Help</a>
@@ -631,7 +649,7 @@
                                 <!-- Main Featured Product Card Visual -->
                                 <div class="bg-white p-6 rounded-3xl shadow-2xl border border-brand-sandDark/80 relative z-10 transform lg:rotate-1 hover:rotate-0 transition-transform duration-500">
                                     <span class="absolute top-4 left-4 bg-brand-botanicalDark text-white font-extrabold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-20 pulse-badge" data-best-seller-badge>HERBALVAN BESTSELLER</span>
-                                    <div class="bg-brand-ivory rounded-2xl p-6 text-center mb-4 relative overflow-hidden group border border-brand-beige">
+                                    <div class="rounded-2xl p-6 text-center mb-4 relative overflow-hidden group border border-brand-beige">
                                         <!--
                                             The showcase links to the product's own page like
                                             every card does (Module 49). The static address is
@@ -644,7 +662,7 @@
                                                  site (Module 50), so one uploaded image renders
                                                  the same here as in a card, the basket, or the
                                                  product page. -->
-                                            <div class="aspect-square w-full overflow-hidden rounded-xl bg-brand-ivory">
+                                            <div class="aspect-square w-full overflow-hidden rounded-xl">
                                                 <img data-best-seller-image class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/products/hibiscus-powder/53/1200.webp" alt="HerbalVan Hibiscus Powder" loading="eager" srcset="images/products/hibiscus-powder/53/400.webp 400w, images/products/hibiscus-powder/53/800.webp 800w, images/products/hibiscus-powder/53/1200.webp 1200w" sizes="(min-width: 1024px) 28vw, 90vw">
                                             </div>
                                         </a>
@@ -744,6 +762,13 @@
                                                     <h3 class="font-bold text-brand-forest text-sm sm:text-base mb-1 uppercase">Hair Care</h3>
                                                     <p class="text-xs text-gray-500">Nourishment and cleansing botanicals</p>
                                                 </a>
+                                                <a href="collection-herbal-powders.html" class="bg-brand-ivory hover:bg-brand-cream/60 border border-brand-sandDark/70 rounded-2xl p-5 text-center group transition-all hover:-translate-y-1">
+                                                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-brand-amber text-2xl mb-3 shadow-md group-hover:scale-110 transition-transform border border-brand-beige">
+                                                        <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+                                                    </div>
+                                                    <h3 class="font-bold text-brand-forest text-sm sm:text-base mb-1 uppercase">Herbal Powders</h3>
+                                                    <p class="text-xs text-gray-500">Pure single-ingredient herbs</p>
+                                                </a>
                     <!-- /build:collection-cards -->
                     </div>
                 </div>
@@ -770,6 +795,7 @@
                             <button type="button" class="tab-btn bg-brand-forest text-white font-bold px-5 py-2 rounded-full text-xs sm:text-sm whitespace-nowrap shadow-sm transition-all" data-action="filter-tab" data-category="All Products">All Products</button>
                             <button type="button" class="tab-btn bg-white hover:bg-brand-beige text-brand-forest font-bold px-5 py-2 rounded-full text-xs sm:text-sm whitespace-nowrap transition-all border border-brand-sandDark/80" data-action="filter-tab" data-category="Skin Care">Skin Care</button>
                             <button type="button" class="tab-btn bg-white hover:bg-brand-beige text-brand-forest font-bold px-5 py-2 rounded-full text-xs sm:text-sm whitespace-nowrap transition-all border border-brand-sandDark/80" data-action="filter-tab" data-category="Hair Care">Hair Care</button>
+                            <button type="button" class="tab-btn bg-white hover:bg-brand-beige text-brand-forest font-bold px-5 py-2 rounded-full text-xs sm:text-sm whitespace-nowrap transition-all border border-brand-sandDark/80" data-action="filter-tab" data-category="Herbal Powders">Herbal Powders</button>
                         <!-- /build:category-tabs -->
                         </div>
                     </div>
@@ -839,6 +865,16 @@
             -->
 
             <!-- LOVE FROM CUSTOMERS Testimonials Section (published reviews only, Module 19) -->
+            <!--
+                The marketplace store (Module 61), written by the build just below the
+                catalogue and above the reviews: a visitor who has seen the range is the
+                one who may want the whole store. Empty when no store link is set, or
+                when the owner has switched this place off — no empty band either way.
+            -->
+            <!-- build:marketplace-home -->
+
+<!-- /build:marketplace-home -->
+
             <section class="py-16 bg-brand-ivory border-y border-brand-sandDark/70" data-reviews-section>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-12">
@@ -1073,7 +1109,12 @@
                         makes this legible now, not a background behind it.
                     -->
                     <div class="inline-flex items-center">
-                        <img data-footer-logo class="h-10 w-auto max-w-[180px] object-contain" sizes="180px" src="images/site/footer-logo/77/1200.webp" srcset="images/site/footer-logo/77/400.webp 400w, images/site/footer-logo/77/800.webp 800w, images/site/footer-logo/77/1200.webp 1200w" alt="HerbalVan" width="2084" height="2084">
+                        <!--
+                            Bigger than the header's mark (Module 60, owner request): the footer
+                            has room, and the logo here is read against a dark background rather
+                            than beside the navigation.
+                        -->
+                        <img data-footer-logo class="h-16 sm:h-20 w-auto max-w-[260px] object-contain" sizes="260px" src="images/site/footer-logo/77/1200.webp" srcset="images/site/footer-logo/77/400.webp 400w, images/site/footer-logo/77/800.webp 800w, images/site/footer-logo/77/1200.webp 1200w" alt="HerbalVan" width="2084" height="2084">
                         <span data-logo-fallback hidden>
                             <span class="w-10 h-10 rounded-full bg-brand-botanicalDark flex items-center justify-center text-white font-serif-heading font-extrabold text-xl">
                                 <span data-logo-monogram>HV</span>
@@ -1100,6 +1141,7 @@
                         <!-- build:category-footer -->
                         <li><a href="collection-skin-care.html" class="hover:text-brand-cream transition-colors">Skin Care</a></li>
                         <li><a href="collection-hair-care.html" class="hover:text-brand-cream transition-colors">Hair Care</a></li>
+                        <li><a href="collection-herbal-powders.html" class="hover:text-brand-cream transition-colors">Herbal Powders</a></li>
                     <!-- /build:category-footer -->
                     </ul>
                 </div>

@@ -7,6 +7,9 @@
     "category": "Hair Care",
     "categoryId": 1,
     "categorySlug": "hair-care",
+    "alsoCategorySlugs": [
+      "herbal-powders"
+    ],
     "weight": "100g",
     "shortDescription": "Nourishing botanical petal powder for shiny hair.",
     "description": "Vibrant red hibiscus petal powder for ultra-soft texture and moisture retention.",

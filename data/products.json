@@ -9,6 +9,7 @@
       "category": "Hair Care",
       "categoryId": 1,
       "categorySlug": "hair-care",
+      "alsoCategorySlugs": [],
       "weight": "100g",
       "shortDescription": "Classic Hair Pack - Amla + Reetha + Sikkai",
       "description": "Classic Hair Pack - Amla + Reetha + Sikkai",
@@ -51,6 +52,7 @@
       "category": "Hair Care",
       "categoryId": 1,
       "categorySlug": "hair-care",
+      "alsoCategorySlugs": [],
       "weight": "100g",
       "shortDescription": "A seven-herb combination bringing together classic Indian botanicals for a complete herbal hair-care routine.",
       "description": "A thoughtfully combined blend of Amla, Reetha, Sikakai, Bhringraj, Hibiscus, Brahmi and Neem powders.\nMade for those who want to bring a wider selection of traditional botanicals into their regular hair-care routine.",
@@ -93,6 +95,7 @@
       "category": "Skin Care",
       "categoryId": 2,
       "categorySlug": "skin-care",
+      "alsoCategorySlugs": [],
       "weight": "100g",
       "shortDescription": "A refreshing blend of traditional botanical powders for a simple, naturally inspired face-care routine.",
       "description": "A carefully selected combination of Rose Petal, Multani Mitti, Orange Peel and Mulethi powders.\nThe blend brings together four familiar botanical ingredients for a soothing and refreshing addition to your regular face-care routine.",
@@ -135,6 +138,7 @@
       "category": "Hair Care",
       "categoryId": 1,
       "categorySlug": "hair-care",
+      "alsoCategorySlugs": [],
       "weight": "100g",
       "shortDescription": "A five-herb blend combining traditional hair-care ingredients in one convenient pack.",
       "description": "A balanced combination of Amla, Reetha, Sikakai, Bhringraj and Hibiscus powders inspired by traditional Indian hair-care routines.\nA convenient blend for those who prefer a more enriched herbal hair-care experience.",
@@ -177,6 +181,9 @@
       "category": "Hair Care",
       "categoryId": 1,
       "categorySlug": "hair-care",
+      "alsoCategorySlugs": [
+        "herbal-powders"
+      ],
       "weight": "100g",
       "shortDescription": "Pure Indian Gooseberry powder for natural hair strength.",
       "description": "Sun-dried whole amla fruits finely ground for vitamin C hair strength and scalp vitality.",
@@ -226,6 +233,9 @@
       "category": "Hair Care",
       "categoryId": 1,
       "categorySlug": "hair-care",
+      "alsoCategorySlugs": [
+        "herbal-powders"
+      ],
       "weight": "100g",
       "shortDescription": "Natural botanical cleanser for soft scalp wash.",
       "description": "Natural soapnut powder rich in gentle plant saponins for mild chemical-free hair cleansing.",
@@ -275,6 +285,9 @@
       "category": "Hair Care",
       "categoryId": 1,
       "categorySlug": "hair-care",
+      "alsoCategorySlugs": [
+        "herbal-powders"
+      ],
       "weight": "100g",
       "shortDescription": "Timeless hair herb for traditional conditioning.",
       "description": "Traditional 'King of Herbs' for soothing hair conditioning and root revitalization.",
@@ -324,6 +337,9 @@
       "category": "Hair Care",
       "categoryId": 1,
       "categorySlug": "hair-care",
+      "alsoCategorySlugs": [
+        "herbal-powders"
+      ],
       "weight": "100g",
       "shortDescription": "Nourishing botanical petal powder for shiny hair.",
       "description": "Vibrant red hibiscus petal powder for ultra-soft texture and moisture retention.",
@@ -373,6 +389,9 @@
       "category": "Skin Care",
       "categoryId": 2,
       "categorySlug": "skin-care",
+      "alsoCategorySlugs": [
+        "herbal-powders"
+      ],
       "weight": "150g",
       "shortDescription": "Classic natural clay for purified cooling face packs.",
       "description": "Authentic Indian Fuller's Earth clay for deep oil cleansing and cooling face packs.",
@@ -422,6 +441,9 @@
       "category": "Hair Care",
       "categoryId": 1,
       "categorySlug": "hair-care",
+      "alsoCategorySlugs": [
+        "herbal-powders"
+      ],
       "weight": "100g",
       "shortDescription": "Gentle low-pH herb for natural hair detangling.",
       "description": "Wild acacia concinna pods finely ground for low-pH gentle hair wash.",
@@ -471,6 +493,9 @@
       "category": "Hair Care",
       "categoryId": 1,
       "categorySlug": "hair-care",
+      "alsoCategorySlugs": [
+        "herbal-powders"
+      ],
       "weight": "100g",
       "shortDescription": "Pure shade-dried henna leaves for rich hair sheen.",
       "description": "Pure Lawsonia Inermis leaves ground for natural copper conditioning color and sheen.",
@@ -520,6 +545,9 @@
       "category": "Hair Care",
       "categoryId": 1,
       "categorySlug": "hair-care",
+      "alsoCategorySlugs": [
+        "herbal-powders"
+      ],
       "weight": "100g",
       "shortDescription": "Botanical leaf powder for rich dark hair tones.",
       "description": "Pure Indigofera Tinctoria leaf powder used after Henna for natural dark tones.",
@@ -569,6 +597,7 @@
       "category": "Hair Care",
       "categoryId": 1,
       "categorySlug": "hair-care",
+      "alsoCategorySlugs": [],
       "weight": "75g",
       "shortDescription": "Dried botanical leaves for refreshing herbal hair rinses.",
       "description": "Whole sun-dried aromatic rosemary leaves for preparing herbal hair rinse teas.",
@@ -618,6 +647,7 @@
       "category": "Skin Care",
       "categoryId": 2,
       "categorySlug": "skin-care",
+      "alsoCategorySlugs": [],
       "weight": "100g",
       "shortDescription": "Soothing herb for scalp packs and herbal routines.",
       "description": "Traditional Bacopa Monnieri herb ground for soothing scalp applications.",
@@ -667,6 +697,9 @@
       "category": "Skin Care",
       "categoryId": 2,
       "categorySlug": "skin-care",
+      "alsoCategorySlugs": [
+        "herbal-powders"
+      ],
       "weight": "100g",
       "shortDescription": "Clarifying leaf powder for purifying skin & scalp packs.",
       "description": "Pure shade-dried Indian Neem leaves for clarify face packs and scalp wellness.",
@@ -716,6 +749,7 @@
       "category": "Skin Care",
       "categoryId": 2,
       "categorySlug": "skin-care",
+      "alsoCategorySlugs": [],
       "weight": "100g",
       "shortDescription": "Licorice root powder for gentle skin brightening packs.",
       "description": "Sweet Licorice root powder for soothing skin complexion masks.",
@@ -765,6 +799,9 @@
       "category": "Skin Care",
       "categoryId": 2,
       "categorySlug": "skin-care",
+      "alsoCategorySlugs": [
+        "herbal-powders"
+      ],
       "weight": "100g",
       "shortDescription": "Indian Madder root for clarifying skin masks.",
       "description": "Traditional Indian Madder root powder for skin tone balancing masks.",
@@ -814,6 +851,9 @@
       "category": "Skin Care",
       "categoryId": 2,
       "categorySlug": "skin-care",
+      "alsoCategorySlugs": [
+        "herbal-powders"
+      ],
       "weight": "100g",
       "shortDescription": "Refreshing citrus peel powder for glowing face packs.",
       "description": "Zesty sun-dried orange peel powder packed with natural citrus brightness.",
@@ -863,6 +903,9 @@
       "category": "Skin Care",
       "categoryId": 2,
       "categorySlug": "skin-care",
+      "alsoCategorySlugs": [
+        "herbal-powders"
+      ],
       "weight": "100g",
       "shortDescription": "Fragrant rose petal powder for soothing face masks.",
       "description": "Aromatic shade-dried rose petals finely milled for hydrating cooling face masks.",

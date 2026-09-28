@@ -28,6 +28,25 @@
       "width": 2084,
       "height": 2084,
       "alt": ""
+    },
+    "marketplace": {
+      "links": [
+        {
+          "label": "Meesho",
+          "url": "https://www.meesho.com/BlackApple?ms=2"
+        },
+        {
+          "label": "Amazon",
+          "url": "https://www.meesho.com/BlackApple?ms=2"
+        },
+        {
+          "label": "Flipkart",
+          "url": "https://www.meesho.com/BlackApple?ms=2"
+        }
+      ],
+      "onHome": false,
+      "onCollections": false,
+      "onProducts": false
     }
   }
 }
