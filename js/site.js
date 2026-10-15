@@ -218,6 +218,13 @@
                                 100% NATURAL
                             </span>` : '';
 
+                // How many pack sizes a product comes in (Module 65). The card shows the
+                // default size's price, so this is the only sign that other sizes exist.
+                const sizesBadge = (product.variantCount || 0) > 1 ? `
+                            <span class="absolute bottom-3 left-3 bg-brand-ivory/95 text-brand-forest font-extrabold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full border border-brand-sandDark/60 shadow-sm z-10">
+                                ${product.variantCount} sizes
+                            </span>` : '';
+
                 const buy = primaryBuyLink(product);
 
                 // A buy button is the card's main action. The CMS will not publish
@@ -241,7 +248,7 @@
                 card.innerHTML = `
                     <a href="product-${product.slug}.html" class="block">
                         <div class="relative rounded-2xl p-4 mb-4 overflow-hidden text-center border border-brand-beige">
-                            ${naturalBadge}${bestSellerBadge}
+                            ${naturalBadge}${bestSellerBadge}${sizesBadge}
                             ${productImageFrame(imageMarkup)}
                         </div>
 
@@ -262,7 +269,7 @@
                         ${cardPriceBlock(product)}
                         <div class="flex items-center gap-2">
                             ${buyButton}
-                            <button data-action="add-to-cart" data-product-id="${product.id}" aria-label="Add ${product.name} to the basket" title="Add to basket" class="shrink-0 w-10 h-10 flex items-center justify-center bg-brand-ivory hover:bg-brand-cream text-brand-forest border border-brand-sandDark/70 rounded-xl transition-colors active:scale-95">
+                            <button data-action="add-to-cart" data-product-id="${product.id}" data-variant-id="${product.defaultVariantId ?? ''}" aria-label="Add ${product.name} to the basket" title="Add to basket" class="shrink-0 w-10 h-10 flex items-center justify-center bg-brand-ivory hover:bg-brand-cream text-brand-forest border border-brand-sandDark/70 rounded-xl transition-colors active:scale-95">
                                 <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i>
                             </button>
                         </div>
@@ -285,23 +292,64 @@
          * the count going up, and a line of text: on screen as a toast, and spoken
          * through the live region for anyone who cannot see either.
          */
-        function addToCart(productId) {
+        /**
+         * The basket line's identity: a product, and the chosen pack size when it has
+         * one (Module 65). Two sizes of one product are two lines, not one.
+         */
+        function cartKey(productId, variantId) {
+            return `${productId}:${variantId ? variantId : 'default'}`;
+        }
+
+        /** Reads an element's `data-variant-id`, or null when it carries none. */
+        function actionVariantId(element) {
+            const value = element?.dataset?.variantId;
+
+            if (value === undefined || value === null || String(value).trim() === '') return null;
+
+            const id = Number(value);
+            return Number.isFinite(id) && id > 0 ? id : null;
+        }
+
+        function addToCart(productId, variantId = null) {
             const product = products.find(p => p.id === productId);
             if (!product) return;
 
-            if (cart.some(item => item.id === productId)) {
+            const variant = variantId
+                ? (product.variants || []).find(entry => entry.id === variantId) || null
+                : null;
+
+            const key = cartKey(productId, variant ? variant.id : null);
+            // The name shown everywhere in the basket, so two sizes are told apart.
+            const label = variant ? `${product.name} — ${variant.weight}` : product.name;
+
+            if (cart.some(item => item.key === key)) {
                 // The basket is a shortlist, not an order (Module 48): a product is
                 // either in it or not. Quantity is chosen on the shop's own page.
                 bumpCart();
-                showToast(`${product.name} is already in your basket`);
+                showToast(`${label} is already in your basket`);
                 return;
             }
 
-            cart.push({ ...product });
+            const variantImage = variant && variant.image ? variant.image : null;
+
+            cart.push({
+                key,
+                id: product.id,
+                variantId: variant ? variant.id : null,
+                name: product.name,
+                label,
+                weight: variant ? variant.weight : product.weight,
+                image: variantImage && variantImage.src ? variantImage.src : product.image,
+                price: variant ? variant.price : product.price,
+                deliveryNote: variant ? (variant.deliveryNote ?? product.deliveryNote) : product.deliveryNote,
+                purchaseLinks: variant && Array.isArray(variant.purchaseLinks) && variant.purchaseLinks.length > 0
+                    ? variant.purchaseLinks
+                    : product.purchaseLinks
+            });
 
             updateCartUI();
             bumpCart();
-            showToast(`Added ${product.name} to your basket`);
+            showToast(`Added ${label} to your basket`);
         }
 
         /**
@@ -329,13 +377,13 @@
             }
         }
 
-        function removeFromCart(productId) {
-            const item = cart.find(entry => entry.id === productId);
+        function removeFromCart(key) {
+            const item = cart.find(entry => entry.key === key);
             if (!item) return;
 
-            cart = cart.filter(entry => entry.id !== productId);
+            cart = cart.filter(entry => entry.key !== key);
             updateCartUI();
-            showToast(`Removed ${item.name} from your basket`);
+            showToast(`Removed ${item.label} from your basket`);
         }
 
         function updateCartUI() {
@@ -364,14 +412,15 @@
                 div.className = "p-3 bg-brand-ivory rounded-2xl border border-brand-sandDark/60";
                 div.innerHTML = `
                     <div class="flex items-center gap-4">
-                        <div class="w-16 shrink-0">${productImageFrame(`<img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">`)}</div>
+                        <div class="w-16 shrink-0">${productImageFrame(`<img src="${item.image}" alt="${item.label}" class="w-full h-full object-cover">`)}</div>
                         <div class="flex-1 min-w-0">
                             <h4 class="font-bold text-xs text-brand-forest truncate">${item.name}</h4>
+                            ${item.variantId ? `<p class="text-[11px] font-semibold text-gray-500">${item.weight}</p>` : ''}
                             ${cartPriceBlock(item)}
                         </div>
-                        <button data-action="remove-from-cart" data-product-id="${item.id}"
+                        <button data-action="remove-from-cart" data-cart-key="${item.key}"
                                 class="shrink-0 w-8 h-8 flex items-center justify-center text-gray-500 hover:text-brand-forest rounded-lg"
-                                aria-label="Remove ${item.name} from the basket" title="Remove from basket">
+                                aria-label="Remove ${item.label} from the basket" title="Remove from basket">
                             <i class="fa-solid fa-xmark" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -754,6 +803,71 @@
          */
 
         /**
+         * Chooses a weight variant on a product page (Module 65).
+         *
+         * Everything a size changes is changed in place: the price, the "per …"
+         * weight, the pack size when prices are hidden, the delivery line, the large
+         * picture, the buy buttons, and the basket button. The data comes from
+         * `data/products.json`, which this page already loaded — the markup carries
+         * only the chosen id, so the two can never disagree.
+         */
+        function selectVariant(button) {
+            const container = document.getElementById('product-variants');
+            if (!container) return;
+
+            const productId = Number(container.dataset.productId);
+            const product = products.find(entry => entry.id === productId);
+            const variantId = Number(button.dataset.variantId);
+            const variant = product && (product.variants || []).find(entry => entry.id === variantId);
+
+            if (!product || !variant) return;
+
+            container.querySelectorAll('[data-action="select-variant"]').forEach(chip => {
+                const isActive = chip === button;
+
+                chip.classList.toggle('is-active', isActive);
+                chip.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+
+            // When prices are switched off (Module 52) neither element exists, so the
+            // weight itself is still updated below.
+            const price = document.getElementById('product-price');
+            if (price) price.textContent = formatPrice(variant.price);
+
+            const weightLine = document.getElementById('product-price-weight');
+            if (weightLine) weightLine.textContent = variant.weight;
+
+            // With prices hidden the slot holds the whole phrase, so the "pack" stays too.
+            const packSize = document.getElementById('product-pack-size');
+            if (packSize) packSize.textContent = `${variant.weight} pack`;
+
+            const note = document.getElementById('product-delivery-note');
+            if (note) {
+                if (variant.deliveryNote) {
+                    note.textContent = variant.deliveryNote;
+                    note.hidden = false;
+                } else {
+                    note.hidden = true;
+                }
+            }
+
+            const main = document.getElementById('product-main-image');
+            if (main && variant.image && variant.image.src) {
+                main.src = variant.image.src;
+                main.srcset = variant.image.srcset || '';
+                if (variant.image.alt) main.alt = variant.image.alt;
+            }
+
+            const buyHost = document.getElementById('product-buy-buttons');
+            if (buyHost) {
+                buyHost.innerHTML = buyButtonsMarkup({ purchaseLinks: variant.purchaseLinks }, { size: 'lg' });
+            }
+
+            const addButton = document.querySelector(`[data-action="add-to-cart"][data-product-id="${productId}"]`);
+            if (addButton) addButton.dataset.variantId = String(variant.id);
+        }
+
+        /**
          * Swaps the large picture when a thumbnail is chosen, and marks which one
          * is showing so the choice is visible rather than only remembered.
          * Used by the product pages the build generates.
@@ -1076,9 +1190,16 @@
                 const id = actionProductId(element);
                 if (id === null) return;
 
-                addToCart(id);
+                addToCart(id, actionVariantId(element));
             },
-            'remove-from-cart': (element) => removeFromCart(actionProductId(element)),
+            'remove-from-cart': (element) => removeFromCart(element.dataset.cartKey),
+            /*
+             * Choosing a pack size (Module 65) updates the price, the weight line, the
+             * picture, the buy buttons, and the add-to-basket button in place. The page
+             * is built with the default variant already showing, so this only ever
+             * changes what is there.
+             */
+            'select-variant': (element) => selectVariant(element),
             'view-product-image': (element) => showProductImage(element),
             'gallery-step': (element) => stepProductImage(Number(element.dataset.galleryStep) || 1),
             'share-product': (element) => shareCurrentPage(element),
@@ -1471,6 +1592,8 @@
             if (addButton) {
                 addButton.setAttribute('data-action', 'add-to-cart');
                 addButton.setAttribute('data-product-id', String(bestSeller.id));
+                // The default size, when the best seller comes in more than one (Module 65).
+                addButton.setAttribute('data-variant-id', bestSeller.defaultVariantId != null ? String(bestSeller.defaultVariantId) : '');
                 addButton.setAttribute('aria-label', `Add ${bestSeller.name} to your basket`);
             }
 
