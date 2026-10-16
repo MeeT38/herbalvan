@@ -1,0 +1,317 @@
+/*
+ * The Coming Soon screen (Module 67).
+ *
+ * One screen, and nothing else on the website: written by hand rather than with the
+ * compiled stylesheet's utilities, because it is not the shop. It has no header, no
+ * footer, no basket, no script, and no link to anywhere — and it has to keep working
+ * exactly like this whatever happens to the shell, the product markup, or Tailwind.
+ *
+ * The composition is the owner's Coming Soon artwork put into words rather than a
+ * picture of words: text baked into a 1365-pixel drawing is unreadable on a phone, and
+ * a picture that has to be scaled to fit either shrinks to a stamp or gets cropped. So
+ * the message is real text — crisp at every size, readable by a screen reader, and
+ * reflowing one-handed.
+ *
+ * The palette is the artwork's own: the deep olive of the word "Coming", the copper of
+ * "Soon", and its cream card on the brand's forest green, with the three ivory circles
+ * of the artwork as the three promises.
+ *
+ * Everything sizes itself from the viewport (clamp with vw and vh), so one set of rules
+ * fits a small phone, a tablet held either way, a laptop, and a wall display.
+ */
+
+/* ------------------------------------------------------------------ */
+/* The page                                                            */
+/* ------------------------------------------------------------------ */
+
+/*
+ * The shop's pages are given `border-box` sizing by Tailwind's preflight, which this
+ * page deliberately does not load — and without it `min-height: 100svh` means the
+ * viewport *plus* the padding, so the screen is taller than the phone and the card sits
+ * low. Three lines are cheaper than loading a framework for them.
+ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: #0B2823;
+    color: #17221F;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.coming-soon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: clamp(16px, 4vw, 48px);
+    background:
+        radial-gradient(58rem 38rem at 8% -12%, rgba(236, 221, 200, 0.16), transparent 62%),
+        radial-gradient(46rem 32rem at 104% 112%, rgba(12, 147, 71, 0.22), transparent 64%),
+        #0B2823;
+}
+
+/*
+ * The decoration sits in its own layer so that clipping it never clips the screen: on a
+ * short screen the card may need to scroll, and it must not lose its own bottom to a
+ * leaf that ran off the edge.
+ */
+.coming-soon__decor {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.coming-soon__leaf {
+    position: absolute;
+    display: block;
+    color: rgba(248, 245, 238, 0.05);
+}
+
+.coming-soon__leaf--right {
+    right: -4rem;
+    bottom: -7rem;
+    font-size: clamp(13rem, 32vw, 28rem);
+    transform: rotate(-14deg);
+}
+
+.coming-soon__leaf--left {
+    top: -6rem;
+    left: -5rem;
+    font-size: clamp(9rem, 22vw, 19rem);
+    color: rgba(167, 181, 168, 0.07);
+    transform: rotate(26deg) scaleX(-1);
+}
+
+/* ------------------------------------------------------------------ */
+/* The card                                                            */
+/* ------------------------------------------------------------------ */
+
+/*
+ * A flex item rather than `width: min(40rem, 100%)`: inside a centred grid the
+ * percentage resolves against a track the card's own content sizes, so a long line of
+ * text could push the card wider than the phone. Here the card asks for 40rem and
+ * shrinks to whatever is left, which is what "as wide as the screen allows" means.
+ */
+.coming-soon__card {
+    position: relative;
+    flex: 0 1 40rem;
+    max-width: 100%;
+    padding: clamp(26px, 5vw, 54px) clamp(22px, 5vw, 56px) clamp(24px, 5vw, 46px);
+    border-radius: clamp(20px, 3vw, 30px);
+    background: linear-gradient(175deg, #FCFAF5 0%, #F6F1E6 100%);
+    box-shadow:
+        0 34px 90px -34px rgba(3, 14, 11, 0.8),
+        0 1px 0 rgba(255, 255, 255, 0.6) inset;
+    text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .coming-soon__card {
+        animation: coming-soon-rise 700ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+}
+
+@keyframes coming-soon-rise {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* The wordmark                                                        */
+/* ------------------------------------------------------------------ */
+
+.coming-soon__logo {
+    display: block;
+    width: auto;
+    height: clamp(34px, 7vh, 62px);
+    margin: 0 auto clamp(16px, 3vh, 26px);
+}
+
+/* With no logo set in the CMS, the brand name is set in the display face instead. */
+.coming-soon__wordmark {
+    margin: 0 auto clamp(16px, 3vh, 26px);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.6rem, 5vw, 2.1rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #0B2823;
+}
+
+.coming-soon__wordmark span {
+    color: #0C9347;
+}
+
+/* ------------------------------------------------------------------ */
+/* The message                                                         */
+/* ------------------------------------------------------------------ */
+
+.coming-soon__eyebrow {
+    margin: 0 0 clamp(10px, 2vh, 16px);
+    font-size: clamp(0.6rem, 1.9vw, 0.72rem);
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: #086E34;
+}
+
+.coming-soon__title {
+    margin: 0;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2.3rem, min(11vw, 9.5vh), 4rem);
+    line-height: 1.03;
+    letter-spacing: -0.015em;
+    color: #142703;
+}
+
+/* The artwork's two colours: the deep olive of "Coming", the copper of "Soon". */
+.coming-soon__title span {
+    display: inline-block;
+}
+
+.coming-soon__title-soon {
+    font-style: italic;
+    color: #A35E1E;
+}
+
+.coming-soon__tagline {
+    margin: clamp(10px, 2vh, 16px) 0 0;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1rem, 3.4vw, 1.28rem);
+    color: #17221F;
+}
+
+.coming-soon__tagline em {
+    color: #086E34;
+}
+
+.coming-soon__lede {
+    max-width: 32ch;
+    margin: clamp(8px, 1.6vh, 12px) auto 0;
+    font-size: clamp(0.86rem, 2.5vw, 0.95rem);
+    line-height: 1.65;
+    color: rgba(23, 34, 31, 0.72);
+}
+
+.coming-soon__rule {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 15rem;
+    margin: clamp(16px, 3.2vh, 26px) auto;
+    color: #0C9347;
+}
+
+.coming-soon__rule span {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #E0D6C2);
+}
+
+.coming-soon__rule span:last-child {
+    background: linear-gradient(90deg, #E0D6C2, transparent);
+}
+
+.coming-soon__rule i {
+    font-size: 0.78rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* The three promises                                                  */
+/* ------------------------------------------------------------------ */
+
+.coming-soon__promises {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(4px, 1.4vw, 14px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.coming-soon__promise {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(8px, 1.6vh, 12px);
+    padding: 0 clamp(4px, 1.4vw, 14px);
+}
+
+/* The thin dividers of the artwork, between its three circles. */
+.coming-soon__promise + .coming-soon__promise {
+    border-left: 1px solid #E7DECB;
+}
+
+.coming-soon__badge {
+    display: grid;
+    place-items: center;
+    width: clamp(38px, 9vw, 54px);
+    aspect-ratio: 1;
+    border: 1px solid #E9E1D4;
+    border-radius: 50%;
+    background: #FFFFFF;
+    box-shadow: 0 8px 16px -10px rgba(11, 40, 35, 0.45);
+    color: #086E34;
+    font-size: clamp(0.9rem, 2.6vw, 1.15rem);
+}
+
+.coming-soon__promise-label {
+    font-size: clamp(0.66rem, 2.1vw, 0.8rem);
+    font-weight: 600;
+    line-height: 1.35;
+    color: rgba(23, 34, 31, 0.82);
+    text-wrap: balance;
+}
+
+/* ------------------------------------------------------------------ */
+/* Screens with very little room                                       */
+/* ------------------------------------------------------------------ */
+
+/*
+ * A phone held sideways has about 390 pixels of height and the screen still has to say
+ * everything, so the spacing closes up rather than the words disappearing.
+ */
+@media (max-height: 480px) {
+    .coming-soon {
+        padding: 12px;
+    }
+
+    .coming-soon__card {
+        padding: 18px 22px;
+    }
+
+    .coming-soon__logo {
+        height: 30px;
+        margin-bottom: 12px;
+    }
+
+    .coming-soon__rule {
+        margin: 12px auto;
+    }
+
+    .coming-soon__lede {
+        max-width: 48ch;
+    }
+}

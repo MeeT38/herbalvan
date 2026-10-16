@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://meet38.github.io/herbalvan/</loc>
+    <loc>https://herbalvan.com/</loc>
     <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://meet38.github.io/herbalvan/product-3-in-1-amla-reetha-shikakai-powder.html</loc>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://meet38.github.io/herbalvan/collection-hair-care.html</loc>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://meet38.github.io/herbalvan/collection-all.html</loc>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://meet38.github.io/herbalvan/policy-privacy.html</loc>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://meet38.github.io/herbalvan/policy-terms.html</loc>
-    <changefreq>monthly</changefreq>
   </url>
 </urlset>
