@@ -227,7 +227,7 @@
             </div>
             <div class="pt-6 border-t border-brand-sandDark text-xs text-gray-600">
                 <p class="font-bold text-brand-forest mb-1">HerbalVan Assistance</p>
-                <p data-contact-email><i class="fa-solid fa-envelope mr-1 text-brand-botanical"></i><a href="mailto:support@herbalvan.com" class="hover:text-brand-cream transition-colors">support@herbalvan.com</a></p>
+                <p data-contact-email><i class="fa-solid fa-envelope mr-1 text-brand-botanical"></i><a href="mailto:theherbalvan@gmail.com" class="hover:text-brand-cream transition-colors">theherbalvan@gmail.com</a></p>
                 <p><i class="fa-solid fa-shield-halved mr-1 text-brand-botanical"></i> 100% Authentic Natural Products</p>
             </div>
         </div>
@@ -321,7 +321,80 @@
                         </div>
 
                         <!-- Hero Right Featured Card Showcase (driven by the best_seller table) -->
-                        
+                        <div class="lg:col-span-5 relative" data-best-seller>
+                            <div class="relative mx-auto max-w-md">
+                                <!-- Main Featured Product Card Visual -->
+                                <div class="bg-white p-6 rounded-3xl shadow-2xl border border-brand-sandDark/80 relative z-10 transform lg:rotate-1 hover:rotate-0 transition-transform duration-500">
+                                    <span class="absolute top-4 left-4 bg-brand-botanicalDark text-white font-extrabold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-20 pulse-badge" data-best-seller-badge>HERBALVAN BESTSELLER</span>
+                                    <div class="rounded-2xl p-6 text-center mb-4 relative overflow-hidden group border border-brand-beige">
+                                        <!--
+                                            The showcase links to the product's own page like
+                                            every card does (Module 49). The static address is
+                                            the All Products collection, which always exists, so
+                                            the link is never broken; js/site.js repoints it at
+                                            the current best seller once the data has loaded.
+                                        -->
+                                        <a href="collection-all.html" data-best-seller-link class="block">
+                                            <!-- Square frame, like every product picture on the
+                                                 site (Module 50), so one uploaded image renders
+                                                 the same here as in a card, the basket, or the
+                                                 product page. -->
+                                            <div class="aspect-square w-full overflow-hidden rounded-xl">
+                                                <img data-best-seller-image class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/products/rose-powder-facewash/79/1200.webp" alt="HerbalVan Rose Powder Facewash" loading="eager" srcset="images/products/rose-powder-facewash/79/400.webp 400w, images/products/rose-powder-facewash/79/800.webp 800w, images/products/rose-powder-facewash/79/1200.webp 1200w" sizes="(min-width: 1024px) 28vw, 90vw">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center gap-1 text-brand-botanical text-xs font-bold">
+                                            <i class="fa-solid fa-leaf"></i> <span data-best-seller-category>Skin Care</span>
+                                        </div>
+                                        <h3 class="font-serif-heading font-bold text-xl text-brand-forest"><a href="collection-all.html" data-best-seller-link class="hover:text-brand-botanicalDark transition-colors"><span data-best-seller-name>Rose Powder Facewash</span></a></h3>
+                                        <p class="text-xs text-gray-600" data-best-seller-description>Rose Powder Facewash with Manjistha for Deep Cleansing, Smooth &amp; Glowing Skin | Gentle Daily Facial Cleanser | 70g</p>
+                                        <div class="pt-3 flex items-center justify-between gap-3">
+                                            <!--
+                                                The note and the weight stack because this box is
+                                                a column, not because they carry `block`. A
+                                                `block` class beats the `hidden` attribute in the
+                                                stylesheet, so the note — which the script shows
+                                                or hides — has to be hidden by its container.
+                                                (Module 50.)
+                                            -->
+                                            <div class="flex flex-col">
+                                                <!--
+                                                    Empty on purpose (Module 52). This is the pre-JS
+                                                    placeholder for the showcase, and it used to hold a
+                                                    hard-coded price — one that was wrong until the
+                                                    script ran, and that could not be hidden when the
+                                                    owner switches prices off. js/site.js fills it in
+                                                    from the real best seller when prices are shown.
+                                                -->
+                                                <span class="text-2xl font-extrabold text-brand-forest" data-best-seller-price></span>
+                                                <span class="text-[10px] text-gray-500 font-semibold" data-best-seller-note hidden hidden>>+ Meesho delivery charge</span>
+                                                <span class="text-[10px] text-gray-500 font-semibold" data-best-seller-weight>70g Pure Herb</span>
+                                            </div>
+                                            <!-- The buy button is the main action here too (Module 48);
+                                                 it is filled in by js/site.js from the product's links. -->
+                                            <div class="flex items-center gap-2">
+                                                <div data-best-seller-buy><a href="https://www.meesho.com/rose-powder-facewash/p/iucvkp" target="_blank" rel="noopener noreferrer nofollow" data-buy-link="meesho" class="w-full flex items-center justify-center gap-2 bg-brand-botanicalDark hover:bg-brand-botanical text-white font-extrabold px-5 py-3.5 rounded-2xl text-sm shadow-md transition-all"><i class="fa-solid fa-bag-shopping text-xs" aria-hidden="true"></i> Buy on Meesho</a></div>
+                                                <button data-action="add-to-cart" data-best-seller-add class="shrink-0 w-10 h-10 flex items-center justify-center bg-brand-ivory hover:bg-brand-cream text-brand-forest border border-brand-sandDark/70 rounded-xl transition-colors" title="Add to basket" data-product-id="31" aria-label="Add Rose Powder Facewash to your basket">
+                                                    <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--
+                                    The floating "Finely Milled / 100% Raw Botanicals" card
+                                    stood here. Removed at the owner's request (Module 50):
+                                    it was a claim laid over the product photograph, and the
+                                    wording was invented copy rather than stored content.
+                                -->
+
+                                <!-- Decorative BG Element -->
+                                <div class="absolute -top-10 -right-10 w-64 h-64 bg-brand-cream rounded-full blur-3xl -z-10"></div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -461,6 +534,21 @@
             -->
             <!-- build:marketplace-home -->
 
+                <section class="py-12 bg-white border-b border-brand-sandDark">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="bg-brand-forest rounded-3xl p-6 sm:p-8 text-center sm:text-left sm:flex sm:items-center sm:justify-between sm:gap-6">
+                        <div>
+                            <span class="text-xs font-extrabold text-brand-sage uppercase tracking-widest">Our marketplace store</span>
+                            <h2 class="font-serif-heading font-black text-2xl sm:text-3xl text-white mt-1">Prefer to buy from Meesho?</h2>
+                            <p class="text-sm text-brand-sage mt-2 max-w-xl">Every product here is listed in our own store, with the same range and the same size packs.</p>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-center gap-3 mt-5 sm:mt-0 sm:shrink-0">
+                            <a href="https://www.meesho.com/HERBALVAN30844" target="_blank" rel="noopener noreferrer nofollow" class="inline-flex items-center gap-2 bg-white hover:bg-brand-cream text-brand-forest font-extrabold px-6 py-3 rounded-2xl text-sm shadow-md transition-all hover:scale-[1.03]"><i class="fa-solid fa-store" aria-hidden="true"></i> Visit our Meesho store</a>
+                            
+                        </div>
+                    </div>
+                    </div>
+                </section>
 <!-- /build:marketplace-home -->
 
             <section class="py-16 bg-brand-ivory border-y border-brand-sandDark/70" data-reviews-section>
@@ -628,7 +716,7 @@
                         100% natural and authentic herbal products. Pure botanical powders for simple, everyday hair and skincare rituals.
                     </p>
                     <!-- Contact details (Module 21): shown only for values that are set. -->
-                    <p class="text-xs text-brand-cream/90 pt-1" data-contact-line><i class="fa-solid fa-headset mr-1.5 text-brand-botanical"></i><a href="mailto:support@herbalvan.com" class="hover:text-white transition-colors">support@herbalvan.com</a><span class="mx-1.5 text-brand-sage/50">·</span><a href="tel:+919265445888" class="hover:text-white transition-colors">+91 9265445888</a><span class="mx-1.5 text-brand-sage/50">·</span><a href="https://wa.me/919265445888" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">WhatsApp</a></p>
+                    <p class="text-xs text-brand-cream/90 pt-1" data-contact-line><i class="fa-solid fa-headset mr-1.5 text-brand-botanical"></i><a href="mailto:theherbalvan@gmail.com" class="hover:text-white transition-colors">theherbalvan@gmail.com</a><span class="mx-1.5 text-brand-sage/50">·</span><a href="tel:+919712316462" class="hover:text-white transition-colors">+91 9712316462</a><span class="mx-1.5 text-brand-sage/50">·</span><a href="https://wa.me/919712316462" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">WhatsApp</a></p>
                     <div class="flex items-center gap-3 pt-2 text-brand-cream">
                         <a data-social="instagram" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-botanical hover:text-white transition-colors" aria-label="Instagram" href="https://www.instagram.com/theherbalvan/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
                         

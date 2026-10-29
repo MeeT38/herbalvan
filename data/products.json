@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "bestSellerProductId": null,
+  "bestSellerProductId": 31,
   "items": [
     {
       "id": 31,
@@ -67,7 +67,7 @@
       "deliveryNote": "+ Meesho delivery charge",
       "featured": 1,
       "publishedReviewCount": 0,
-      "isBestSeller": false
+      "isBestSeller": true
     }
   ]
 }

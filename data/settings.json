@@ -2,10 +2,10 @@
   "version": 1,
   "item": {
     "siteName": "HerbalVan",
-    "contactEmail": "contact@herbalvan.com",
-    "supportEmail": "support@herbalvan.com",
-    "phone": "+91 9265445888",
-    "whatsapp": "+91 9265445888",
+    "contactEmail": "theherbalvan@gmail.com",
+    "supportEmail": "theherbalvan@gmail.com",
+    "phone": "+91 9712316462",
+    "whatsapp": "+91 9712316462",
     "instagramUrl": "https://www.instagram.com/theherbalvan/",
     "facebookUrl": null,
     "youtubeUrl": null,
@@ -35,18 +35,10 @@
       "links": [
         {
           "label": "Meesho",
-          "url": "https://www.meesho.com/BlackApple?ms=2"
-        },
-        {
-          "label": "Amazon",
-          "url": "https://www.meesho.com/BlackApple?ms=2"
-        },
-        {
-          "label": "Flipkart",
-          "url": "https://www.meesho.com/BlackApple?ms=2"
+          "url": "https://www.meesho.com/HERBALVAN30844"
         }
       ],
-      "onHome": false,
+      "onHome": true,
       "onCollections": false,
       "onProducts": false
     }

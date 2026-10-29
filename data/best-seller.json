@@ -1,4 +1,70 @@
 {
   "version": 1,
-  "item": null
+  "item": {
+    "id": 31,
+    "name": "Rose Powder Facewash",
+    "slug": "rose-powder-facewash",
+    "category": "Skin Care",
+    "categoryId": 2,
+    "categorySlug": "skin-care",
+    "alsoCategorySlugs": [],
+    "weight": "70g",
+    "shortDescription": "Rose Powder Facewash with Manjistha for Deep Cleansing, Smooth & Glowing Skin | Gentle Daily Facial Cleanser | 70g",
+    "description": "",
+    "ingredients": "Rose Powder | Manjishta | Multani Mitti | Coconut based cleanser | Natural bases",
+    "howToUse": "1. Wet Your Face: Dampen your face with clean water.\n2. Take a Small Amount: Mix a little face wash powder with water to form a smooth paste.\n3. Apply Gently: Massage onto your face in circular motions for 20–30 seconds.\n4. Rinse Thoroughly: Wash off with clean water and pat dry.\n5. Moisturize: Follow up with a suitable moisturizer for soft, refreshed skin.\n\nPatch test is recommended before first use.",
+    "image": "images/products/rose-powder-facewash/79/1200.webp",
+    "imageData": {
+      "src": "images/products/rose-powder-facewash/79/1200.webp",
+      "srcset": "images/products/rose-powder-facewash/79/400.webp 400w, images/products/rose-powder-facewash/79/800.webp 800w, images/products/rose-powder-facewash/79/1200.webp 1200w",
+      "width": 1254,
+      "height": 1254,
+      "alt": "HerbalVan Rose Powder Facewash"
+    },
+    "imageSrcset": "images/products/rose-powder-facewash/79/400.webp 400w, images/products/rose-powder-facewash/79/800.webp 800w, images/products/rose-powder-facewash/79/1200.webp 1200w",
+    "images": [
+      {
+        "src": "images/products/rose-powder-facewash/79/1200.webp",
+        "srcset": "images/products/rose-powder-facewash/79/400.webp 400w, images/products/rose-powder-facewash/79/800.webp 800w, images/products/rose-powder-facewash/79/1200.webp 1200w",
+        "width": 1254,
+        "height": 1254,
+        "alt": "HerbalVan Rose Powder Facewash"
+      },
+      {
+        "src": "images/products/rose-powder-facewash/80/1200.webp",
+        "srcset": "images/products/rose-powder-facewash/80/400.webp 400w, images/products/rose-powder-facewash/80/800.webp 800w, images/products/rose-powder-facewash/80/1200.webp 1200w",
+        "width": 1254,
+        "height": 1254,
+        "alt": "HerbalVan Rose Powder Facewash"
+      },
+      {
+        "src": "images/products/rose-powder-facewash/81/1200.webp",
+        "srcset": "images/products/rose-powder-facewash/81/400.webp 400w, images/products/rose-powder-facewash/81/800.webp 800w, images/products/rose-powder-facewash/81/1200.webp 1200w",
+        "width": 1254,
+        "height": 1254,
+        "alt": "HerbalVan Rose Powder Facewash"
+      },
+      {
+        "src": "images/products/rose-powder-facewash/82/1200.webp",
+        "srcset": "images/products/rose-powder-facewash/82/400.webp 400w, images/products/rose-powder-facewash/82/800.webp 800w, images/products/rose-powder-facewash/82/1200.webp 1200w",
+        "width": 1254,
+        "height": 1254,
+        "alt": "HerbalVan Rose Powder Facewash"
+      }
+    ],
+    "variants": [],
+    "variantCount": 0,
+    "defaultVariantId": null,
+    "purchaseLinks": [
+      {
+        "shop": "meesho",
+        "label": "Meesho",
+        "url": "https://www.meesho.com/rose-powder-facewash/p/iucvkp"
+      }
+    ],
+    "deliveryNote": "+ Meesho delivery charge",
+    "featured": 1,
+    "publishedReviewCount": 0,
+    "isBestSeller": true
+  }
 }
