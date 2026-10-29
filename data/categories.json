@@ -7,7 +7,7 @@
       "slug": "skin-care",
       "description": "Purifying clays and botanicals",
       "sortOrder": 10,
-      "productCount": 0,
+      "productCount": 1,
       "image": {
         "src": "images/categories/skin-care/23/1200.webp",
         "srcset": "images/categories/skin-care/23/400.webp 400w, images/categories/skin-care/23/800.webp 800w, images/categories/skin-care/23/1200.webp 1200w",
@@ -22,7 +22,7 @@
       "slug": "hair-care",
       "description": "Nourishment and cleansing botanicals",
       "sortOrder": 20,
-      "productCount": 1,
+      "productCount": 0,
       "image": null
     }
   ]

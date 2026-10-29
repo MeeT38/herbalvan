@@ -3,34 +3,55 @@
   "bestSellerProductId": null,
   "items": [
     {
-      "id": 27,
-      "name": "3 IN 1  AMLA - REETHA - SHIKAKAI POWDER",
-      "slug": "3-in-1-amla-reetha-shikakai-powder",
-      "category": "Hair Care",
-      "categoryId": 1,
-      "categorySlug": "hair-care",
+      "id": 31,
+      "name": "Rose Powder Facewash",
+      "slug": "rose-powder-facewash",
+      "category": "Skin Care",
+      "categoryId": 2,
+      "categorySlug": "skin-care",
       "alsoCategorySlugs": [],
-      "weight": "100g",
-      "shortDescription": "A simple 3-in-1 herbal hair cleansing powder made with Amla, Reetha and Shikakai. A traditional blend that gently cleanses the scalp and hair while leaving hair feeling fresh, clean and naturally conditioned.",
-      "description": "Experience the simplicity of traditional Indian hair care with our 3 IN 1 Amla–Reetha–Shikakai Powder.\n\nMade with three time-tested Ayurvedic hair-care ingredients — Amla, Reetha and Shikakai — this versatile powder can be used as a natural hair cleanser or as part of your regular hair-care routine.\n\nReetha naturally contains saponins that help cleanse the scalp and hair, while Shikakai is traditionally used to gently cleanse and condition the hair. Amla adds a nourishing botanical touch to this classic combination.\n\nA minimal-ingredient choice for those who prefer a more traditional, powder-based approach to hair cleansing.",
-      "ingredients": "Amla, Reetha, Sikakai",
-      "howToUse": "As a Hair Cleanser:  \n1. Take the required quantity of powder according to your hair length.\n2. Add water and mix into a smooth, lump-free paste.\n3. Apply to the scalp and hair, gently massage for 1–2 minutes.\n4. Leave for 2–3 minutes and rinse thoroughly with water.\n5. Repeat if required.\n\nAs a Hair Pack:\nMix the powder with water to form a smooth paste. Apply to the scalp and hair, leave for 10–15 minutes, then rinse thoroughly.",
-      "image": "images/products/3-in-1-amla-reetha-shikakai-powder/78/1200.webp",
+      "weight": "70g",
+      "shortDescription": "Rose Powder Facewash with Manjistha for Deep Cleansing, Smooth & Glowing Skin | Gentle Daily Facial Cleanser | 70g",
+      "description": "",
+      "ingredients": "Rose Powder | Manjishta | Multani Mitti | Coconut based cleanser | Natural bases",
+      "howToUse": "1. Wet Your Face: Dampen your face with clean water.\n2. Take a Small Amount: Mix a little face wash powder with water to form a smooth paste.\n3. Apply Gently: Massage onto your face in circular motions for 20–30 seconds.\n4. Rinse Thoroughly: Wash off with clean water and pat dry.\n5. Moisturize: Follow up with a suitable moisturizer for soft, refreshed skin.\n\nPatch test is recommended before first use.",
+      "image": "images/products/rose-powder-facewash/79/1200.webp",
       "imageData": {
-        "src": "images/products/3-in-1-amla-reetha-shikakai-powder/78/1200.webp",
-        "srcset": "images/products/3-in-1-amla-reetha-shikakai-powder/78/400.webp 400w, images/products/3-in-1-amla-reetha-shikakai-powder/78/800.webp 800w, images/products/3-in-1-amla-reetha-shikakai-powder/78/1200.webp 1200w",
-        "width": 910,
-        "height": 1134,
-        "alt": "HerbalVan 3 IN 1  AMLA - REETHA - SHIKAKAI POWDER"
+        "src": "images/products/rose-powder-facewash/79/1200.webp",
+        "srcset": "images/products/rose-powder-facewash/79/400.webp 400w, images/products/rose-powder-facewash/79/800.webp 800w, images/products/rose-powder-facewash/79/1200.webp 1200w",
+        "width": 1254,
+        "height": 1254,
+        "alt": "HerbalVan Rose Powder Facewash"
       },
-      "imageSrcset": "images/products/3-in-1-amla-reetha-shikakai-powder/78/400.webp 400w, images/products/3-in-1-amla-reetha-shikakai-powder/78/800.webp 800w, images/products/3-in-1-amla-reetha-shikakai-powder/78/1200.webp 1200w",
+      "imageSrcset": "images/products/rose-powder-facewash/79/400.webp 400w, images/products/rose-powder-facewash/79/800.webp 800w, images/products/rose-powder-facewash/79/1200.webp 1200w",
       "images": [
         {
-          "src": "images/products/3-in-1-amla-reetha-shikakai-powder/78/1200.webp",
-          "srcset": "images/products/3-in-1-amla-reetha-shikakai-powder/78/400.webp 400w, images/products/3-in-1-amla-reetha-shikakai-powder/78/800.webp 800w, images/products/3-in-1-amla-reetha-shikakai-powder/78/1200.webp 1200w",
-          "width": 910,
-          "height": 1134,
-          "alt": "HerbalVan 3 IN 1  AMLA - REETHA - SHIKAKAI POWDER"
+          "src": "images/products/rose-powder-facewash/79/1200.webp",
+          "srcset": "images/products/rose-powder-facewash/79/400.webp 400w, images/products/rose-powder-facewash/79/800.webp 800w, images/products/rose-powder-facewash/79/1200.webp 1200w",
+          "width": 1254,
+          "height": 1254,
+          "alt": "HerbalVan Rose Powder Facewash"
+        },
+        {
+          "src": "images/products/rose-powder-facewash/80/1200.webp",
+          "srcset": "images/products/rose-powder-facewash/80/400.webp 400w, images/products/rose-powder-facewash/80/800.webp 800w, images/products/rose-powder-facewash/80/1200.webp 1200w",
+          "width": 1254,
+          "height": 1254,
+          "alt": "HerbalVan Rose Powder Facewash"
+        },
+        {
+          "src": "images/products/rose-powder-facewash/81/1200.webp",
+          "srcset": "images/products/rose-powder-facewash/81/400.webp 400w, images/products/rose-powder-facewash/81/800.webp 800w, images/products/rose-powder-facewash/81/1200.webp 1200w",
+          "width": 1254,
+          "height": 1254,
+          "alt": "HerbalVan Rose Powder Facewash"
+        },
+        {
+          "src": "images/products/rose-powder-facewash/82/1200.webp",
+          "srcset": "images/products/rose-powder-facewash/82/400.webp 400w, images/products/rose-powder-facewash/82/800.webp 800w, images/products/rose-powder-facewash/82/1200.webp 1200w",
+          "width": 1254,
+          "height": 1254,
+          "alt": "HerbalVan Rose Powder Facewash"
         }
       ],
       "variants": [],
@@ -40,11 +61,11 @@
         {
           "shop": "meesho",
           "label": "Meesho",
-          "url": "https://www.meesho.com/HerbalVanStore"
+          "url": "https://www.meesho.com/rose-powder-facewash/p/iucvkp"
         }
       ],
       "deliveryNote": "+ Meesho delivery charge",
-      "featured": 0,
+      "featured": 1,
       "publishedReviewCount": 0,
       "isBestSeller": false
     }
