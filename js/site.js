@@ -843,10 +843,15 @@
 
             const note = document.getElementById('product-delivery-note');
             if (note) {
-                if (variant.deliveryNote) {
-                    note.textContent = variant.deliveryNote;
+                // The delivery line is part of the price (Module 52), so it follows
+                // the same switch when a pack size changes.
+                const deliveryNote = pricesAreShown() ? variant.deliveryNote : null;
+
+                if (deliveryNote) {
+                    note.textContent = deliveryNote;
                     note.hidden = false;
                 } else {
+                    note.textContent = '';
                     note.hidden = true;
                 }
             }
@@ -1613,10 +1618,15 @@
             const note = host.querySelector('[data-best-seller-note]');
 
             if (note) {
-                if (bestSeller.deliveryNote) {
-                    note.textContent = bestSeller.deliveryNote;
+                // The delivery line belongs to the price (Module 52): with prices off
+                // there is no price above it, so it stays empty and hidden.
+                const deliveryNote = pricesAreShown() ? bestSeller.deliveryNote : null;
+
+                if (deliveryNote) {
+                    note.textContent = deliveryNote;
                     note.hidden = false;
                 } else {
+                    note.textContent = '';
                     note.hidden = true;
                 }
             }
