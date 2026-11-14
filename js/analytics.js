@@ -1,33 +1,31 @@
 /*
- * Google Analytics 4 for the published website (Module 68).
+ * Google Analytics 4 event tracking for the published website (Module 68).
  *
  * The site is static and served by GitHub Pages, so the browser is the only
- * thing that can report a visit. This file is the whole client half:
+ * thing that can report a visit. The tag itself is loaded in `<head>` by
+ * `gtag-init.js` (Consent Mode defaults) and the `gtag/js` script the build
+ * writes next to it; this file is the part that talks to it:
  *
- * 1. It does nothing at all unless the build wrote a Measurement ID meta tag.
- *    Switched off, the page downloads this file (3 KB) and that is the end of it.
- * 2. It asks before collecting anything. No Google script is fetched, and no
- *    cookie is written, until the visitor presses "Accept".
- * 3. It sends one page view per page, a section view when a home-page view
- *    changes, and an event for the controls that mean something in this shop:
- *    add to basket, buy on a marketplace, category filter, search, FAQ, share,
- *    pack size, and product opens.
+ * 1. It does nothing at all unless the page was built with a Measurement ID.
+ *    Switched off, the page downloads this file and that is the end of it.
+ * 2. It asks before storing anything. Until a visitor presses "Accept", the tag
+ *    runs in Consent Mode with `analytics_storage: 'denied'`: no cookie and no
+ *    stored identifier — only the cookieless ping Google aggregates.
+ * 3. It sends one page view per page, a product view, a section view when a
+ *    home-page view changes, and an event for the controls that mean something
+ *    in this shop: add to basket, buy on a marketplace, category filter, search,
+ *    FAQ, share, pack size, and product opens.
  *
  * The consent choice is remembered in `localStorage`, which is this site's own
  * storage — not a cookie, and not sent anywhere. A visitor can change it from
- * "Cookie settings" in the footer.
- *
- * `window.gtag` is created here before the Google script is appended, so events
- * queue in `dataLayer` in the usual way and no request happens earlier than the
- * visitor allowed. The policy on every page permits exactly
- * `https://www.googletagmanager.com` as a script and Google's measurement hosts
- * as connections; the build writes it only while analytics is switched on.
+ * "Cookie settings" in the footer, which upgrades or downgrades the Google
+ * consent state in place.
  */
 (() => {
     'use strict';
 
     const CONSENT_KEY = 'herbalvan:analytics-consent';
-    const STATE = { loaded: false, measurementId: '' };
+    const STATE = { ready: false, measurementId: '' };
     const PRIVACY_SIGNAL = navigator.doNotTrack === '1'
         || window.doNotTrack === '1'
         || navigator.globalPrivacyControl === true;
@@ -39,7 +37,12 @@
     // "analytics is off" rather than handed to Google.
     if (!/^G-[A-Z0-9]{4,20}$/.test(measurementId)) return;
 
+    // `gtag-init.js` in the head creates this. Without it there is no tag to talk
+    // to, so the page behaves as if analytics were off.
+    if (typeof window.gtag !== 'function') return;
+
     STATE.measurementId = measurementId;
+    STATE.ready = true;
 
     const banner = document.getElementById('analytics-consent');
     const settingsButton = document.getElementById('analytics-settings');
@@ -70,8 +73,30 @@
         banner?.classList.add('hidden');
     }
 
+    /**
+     * Removes the Google Analytics cookies when consent is withdrawn.
+     *
+     * Consent Mode stops *collecting* when `analytics_storage` is denied, but it
+     * leaves any cookie it already wrote. A visitor who accepted once and later
+     * presses Decline should not keep an identifier that says they did — the
+     * banner promises the cookies are only active with consent, so the record of
+     * that consent should go with it.
+     *
+     * Only GA's own `_ga*` names are touched; nothing else on the site uses one.
+     */
+    function clearAnalyticsCookies() {
+        for (const entry of document.cookie.split(';')) {
+            const name = entry.split('=')[0].trim();
+
+            if (name !== '_ga' && !name.startsWith('_ga_')) continue;
+
+            document.cookie = `${name}=; Max-Age=0; path=/`;
+            document.cookie = `${name}=; Max-Age=0; path=/; domain=.${location.hostname}`;
+        }
+    }
+
     function track(name, parameters) {
-        if (!STATE.loaded || typeof window.gtag !== 'function') return;
+        if (!STATE.ready || PRIVACY_SIGNAL) return;
         window.gtag('event', name, parameters);
     }
 
@@ -151,55 +176,57 @@
         }
     }
 
-    function loadGoogleAnalytics() {
-        if (STATE.loaded || PRIVACY_SIGNAL) return;
+    /**
+     * Applies the visitor's choice to the tag that is already on the page.
+     *
+     * Nothing is loaded here: `gtag-init.js` and the `gtag/js` script are in the
+     * page's head, running in Consent Mode. Accepting upgrades
+     * `analytics_storage` to `granted`, which is the moment Google is allowed to
+     * write its cookie; declining leaves it denied.
+     */
+    function applyConsent(choice) {
+        if (!STATE.ready) return;
 
-        STATE.loaded = true;
-
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function gtag() {
-            window.dataLayer.push(arguments);
-        };
-
-        window.gtag('js', new Date());
-        window.gtag('config', STATE.measurementId, {
-            send_page_view: false,
-            // This shop needs visits and clicks, not advertising audiences.
-            allow_google_signals: false,
-            allow_ad_personalization_signals: false
+        window.gtag('consent', 'update', {
+            analytics_storage: choice === 'granted' ? 'granted' : 'denied'
         });
 
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(STATE.measurementId)}`;
-        document.head.appendChild(script);
-
-        sendPageView();
-        sendProductView();
+        if (choice !== 'granted') clearAnalyticsCookies();
     }
 
     function choose(choice) {
         remember(choice);
         hideBanner();
-
-        if (choice === 'granted') loadGoogleAnalytics();
+        applyConsent(choice);
     }
 
     function start() {
         if (settingsButton) settingsButton.hidden = false;
 
-        // A browser-level privacy signal wins over a stored choice: no banner,
-        // no script, and no request.
+        /*
+         * A browser-level privacy signal wins over everything: no banner is shown
+         * and no event is sent. The tag in the head is already denied and this
+         * file returns before any `gtag('event')` call.
+         */
         if (PRIVACY_SIGNAL) return;
 
         const choice = storedChoice();
 
-        if (choice === 'granted') {
-            loadGoogleAnalytics();
-            return;
-        }
+        // The consent state itself came from `gtag-init.js`, which read the same
+        // stored choice before the tag ran. This only keeps the two in step when
+        // the page is opened from the back/forward cache.
+        applyConsent(choice ?? 'denied');
 
-        if (choice !== 'denied') showBanner();
+        /*
+         * One page view per page, sent whatever the choice is: with storage
+         * denied it is a cookieless ping that Google aggregates, which is what
+         * Consent Mode exists for. It is sent once, here — accepting later
+         * upgrades the storage, it does not re-send the visit.
+         */
+        sendPageView();
+        sendProductView();
+
+        if (choice !== 'granted' && choice !== 'denied') showBanner();
     }
 
     document.addEventListener('click', (event) => {
@@ -215,7 +242,7 @@
             return;
         }
 
-        if (!STATE.loaded) return;
+        if (!STATE.ready) return;
 
         const buyLink = event.target.closest('[data-buy-link]');
 
