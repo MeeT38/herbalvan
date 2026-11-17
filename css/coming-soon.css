@@ -43,7 +43,7 @@ body {
 
 body {
     margin: 0;
-    background-color: #0B2823;
+    background-color: var(--brand-forest, #231016);
     color: #17221F;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -59,8 +59,8 @@ body {
     padding: clamp(16px, 4vw, 48px);
     background:
         radial-gradient(58rem 38rem at 8% -12%, rgba(236, 221, 200, 0.16), transparent 62%),
-        radial-gradient(46rem 32rem at 104% 112%, rgba(12, 147, 71, 0.22), transparent 64%),
-        #0B2823;
+        radial-gradient(46rem 32rem at 104% 112%, rgb(var(--brand-botanical-rgb, 123 30 58) / 0.22), transparent 64%),
+        var(--brand-forest, #231016);
 }
 
 /*
@@ -92,7 +92,7 @@ body {
     top: -6rem;
     left: -5rem;
     font-size: clamp(9rem, 22vw, 19rem);
-    color: rgba(167, 181, 168, 0.07);
+    color: rgb(var(--brand-sage-rgb, 186 177 179) / 0.07);
     transform: rotate(26deg) scaleX(-1);
 }
 
@@ -155,11 +155,11 @@ body {
     font-size: clamp(1.6rem, 5vw, 2.1rem);
     font-weight: 600;
     letter-spacing: -0.01em;
-    color: #0B2823;
+    color: var(--brand-forest, #231016);
 }
 
 .coming-soon__wordmark span {
-    color: #0C9347;
+    color: var(--brand-botanical, #7B1E3A);
 }
 
 /* ------------------------------------------------------------------ */
@@ -172,7 +172,7 @@ body {
     font-weight: 700;
     letter-spacing: 0.26em;
     text-transform: uppercase;
-    color: #086E34;
+    color: var(--brand-botanical-dark, #59162A);
 }
 
 .coming-soon__title {
@@ -182,10 +182,10 @@ body {
     font-size: clamp(2.3rem, min(11vw, 9.5vh), 4rem);
     line-height: 1.03;
     letter-spacing: -0.015em;
-    color: #142703;
+    color: var(--brand-forest, #231016);
 }
 
-/* The artwork's two colours: the deep olive of "Coming", the copper of "Soon". */
+/* The artwork's two colours: the deep brand tone of "Coming", the copper of "Soon". */
 .coming-soon__title span {
     display: inline-block;
 }
@@ -204,7 +204,7 @@ body {
 }
 
 .coming-soon__tagline em {
-    color: #086E34;
+    color: var(--brand-botanical-dark, #59162A);
 }
 
 .coming-soon__lede {
@@ -221,7 +221,7 @@ body {
     gap: 14px;
     max-width: 15rem;
     margin: clamp(16px, 3.2vh, 26px) auto;
-    color: #0C9347;
+    color: var(--brand-botanical, #7B1E3A);
 }
 
 .coming-soon__rule span {
@@ -272,8 +272,8 @@ body {
     border: 1px solid #E9E1D4;
     border-radius: 50%;
     background: #FFFFFF;
-    box-shadow: 0 8px 16px -10px rgba(11, 40, 35, 0.45);
-    color: #086E34;
+    box-shadow: 0 8px 16px -10px rgb(var(--brand-forest-rgb, 35 16 22) / 0.45);
+    color: var(--brand-botanical-dark, #59162A);
     font-size: clamp(0.9rem, 2.6vw, 1.15rem);
 }
 

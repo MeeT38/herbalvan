@@ -16,21 +16,30 @@
     "siteUrl": "https://herbalvan.com",
     "metaDescription": null,
     "logo": {
-      "src": "images/site/logo/45/1200.webp",
-      "srcset": "images/site/logo/45/400.webp 400w, images/site/logo/45/800.webp 800w, images/site/logo/45/1200.webp 1200w",
-      "width": 2084,
-      "height": 648,
+      "src": "images/site/logo/85/1200.webp",
+      "srcset": "images/site/logo/85/400.webp 400w, images/site/logo/85/800.webp 800w, images/site/logo/85/1200.webp 1200w",
+      "width": 2250,
+      "height": 851,
       "alt": ""
     },
     "footerLogo": {
-      "src": "images/site/footer-logo/77/1200.webp",
-      "srcset": "images/site/footer-logo/77/400.webp 400w, images/site/footer-logo/77/800.webp 800w, images/site/footer-logo/77/1200.webp 1200w",
-      "width": 2084,
-      "height": 2084,
+      "src": "images/site/footer-logo/84/1200.webp",
+      "srcset": "images/site/footer-logo/84/400.webp 400w, images/site/footer-logo/84/800.webp 800w, images/site/footer-logo/84/1200.webp 1200w",
+      "width": 2250,
+      "height": 1515,
       "alt": ""
     },
     "analyticsEnabled": true,
     "analyticsMeasurementId": "G-CK9KLKQQD7",
+    "themeColor": "#571F2C",
+    "theme": {
+      "base": "#571F2C",
+      "botanical": "#571F2C",
+      "botanicalDark": "#3F1620",
+      "forest": "#211216",
+      "sage": "#B9B2B3",
+      "sageLight": "#F3F2F2"
+    },
     "marketplace": {
       "links": [
         {
